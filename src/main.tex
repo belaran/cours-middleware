@@ -1,47 +1,160 @@
 \ifslide{
-	\section[Agenda]{}
-	\frame{\tableofcontents[part=1]}
-	\part{Introduction au Middleware}
+  \section[Agenda]{}
+
+  \setcounter{tocdepth}{2}
+
+  \begin{frame}
+    \begin{multicols}{2}
+      \fontsize{8}{10}{
+        \tableofcontents[part=1]
+
+      }
+    \end{multicols}
+  \end{frame}
+  \part{Introduction au Middleware}
 }
 
 \ifbook{
-	\chapter{Le Middleware}
+  \chapter{Le Middleware}
 }
 
-\section{Qu'est ce que le middleware ?}
+% \begin{frame}
+%     \tiny{
+%         \paragraph{
+%     Le plan reste encore à raffiner mais la trajectoire de ce dernier consiste à partir de la
+%     "position' du middleware au sein d'une architecture multi tiers - soit une vision macroscopique
+%     du problème pour commencer, puis de faire un "zoom" sur les différents services ou frameworks
+%     disponibles, pour en comprend l'utilité et le rôle. Pour chacun de ces derniers, on se
+%     contentera de rester dans les "grandes lignes", l'objectif étant surtout de bien comprendre le
+%     rôle du composant/service, et non son fonctionnement interne.}
+% }
+%
+% \tiny{
+%         \paragraph{La dernière partie se concentrera sur les problématiques de monté en charge et de
+%         production. Là encore, on ne rentrera pas forcément dans les détails techniques mais poussé,
+%         mais on illustrera les différents par des retours d'expérience - en mettant en exergue les
+%         défaut de conceptions ou de mise en place qui ont été la cause des problèmes. L'objectif
+%         pédagogiques avoués de cette partie, étant clairement de donner les "billes" aux futures
+%         chef de projet pour savoir identifier en amont quand certains choix se font à la légère, ou
+%         pouvoir remonter à leur hiérarchie l'importance de tel ou tel "détail technique"...}
+%     }
+% \end{frame}
+\section{0 - Remise à niveau (09/01/2012)}
+
+\section{A - Bases, terminologie et prérequis (09/01/2012)}
+
+\subsection{Qu'est ce que le middleware ?}
+
+\subsection{Caractéristiques de la Programmation Orienté Objet}
+\subsubsection{Héritage et Polymorphismes}
+\subsubsection{Agrégation}
+\subsubsection{Composant}
+
+% \begin{frame}
+%
+%     \begin{block}{Points essentiels}
+%         \begin{itemize}
+%             \item rappel sommaire sur l'architecture 3 tiers, décrire que le middleware est en fait, tout ce qui se
+% situe entre les requêtes (HTTP dans le cas du Web) et les accès aux base de données - en essence le
+% middleware, c'est les briques qui composent l'application en tant que tel
+%             \item premier survol de l'ensemble des besoins applicatifs (sécurité, gestion d'identité, cache,
+% messaging...)
+%             \item expliciter/décrire le besoin, dans la conception d'un IT, de découper son "business" en module,
+% d'avoir est du code partagé (des Jars) mais aussi des applicatifs qui utilisent les mêmes briques,
+% les mêmes services, etc...
+%         \end{itemize}
+%     \end{block}
+% \end{frame}
 
 \newpage
-\section{Le Serveur d'Applications}
 
-\section{Les Services}
+\section{B - Les services applicatifs 1/2 (10/01/2012)}
+\begin{frame}
+  \begin{block}{Focus}
+    Ciblé sur l'applicatif, cette partie du cours se concentre sur les
+    services et composants proposés par les \textit{middlewares} à une
+    application.
+  \end{block}
+\end{frame}
+\subsection{Serveur d'applications}
+\subsubsection{Pool(s) de connexion}
+\subsubsection{Threads}
 
-\subsection{Conteneur HTTP}
-
-\subsection{Pool de connexion}
+\subsection{Conteneur Web}
+\subsubsection{Connecteur HTTP et Servlet}
+\subsubsection{Session et Cookie}
 
 \subsection{Transaction}
 
 \subsection{Cache}
 
+\section{B - Les services applicatifs 2/2 (10/01/2012)}
+\subsection{BPM}
+
 \subsection{Message}
 
-\subsection{Modèle de programmation (ex:EJB)}
+\subsection{Sécurité}
+% \begin{frame}
+%   \begin{itemize}
+%   \item Gestion d'identité (SSO, Annuaire,...)
+%   \item Modèle de Sécurité (EJB, JAAS)
+%   \end{itemize}
+% \end{frame}
+\subsection{Modèle de programmation (ex:EJB/Spring)}
+% \begin{frame}
+%   \begin{itemize}
+%     \item gestion de l'état
+%     \item concurrence
+%   \end{itemize}
+% \end{frame}
 
-\newpage
+\section{C - Application distribué et intégration (11/01/2012)}
+\begin{frame}
+  \begin{block}{Focus}
+    Elargissant le spectre au-delà du périmètre de l'application,
+    cette partie étudie les services et composants proposés par les
+    \textit{middlewares} pour dialoguer et s'intégrer à son environement, et
+    plus spécialement à la nature \textbf{distribué} du système d'information
+    dans lequel elle évolue.
+  \end{block}
+\end{frame}
+\subsection{Source de données}
 
-\section{Protocole de Communication}
-\subsection{Rappel}
+\subsubsection{Fichiers et resources}
+\subsubsection{SQL et base de données relationnelle}
+\subsubsection{Annuaire}
+\subsubsection{NoSQL}
+\subsection{Programmation distribué}
+% \begin{block}{Historique}
+%   \begin{itemize}
+%     \item RPC
+%     \item CORBA
+%     \item Java-RMI
+%     \item DCE
+%     \item COM/DCOM
+%   \end{itemize}
+% \end{block}
+\subsection{Transaction distribué}
+\subsection{SOA}
+\subsubsection{WebServices}
+%   \begin{itemize}
+%     \item SOAP et WSDL
+%     \item ReST
+%   \end{itemize}
 
-\subsection{SQL et base de données}
+\subsubsection{ESB}
+\subsection{ETL, EAI et autres middlewares}
 
-\subsection{WebServices (SOAP,ReST)}
-
-\subsection{Protocoles spécifiques (RMI, ...) }
-
-\section{Mise à échelle et production}
-
+\section{D - Mise à échelle et production (12/01/2012)}
+\begin{frame}
+  \begin{block}{Focus}
+    Cette partie évoque les problématiques liées à la mise en production 
+    et la surveillance d'une application et des \textit{middlewares} qu'elle utilise.
+  \end{block}
+\end{frame}
 \subsection{Problématique de performances des middlewares}
 
 \subsection{Stratégie de mise à l'échelle (Ferme, clustering...)}
 
-\subsection{Monitoring: comment surveiller son Middleware}
+\subsection{Indicateur, surveillance et alertes}
+
