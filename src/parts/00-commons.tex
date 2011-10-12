@@ -37,3 +37,18 @@
 
 \newcommand{\mylink}[2]{\href{#1}{\textcolor{blue}{#2}}}
 \newcommand{\myphotocredit}[2]{\newline\tiny{\href{#1}{\textcolor{gris-doux}{#2}}}}
+
+\newcommand{\abstractframe}[2]{
+\begin{frame}
+  \begin{block}{Résumé de la partie}
+    \ifthenelse{ \boolean{slides} }
+    {\tiny{#1}}
+    {#1}
+  \end{block}
+  \begin{center}
+    \ifthenelse{ \boolean{slides} }
+    {\includegraphics[width=220px]{#2}}
+    {\includegraphics[width=\textwidth]{#2}}
+  \end{center}
+\end{frame}
+}

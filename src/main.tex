@@ -5,7 +5,7 @@
 
   \begin{frame}
     \begin{multicols}{2}
-      \fontsize{8}{10}{
+      \fontsize{7}{8}{
         \tableofcontents[part=1]
 
       }
@@ -39,16 +39,14 @@
 %         pouvoir remonter à leur hiérarchie l'importance de tel ou tel "détail technique"...}
 %     }
 % \end{frame}
-\section{0 - Remise à niveau (09/01/2012)}
+\section{Remise à niveau (09/01/2012)}
 
-\section{A - Bases, terminologie et prérequis (09/01/2012)}
-\begin{frame}
-  \begin{block}{Focus}
-    En introduction au cours aux suites de rappels et/ou définitions
-    sont effectués dans ce chapitre pour assurer la mise en place d'une
-    sémantique et d'une terminologie commune.    
-  \end{block}
-\end{frame}
+\section{A - Bases, terminologie et pré requis (09/01/2012)}
+\abstractframe{En introduction au cours aux suites de rappels et/ou définitions
+sont effectués dans ce chapitre pour assurer la mise en place d'une  sémantique
+et d'une terminologie commune. Une première description, de haut niveau, de la
+problématique est effectuée.}{../img/overview.png}
+
 \subsection{Processeur, entrées/sorties et réseaux}
 
 \subsection{Qu'est ce que le middleware ?}
@@ -75,13 +73,11 @@
 % \end{frame}
 
 \section{B - Les services applicatifs 1/2 (10/01/2012)}
-\begin{frame}
-  \begin{block}{Focus}
-    Ciblé sur l'applicatif, cette partie du cours se concentre sur les
-    services et composants proposés par les \textit{middlewares} à une
-    application.
-  \end{block}
-\end{frame}
+
+\abstractframe{Ciblé sur application, ce chapitre du cours se concentre
+sur les services et composants proposés par les \textit{middlewares} à cette
+dernière}{../img/overview-services.png}
+
 \subsection{Serveur d'applications}
 \subsubsection{Pool(s) de connexion}
 \subsubsection{Threads}
@@ -95,9 +91,9 @@
 \subsection{Cache}
 
 \section{B - Les services applicatifs 2/2 (10/01/2012)}
-\subsection{BPM}
+\subsection{Gestion des processus métiers (BPM)}
 
-\subsection{Message}
+\subsection{Message et communication asynchrone}
 
 \subsection{Sécurité}
 % \begin{frame}
@@ -106,7 +102,7 @@
 %   \item Modèle de Sécurité (EJB, JAAS)
 %   \end{itemize}
 % \end{frame}
-\subsection{Modèle de programmation (ex:EJB/Spring)}
+\subsection{Modèle de programmation}
 % \begin{frame}
 %   \begin{itemize}
 %     \item gestion de l'état
@@ -114,23 +110,20 @@
 %   \end{itemize}
 % \end{frame}
 
-\section{C - Application distribué et intégration (11/01/2012)}
-\begin{frame}
-  \begin{block}{Focus}
-    Elargissant le spectre au-delà du périmètre de l'application,
-    cette partie étudie les services et composants proposés par les
-    \textit{middlewares} pour dialoguer et s'intégrer à son environement, et
-    plus spécialement à la nature \textbf{distribué} du système d'information
-    dans lequel elle évolue.
-  \end{block}
-\end{frame}
+\section{C - Application distribuée et intégration (11/01/2012)}
+\abstractframe{Élargissant le spectre au-delà du périmètre de l'application,
+cette partie étudie les services et composants proposés par les
+\textit{middlewares} pour dialoguer, et s'intégrer, à son environnement, et plus
+spécialement à la nature \textbf{distribuée} du système d'information dans lequel
+elle évolue.}{../img/overview-integration.png}
+
 \subsection{Source de données}
 
-\subsubsection{Fichiers et resources}
+\subsubsection{Fichiers et ressources}
 \subsubsection{SQL et base de données relationnelle}
 \subsubsection{Annuaire}
 \subsubsection{NoSQL}
-\subsection{Programmation distribué}
+\subsection{Programmation distribuée}
 % \begin{block}{Historique}
 %   \begin{itemize}
 %     \item RPC
@@ -140,27 +133,27 @@
 %     \item COM/DCOM
 %   \end{itemize}
 % \end{block}
-\subsection{Transaction distribué}
-\subsection{SOA}
+\subsection{Transaction distribuée}
+\subsection{Architecture orientée service (SOA)}
 \subsubsection{WebServices}
 %   \begin{itemize}
 %     \item SOAP et WSDL
 %     \item ReST
 %   \end{itemize}
 
-\subsubsection{ESB}
+\subsubsection{Bus logiciel (ESB)}
 \subsection{ETL, EAI et autres middlewares}
 
 \section{D - Mise à échelle et production (12/01/2012)}
-\begin{frame}
-  \begin{block}{Focus}
-    Cette partie évoque les problématiques liées à la mise en production 
-    et la surveillance d'une application et des \textit{middlewares} qu'elle utilise.
-  \end{block}
-\end{frame}
+
 \subsection{Problématique de performances des middlewares}
 
 \subsection{Stratégie de mise à l'échelle (Ferme, clustering...)}
 
 \subsection{Indicateur, surveillance et alertes}
+
+\abstractframe{Cette partie évoque les problématiques liées à la mise en production
+et la surveillance d'une application et des \textit{middlewares} qu'elle
+utilise.}{../img/overview-monitoring.png}
+
 
