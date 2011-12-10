@@ -18,59 +18,15 @@
   \chapter{Le Middleware}
 }
 
-% \begin{frame}
-%     \tiny{
-%         \paragraph{
 %     Le plan reste encore à raffiner mais la trajectoire de ce dernier consiste à partir de la
 %     "position' du middleware au sein d'une architecture multi tiers - soit une vision macroscopique
 %     du problème pour commencer, puis de faire un "zoom" sur les différents services ou frameworks
 %     disponibles, pour en comprend l'utilité et le rôle. Pour chacun de ces derniers, on se
 %     contentera de rester dans les "grandes lignes", l'objectif étant surtout de bien comprendre le
 %     rôle du composant/service, et non son fonctionnement interne.}
-% }
-%
-% \tiny{
-%         \paragraph{La dernière partie se concentrera sur les problématiques de monté en charge et de
-%         production. Là encore, on ne rentrera pas forcément dans les détails techniques mais poussé,
-%         mais on illustrera les différents par des retours d'expérience - en mettant en exergue les
-%         défaut de conceptions ou de mise en place qui ont été la cause des problèmes. L'objectif
-%         pédagogiques avoués de cette partie, étant clairement de donner les "billes" aux futures
-%         chef de projet pour savoir identifier en amont quand certains choix se font à la légère, ou
-%         pouvoir remonter à leur hiérarchie l'importance de tel ou tel "détail technique"...}
-%     }
-% \end{frame}
-\section{Remise à niveau (09/01/2012)}
-
-\section{A - Bases, terminologie et pré requis (09/01/2012)}
-\abstractframe{En introduction au cours aux suites de rappels et/ou définitions
-sont effectués dans ce chapitre pour assurer la mise en place d'une  sémantique
-et d'une terminologie commune. Une première description, de haut niveau, de la
-problématique est effectuée.}{../img/overview.png}
-
-\subsection{Processeur, entrées/sorties et réseaux}
-
-\subsection{Qu'est ce que le middleware ?}
-
-\subsection{Caractéristiques de la Programmation Orienté Objet}
-\subsubsection{Héritage et Polymorphismes}
-\subsubsection{Agrégation}
-\subsubsection{Composant}
-
-% \begin{frame}
-%
-%     \begin{block}{Points essentiels}
-%         \begin{itemize}
-%             \item rappel sommaire sur l'architecture 3 tiers, décrire que le middleware est en fait, tout ce qui se
-% situe entre les requêtes (HTTP dans le cas du Web) et les accès aux base de données - en essence le
-% middleware, c'est les briques qui composent l'application en tant que tel
-%             \item premier survol de l'ensemble des besoins applicatifs (sécurité, gestion d'identité, cache,
-% messaging...)
-%             \item expliciter/décrire le besoin, dans la conception d'un IT, de découper son "business" en module,
-% d'avoir est du code partagé (des Jars) mais aussi des applicatifs qui utilisent les mêmes briques,
-% les mêmes services, etc...
-%         \end{itemize}
-%     \end{block}
-% \end{frame}
+\input{parts/01/01.1-rappel}
+\input{parts/01/01.2-web}
+\input{parts/01/01.3-poo}
 
 \section{B - Les services applicatifs 1/2 (10/01/2012)}
 

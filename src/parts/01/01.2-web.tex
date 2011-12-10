@@ -1,0 +1,134 @@
+\ifbook{
+  \subsubsection{Le Web}
+  \paragraph{} Avec l'arrivé des technologies du "Web", soit essentiellement au début, HTML et HTTP,
+  le mouvement de balancier évoqué une précédente section s'inverse de nouveau. Dans leurs
+  laboratoires, les concepteurs initiale de ce protocole de communication visèrent avant tout la
+  simplicitié pour assurer surtout une bonne compatibilité entre les différents systèmes existants
+  de part le monde.
+
+  \paragraph{} En effet, avant d'aller plus loin, il est important de se rappeler que à cette
+  époque, il existait de nombreux systèmes d'exploitation, tous différents et rarement interopérable
+  entre eux. Les plus connues aujourd'hui Apple et Windows, mais à l'époque s'ajouté aussi de
+  nombreux types d'Unix différents (cf. \textit{Unix Wars} [TODO]), accompagné par nombreux autres
+  systèmes, tel que OpenVMS.
+
+  \paragraph{} Sans compter que ces systèmes avaient même des protocoles de communications
+  différents. Pour reprendre l'exemple de OpenVMS, ce système utilisé un protocole propriétaire à
+  son constructeur, intitulé DecNet et non le standard \textit{de facto} d'aujourd'hui, le protocole
+  TCP/IP.
+
+  \paragraph{} Ainsi, concevoir un système applicatif portable - c'est à dire qui fonctionnerait à
+  peu près partout et permettrait de communiquer aisément entre des systèmes différents n'était pas
+  une simple tâche. C'est donc pour ces raisons, en autres, que les concepteurs de HTTP et de HTML
+  ont choisi de faire très simple.
+
+  \paragraph{} Le protocole en lui même est un simple protocole \textbf{texte}, et non binaire, il
+  est donc aisé de l'implémenter et, au besoin, de regarder l'échange en lui même pour comprendre la
+  source d'un problème. Comme les données échangés sont du texte, tout systèmes de l'époque, aussi
+  différent soit-il des autres, était capable de le comprendre.
+
+  %TODO: Demo console de HTTP
+
+  \paragraph{} Toujours par souci de simplicité, l'objectif était dans les faits assez peu ambitieux,
+  puisqu'il s'agissait d'afficher du contenu simple, du texte un peu enrichi, pour permettre en fait
+  au milieu universitaire de publier, facilement et rapidement,  à l'intention de leurs confrères,
+  des informations.
+
+  \paragraph{} La conséquence directe de ce choix simple de données utilisés à été de limiter le
+  rôle du client à afficher, du mieux possible selon le systèmes utilisées, les informations
+  fournies par le serveur HTTP. Le \textbf{client lourd} venait de faire un régime et redevenait un
+  \textbf{client léger}.
+
+  % Dessins de synthèse
+}
+
+
+\ifslide {
+  \begin{frame}{Le "Web"}
+  - evolution vers Web
+  \end{frame}
+}
+
+\ifbook{
+  \subsubsection{Les technologies "Web" s'enrichissent}
+  % Formulaire et session HTTP
+  \paragraph{} Le protocole HTTP, et son format de donnée, HTML, a eu le succès qu'on connait, et
+  rapidement, malgré l'élégance de la simplicité de la solution, il apparu clair que d'\textbf{absence
+  d'interfaction} entre l'utilisateur et le serveur HTTP était une limite trop contraignante. En
+  effet, tel que nous l'avons évoqué jusqu'à maintenant, le modèle ne permet en essence que de
+  télécharger un page au contenu \textbf{statique}.
+
+  \paragraph{} Pour introduire plus d'interactivité, et permettre au serveur HTTP de modifier
+  \textbf{dynamiquement} le contenu des pages présentées selon les demandes des utilisateurs, les
+  formulaires ont été introduit. Ces derniers, associés à la méthode HTTP POST, ont donc permis aux
+  utilisateurs d'envoyer des données au serveur HTTP, qui furent le point de départ des premières
+  applications "web".
+
+  \paragraph{} Mais une fois qu'il fût possible d'envoyer ces données, d'autres limites firent leur
+  irruptions. La plupart des applications nécessitant souvent plusieurs échanges entre l'utilisateur
+  et le serveur, il fût nécessaire d'ajouter un mécanisme de son coté pour lui permettre de
+  conserver les données associées à l'utilisateur, ou plutôt à sa \textbf{session}.
+
+%  \paragraph{} L'ajout donc de la notion de session HTTP permis là encore de contourner les limites
+%  du modèle original, mais elle ne suffit pas entièrement. De la même manière dont le serveur avait
+%  besoin de garder trace de son utilisateur, il fallait aussi que l'on soit en mesure, coté client,
+%  de conserver une
+  % CSS et Javascript
+  \paragraph{} Alors que la première génération de site web finissaient de fleurir, une
+  problématique, jusque là invisible, apparu de plus en plus clairement. Le HTML, dans toute la
+  beauté de sa simplicité, enfreint par son essence même, une règle pourtant fondamentale de
+  l'informatique, que nous avons déjà évoqué avec les bases données : la séparation du contenu et de
+  sa présentation.
+
+% TODO: Extrait de fichier HTML
+
+  \paragraph{} En effet, au sein d'une page HTML, on mélange avec allégresse texte avec sa
+  présentation qu'il s'agisse de le mettre en gras ou ialic, ou bien de le positionner au sein de la
+  page. Et cet état fait rendu rapidement très difficile de faire évoluer, du point fonctionnel, les sites -
+  puisque les graphistes ou ergonomes ne pouvait pas travailler de manière indépendantes des
+  programmeurs, mais aussi de faire évoluer leurs chartes graphiques, puisque leurs simples mise à
+  jour nécessitant de modifier l'intégralité des pages...
+
+  \paragraph{} C'est ainsi que est apparu le CSS, \textit{Cascading Style Sheet}, ou plus
+  simplement, les feuilles de styles, dont l'objectif était non seulement de permettre de modifier
+  la présentation d'une page HTML existante, mais aussi de séparer la partie présentation d'un site,
+  de ses données.
+
+  \paragraph{} En parallèle à l'utilisation du CSS, un autre langage a été introduit, sous forme de
+  script, placés dans la page, mais dont l'exécution est déclencheur par le navigareur et qui donc
+  fonctionne non plus le serveur, mais sur l poste client.
+
+  \paragraph{} Introduit tout d'abord de manière propriétaire, ce petit langage permis de rendre les
+  sites "web" tellement plus dynamique et \textbf{conviviale}, en améliorant grandement
+  l'interfaction de l'utilisateur avec ces dernirs, qu'il fût rapidement adopté, et même normalisé
+  sous le nom, rarement utilisé, de ECMAScript.
+}
+
+TODO: JVM ?
+TODO: Architecture 3 tiers en guise de conclusion
+
+\subsection{Qu'est ce que le middleware ?}
+
+\ifbook {
+  \paragraph{} Après ce vaste état des lieux, nous allons enfin pouvoir rentrer dans le thème de ce
+  cour: le \textit{Middleware}. En premier lieu, essayons de trouver une définition un plus parlante
+  de ce terme, qui n'est pas réellement de traduction française.
+
+  \paragraph{} Si on on traduit très littéralement ce terme, on obtient quelques chose de l'ordre du
+  "matériel du milieu". Bon, c'est peu parlant, mais clairement le suffix "\textit{-ware}" fait echo
+  aux termes \textit{"software"} - le matériel logiciel, et \textit{"hardware"}, le matériel
+  physique, ce qui signifie que, en fait, le mot clé ici, est le "milieu".
+
+  \paragraph{} Mais de quoi exactement sommes nous au milieu ici ? Revoyons simplement notre dessin
+  d'architecture à 3 tiers:
+
+  %TODO: Dessin
+
+  \paragraph{} Le \textit{Middleware} est tout simplement ce qui se retrouve, littéralement, au
+  milieu ! Soit entre la base de données et les clients utilisées par les usagers du système. Mais
+  au milieu, il y a l'application, non ? Certes oui, mais
+}
+
+%- arch. n tiers
+%- dessin "application" => "pile, gestion de threads, cache, ...", puis vers le modèle java/jee de container
+%- évoqué la problématique du packaging et de la réutilisation de code, probablématique de gestion de version aussi

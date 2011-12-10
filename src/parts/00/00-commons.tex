@@ -1,0 +1,68 @@
+% Definition de l'affichage de l'ensemble des codes
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{monbleu}{rgb}{0.03, 0.45, 0}
+\lstset{
+	language=Java,
+	backgroundcolor=\color{white},
+	basicstyle=\small,
+	commentstyle=\color{monbleu},
+	keywordstyle=\color{blue}\bfseries\emph
+}
+
+\newcommand{\rpeframe}[2]{
+	\ifthenelse{ \boolean{slides} }
+	{
+		\begin{frame}
+			\frametitle{#1}
+			#2
+		\end{frame}
+	}
+	{
+		% TODO: #1 !
+		#2
+	}
+}
+
+\newcommand{\ifslide}[1]{
+	\ifthenelse{ \boolean{slides} }
+	{#1}
+	{}
+}
+
+\newcommand{\ifbook}[1]{
+	\ifthenelse{ \boolean{slides} }
+	{}
+	{#1}
+}
+
+\newcommand{\mylink}[2]{\href{#1}{\textcolor{blue}{#2}}}
+\newcommand{\myphotocredit}[2]{\newline\tiny{\href{#1}{\textcolor{gris-doux}{#2}}}}
+
+\newcommand{\abstractframe}[2]{
+\begin{frame}
+  \ifthenelse{ \boolean{slides} }{
+    \begin{block}{Résumé du thème}
+      \tiny{#1}
+    \end{block} }{
+    \begin{Sbox}
+      \begin{minipage}{6in}
+        \begin{center}\textbf{Résumé du chapitre}\end{center}
+        \paragraph{}\textit{#1}
+      \end{minipage}
+      \end{Sbox}
+      \fbox{\TheSbox}
+  }
+  \begin{center}
+    \ifthenelse{ \boolean{slides} }
+    {\includegraphics[width=220px]{#2}}{
+      \begin{figure}[hb]
+        \begin{center}
+          \includegraphics[width=\textwidth]{#2}
+          \caption{Focus du chaptire}
+        \end{center}
+      \end{figure}
+      \newpage
+    }
+  \end{center}
+\end{frame}
+}
