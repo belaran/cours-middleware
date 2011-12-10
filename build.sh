@@ -108,7 +108,8 @@ if [ "${clean}" != "" ] ; then
 fi
 
 mkdir -p "${work}"
-cp -R ${src}/* ${work}
+cp -R "${src}"/* "${work}"
+cp -R 'img/' "${work}"
 cd ${work}
 mkdir -p "${delivery_folder}"
 
