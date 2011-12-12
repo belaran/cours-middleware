@@ -31,6 +31,7 @@
 \demoframe{Le protocole HTTP}
 
 \ifbook{
+
   \paragraph{} Toujours par souci de simplicité, l'objectif était dans les faits assez peu ambitieux,
   puisqu'il s'agissait d'afficher du contenu simple, du texte un peu enrichi, pour permettre en fait
   au milieu universitaire de publier, facilement et rapidement,  à l'intention de leurs confrères,
@@ -41,13 +42,13 @@
   fournies par le serveur HTTP. Le \textbf{client lourd} venait de faire un régime et redevenait un
   \textbf{client léger}.
 
-  % TODO: Dessins de synthèse "web"
+  % TODO: Dessins de synthèse "web" début
 }
 
 
 \ifslide {
   \begin{frame}{Le "Web"}
-  % TODO: Dessin de synthèse "web"
+  TODO: Dessin de synthèse "web" début
   \end{frame}
 }
 
@@ -71,11 +72,11 @@
   et le serveur, il fût nécessaire d'ajouter un mécanisme de son coté pour lui permettre de
   conserver les données associées à l'utilisateur, ou plutôt à sa \textbf{session}.
 
-% Cookies ?
-%  \paragraph{} L'ajout donc de la notion de session HTTP permit, là encore, de contourner les limites
-%  du modèle original, mais elle ne suffit pas entièrement. De la même manière dont le serveur avait
-%  besoin de garder trace de son utilisateur, il fallait aussi que l'on soit en mesure, coté client,
-%  de conserver une
+ Cookies ?
+  \paragraph{} L'ajout donc de la notion de session HTTP permit, là encore, de contourner les limites
+  du modèle original, mais elle ne suffit pas entièrement. De la même manière dont le serveur avait
+  besoin de garder trace de son utilisateur, il fallait aussi que l'on soit en mesure, coté client,
+  de conserver une trace.
 
   % CSS et Javascript
   \paragraph{} Alors que la première génération de site web finissaient de fleurir, une
@@ -84,7 +85,7 @@
   l'informatique, que nous avons déjà évoqué avec les bases données : la séparation du contenu et de
   sa présentation.
 
-% TODO: Extrait de fichier HTML
+ TODO: Extrait de fichier HTML, souligné le JavaScript et le CSS
 
   \paragraph{} En effet, au sein d'une page HTML, on mélange avec allégresse texte avec sa
   présentation qu'il s'agisse de le mettre en gras ou ialic, ou bien de le positionner au sein de la
@@ -108,7 +109,35 @@
   sous le nom, rarement utilisé, de ECMAScript.
 }
 
-% TODO: JVM ?
+\ifbook {
+  \subsubsection{Conteneur d'exéctution d'application "web"}
+  \paragraph{} Comme nous l'avons brièvement résumé, les technologies du "web" se sont construites
+  sur une forte volonté d'offrir un système ouvert, standard et interopérable. À l'aide des
+  abstractions choisi, et du modèle relativement simple, une page HTML, aussi complexe soit-elle,
+  peut être rendu - à peu près, de manière similaire, quelques soit le système d'exploitation
+  utilisé.
+
+  \paragraph{} Mais, du coté serveur, les technologies étaient toujours très \textbf{adhérente} à ce
+  dernier. Que vous exécutiez sur Apache HTTP, à l'aide du mod CGI, des scripts Shell sous Unix, ou
+  que vous écriviez des pages ASP sur un serveur Microsoft, le code réalisé restait indéniablement
+  spécifique à son cadre d'exécution.
+
+  \paragraph{} Progressivement, un certain nombres de cadre d'exécution (et de dévelopements)
+  d'application "web" virent le jour, tel que PHP et Java. Ces deux derniers, pour continuer avec
+  eux, forment des langages de programmation à part entière, mais le modèle qu'ils proposent apporte
+  surtout une réelle interopérabilité coté serveur.
+
+  \paragraph{} En effet, avec ce genre de technologie, il devint possible d'exécuter son programme
+  sur n'importe quel type de serveur avec un comportement (presque) identique. On pu donc enfin
+  aisément migrer de systèmes d'exploitation, dans le cas où celui ci ne se comporte pas de manière
+  suffisante pour l'application, ou recruter un développeur sans que celui ci n'est besoin d'autre
+  compétences que la seule maitrise de la technologie.
+
+  \paragraph{} En outre, ces technologies promeuvent un \textbf{modèle de programmation}, et
+  fournissent des composants prêt à utiliser destiné à faciliter grandement le développement
+  d'application "web" robuste et capable de monter en charge.
+  %TODO: dessin sur le conteneur JVM ?
+}
 
 \subsection{Qu'est ce que le middleware ?}
 
@@ -123,9 +152,26 @@
   physique, ce qui signifie que, en fait, le mot clé ici, est le "milieu".
 
   \paragraph{} Mais de quoi exactement sommes nous au milieu ici ? Revoyons simplement notre dessin
-  d'architecture à 3 tiers:
+  d'architecture à n-tiers:
 
-  %TODO: Dessin
+    \begin{figure}[h]
+      \begin{center}
+        \includegraphics[scale=0.3]{img/n-tiers.png}
+        \caption{Où se trouve le middleware sur cette figure ?}
+        \label{middleware}
+      \end{center}
+    \end{figure}
+}
+
+\ifslide{
+   \begin{frame}{Architecture n-tiers}
+     \begin{center}
+       \includegraphics[scale=0.35]{img/n-tiers.png}
+     \end{center}
+   \end{frame}
+}
+
+\ifbook{
 
   \paragraph{} Le \textit{Middleware} est tout simplement ce qui se retrouve, littéralement, au
   milieu ! Soit entre la base de données et les clients utilisées par les usagers du système. Mais
@@ -143,7 +189,9 @@
   \paragraph{} Pour en revenir à une sorte de définition du \textit{Middleware}, nous retiendrons
   donc que ce dernier est l'ensemble des services utilisées par l'application, aussi bien en son
   sein, que pour communiquer avec des services distants. Bref, en essence, le \textit{Middleware} se
-  trouve bel et bien "au milieu", entre l'application et le reste du monde...}
+  trouve bel et bien "au milieu", entre l'application et le reste du monde...
 
-%- dessin "application" => "pile, gestion de threads, cache, ...", puis vers le modèle java/jee de container
-%- évoqué la problématique du packaging et de la réutilisation de code, probablématique de gestion de version aussi
+  \paragraph{} En essence, le \textit{Middleware}, c'est les briques avec lesquelles on construit
+  l'application métier que l'on souhaite réaliser.
+  % TODO: dessin fin de déf du middleware ? (img rigolote ?)
+}
