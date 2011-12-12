@@ -18,7 +18,7 @@
    version="1.0"
    sodipodi:docname="operating-system.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
-   inkscape:export-filename="/home/rpelisse/know-how/my-wiki/pages/jgroups-arch.png"
+   inkscape:export-filename="/home/rpelisse/Repositories/isep/middleware.hg/img/operating-system.png"
    inkscape:export-xdpi="61.445145"
    inkscape:export-ydpi="61.445145">
   <defs
@@ -436,7 +436,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
