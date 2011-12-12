@@ -9,8 +9,8 @@
   \paragraph{} En effet, avant d'aller plus loin, il est important de se rappeler que à cette
   époque, il existait de nombreux systèmes d'exploitation, tous différents et rarement interopérable
   entre eux. Les plus connues aujourd'hui Apple et Windows, mais à l'époque s'ajouté aussi de
-  nombreux types d'Unix différents (cf. \textit{Unix Wars} [TODO]), accompagné par nombreux autres
-  systèmes, tel que OpenVMS.
+  nombreux types d'Unix différents (cf. \textit{\mylink{http://en.wikipedia.org/wiki/Unix\_wars}{Unix
+  Wars}}), accompagné par nombreux autres systèmes, tel que OpenVMS.
 
   \paragraph{} Sans compter que ces systèmes avaient même des protocoles de communications
   différents. Pour reprendre l'exemple de OpenVMS, ce système utilisé un protocole propriétaire à
@@ -28,7 +28,14 @@
   différent soit-il des autres, était capable de le comprendre.
 }
 
-\demoframe{Le protocole HTTP}
+\demoframe{Le protocole HTTP}{
+  \begin{block}{Démonstrations}
+    \begin{itemize}
+      \item simple connection avec telnet
+      \item connection complète avec les développeurs tools de Google Chrome
+    \end{itemize}
+  \end{block}
+}
 
 \ifbook{
 
@@ -72,11 +79,11 @@
   et le serveur, il fût nécessaire d'ajouter un mécanisme de son coté pour lui permettre de
   conserver les données associées à l'utilisateur, ou plutôt à sa \textbf{session}.
 
- Cookies ?
-  \paragraph{} L'ajout donc de la notion de session HTTP permit, là encore, de contourner les limites
-  du modèle original, mais elle ne suffit pas entièrement. De la même manière dont le serveur avait
-  besoin de garder trace de son utilisateur, il fallait aussi que l'on soit en mesure, coté client,
-  de conserver une trace.
+% Cookies ?
+%  \paragraph{} L'ajout donc de la notion de session HTTP permit, là encore, de contourner les limites
+%  du modèle original, mais elle ne suffit pas entièrement. De la même manière dont le serveur avait
+%  besoin de garder trace de son utilisateur, il fallait aussi que l'on soit en mesure, coté client,
+%  de conserver une trace.
 
   % CSS et Javascript
   \paragraph{} Alors que la première génération de site web finissaient de fleurir, une
@@ -85,8 +92,25 @@
   l'informatique, que nous avons déjà évoqué avec les bases données : la séparation du contenu et de
   sa présentation.
 
- TODO: Extrait de fichier HTML, souligné le JavaScript et le CSS
+    \begin{figure}[h]
+      \begin{center}
+        \includegraphics[scale=0.3]{img/html-code-sample.png}
+        \caption{Extrait de code HTML contenant du Javascript et du CSS}
+        \label{middleware}
+      \end{center}
+    \end{figure}
+}
 
+
+\ifslide {
+    \begin{frame}{HTML, CSS et JavaScript}
+      \begin{center}
+        \includegraphics[scale=0.3]{img/html-code-sample.png}
+      \end{center}
+    \end{frame}
+}
+
+\ifbook{
   \paragraph{} En effet, au sein d'une page HTML, on mélange avec allégresse texte avec sa
   présentation qu'il s'agisse de le mettre en gras ou ialic, ou bien de le positionner au sein de la
   page. Et cet état fait rendu rapidement très difficile de faire évoluer, du point fonctionnel, les sites -
@@ -175,10 +199,11 @@
 
   \paragraph{} Le \textit{Middleware} est tout simplement ce qui se retrouve, littéralement, au
   milieu ! Soit entre la base de données et les clients utilisées par les usagers du système. Mais
-  au milieu, il y a l'application, non ? Certes oui, mais, celle ci s'appuye désormais plus sur les
-  seules API fournies par le système d'exploitation, mais sur une kyrielle de services, soient fourni
-  par son environnement d'exécution - tel que une machine virtuelle comme celle de Java ou C\#, ou un
-  serveur d'application, ou par des composants qu'elle embarque.
+  au milieu, il y a l'application, non ? Certes oui, mais, celle ci ne s'appuye désormais plus sur les
+  seules API fournies par le système d'exploitation, mais sur une kyrielle de services. Ces derniers
+  proviennent soit de son environnement d'exécution - tel que une machine virtuelle comme celle de
+  Java ou C\#, ou un serveur d'application, ou encore par des composants que l'application elle-même
+  embarque.
 
   \paragraph{} Mais qu'apportent ces services de plus ? Nous allons étudier le "catalogue" en
   détails durant ce cours, mais en quelques mots, ils apportent beaucoup ! Gestion de \textit{pool}
