@@ -101,9 +101,11 @@ done
 
 # cleaning
 if [ "${clean}" != "" ] ; then
+    echo -n "Cleaning..."
     rm -rf "${work}"
     rm -f *.pdf
     rm -rf "${delivery_folder}"
+    echo "Done."
     exit 0
 fi
 
