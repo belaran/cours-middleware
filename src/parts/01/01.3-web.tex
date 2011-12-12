@@ -26,9 +26,11 @@
   est donc aisé de l'implémenter et, au besoin, de regarder l'échange en lui même pour comprendre la
   source d'un problème. Comme les données échangés sont du texte, tout systèmes de l'époque, aussi
   différent soit-il des autres, était capable de le comprendre.
+}
 
-  %TODO: Demo console de HTTP
+\demoframe{Le protocole HTTP}
 
+\ifbook{
   \paragraph{} Toujours par souci de simplicité, l'objectif était dans les faits assez peu ambitieux,
   puisqu'il s'agissait d'afficher du contenu simple, du texte un peu enrichi, pour permettre en fait
   au milieu universitaire de publier, facilement et rapidement,  à l'intention de leurs confrères,
@@ -39,13 +41,13 @@
   fournies par le serveur HTTP. Le \textbf{client lourd} venait de faire un régime et redevenait un
   \textbf{client léger}.
 
-  % TODO: Dessins de synthèse
+  % TODO: Dessins de synthèse "web"
 }
 
 
 \ifslide {
   \begin{frame}{Le "Web"}
-  - evolution vers Web
+  % TODO: Dessin de synthèse "web"
   \end{frame}
 }
 
@@ -69,10 +71,12 @@
   et le serveur, il fût nécessaire d'ajouter un mécanisme de son coté pour lui permettre de
   conserver les données associées à l'utilisateur, ou plutôt à sa \textbf{session}.
 
-%  \paragraph{} L'ajout donc de la notion de session HTTP permis là encore de contourner les limites
+% Cookies ?
+%  \paragraph{} L'ajout donc de la notion de session HTTP permit, là encore, de contourner les limites
 %  du modèle original, mais elle ne suffit pas entièrement. De la même manière dont le serveur avait
 %  besoin de garder trace de son utilisateur, il fallait aussi que l'on soit en mesure, coté client,
 %  de conserver une
+
   % CSS et Javascript
   \paragraph{} Alors que la première génération de site web finissaient de fleurir, une
   problématique, jusque là invisible, apparu de plus en plus clairement. Le HTML, dans toute la
@@ -105,16 +109,6 @@
 }
 
 % TODO: JVM ?
-% TODO: Architecture 3 tiers en guise de conclusion
-
-\ifbook{
-  \subsubsection{Architecture n-tiers}
-    \paragraph{} Si nous résumons les différents éléments évoqués jusqu'à maintenant sous forme de
-    la figure ci dessous (TODO), on constate que désormais notre application, qui au départ
-    s'exécutait sur une seule machine, relié par un terminal très primaire, est désormais réellement
-    éclatée entre plusieurs composant, ou \textbf{tiers}.
-    %TODO: dessin
-}
 
 \subsection{Qu'est ce que le middleware ?}
 
