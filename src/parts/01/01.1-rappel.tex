@@ -1,14 +1,10 @@
-%\section{Consolidation des Connaissances et rappel (09/01/2012)}
-
 \abstractframe{En introduction au cours, une suite de rappels et de définitions sont effectués dans
 ce chapitre. Cette démarche assure la mise en place d'une sémantique et d'une terminologie commune. En
 outre, lors du parcours des rappels et des prérequis, une intention particulière est portée sur les
 éléments qui seront essentiels de retenir pour les prochains chapitres.}
 {../img/overview.png}
 
-\section{Rappel} % (09/01/2012)}
-
-\subsection{Processeur, entrées/sorties et réseaux}
+\subsection{Fonctionnement d'un ordinateur}
 
 \ifbook{
 
@@ -90,14 +86,25 @@ outre, lors du parcours des rappels et des prérequis, une intention particuliè
     avant. Ainsi, dans la cadre d'un projet \textit{middleware} la question de l'exécution, de
     manière concurrente, de différentes parties de l'application peut se poser... (Nous y
     reviendrons plus loin dans le cours).
+
+    \paragraph{} Le schéma \ref{role-os} (page \pageref{role-os} résume les principales
+    fonctionnalités d'un système d'exploitation vis à vis des applications qui s'exécutent en son
+    sein.
+
+    \begin{figure}[h]
+      \begin{center}
+        \includegraphics[scale=0.3]{img/operating-system.png}
+        \caption{Rôle du système d'exploitation}
+        \label{role-os}
+      \end{center}
+    \end{figure}
 }
 
 \ifslide{
   \begin{frame}{Le rôle du système d'exploitation}
-
-  \end{frame}
-
-  \begin{frame}{Virtualisation \& "Cloud computing"}
+    \begin{center}
+      \includegraphics[scale=0.3]{img/operating-system.png}
+    \end{center}
   \end{frame}
 }
 
@@ -141,20 +148,26 @@ outre, lors du parcours des rappels et des prérequis, une intention particuliè
   \paragraph{} Illustrons rapidement ce point par un exemple concret. Supposons que l'on confie à
   l'ordinateur de trier un tableau de données, composé d'une seule colonne, par ordre de grandeur
   croissante du contenu de chaque cellule
-}
-%TODO: dessins
-\ifslide{
-  \begin{frame}{Exemple d'algorithme}
-  \begin{figure}[hb]
+
+  \begin{figure}[h]
     \begin{center}
-      \includegraphics[scale=0.3]{img/cpu-schematics.pn}
-      \caption{Schéma simplifié du fonctionnement d'un ordinateur}
-      \label{schema-ordi}
+      \includegraphics[scale=0.3]{img/exemple-algo.png}
+      \caption{Algorithme de tri avec une case mémoire}
+      \label{algo-exemple}
     \end{center}
   \end{figure}
 
+}
+
+\ifslide{
+
+  \begin{frame}{Exemple d'algorithme}
+    \begin{center}
+      \includegraphics[scale=0.3]{img/exemple-algo.png}
+    \end{center}
   \end{frame}
 }
+
 \ifbook{
   \paragraph{} Si l'ordinateur ne peut stocker qu'un seul résultat intermédiaire, en l'occurence la
   taille du contenu de la cellule, il ne peut réordonner le tableau que en échangeant les cellules
@@ -162,11 +175,12 @@ outre, lors du parcours des rappels et des prérequis, une intention particuliè
   la seconde cellule, la comparer à la précédente et changer l'ordre des deux cellules, si
   nécessaire, puis continuer...
 
-  \paragraph{} Après un laborieux travail, cet \textbf{algorithme} sera capable de réordonner
-  l'ensemble du tableau, mais en effectuant un important nombre de calculs. À l'inverse, si le
-  processeur est libre de placer autant de résultats en mémoire que d'entrées dans le tableau, il
-  pourra se contenter de calculer, une fois pour toute, la taille de chaque cellule, puis de les
-  trier de manière plus "globale"...
+  \paragraph{} Après un laborieux travail, cet \textbf{algorithme}, illustré sur la figure
+  \ref{algo-exemple}  (ppage \pageref{algo-exemple}), sera donc capable de réordonner l'ensemble du
+  tableau, mais en effectuant un important nombre de calculs. À l'inverse, si le processeur est
+  libre de placer autant de résultats en mémoire que d'entrées dans  le tableau, il pourra se
+  contenter de calculer, une fois pour toute, la taille de chaque cellule,iu  puis de les trier de
+  manière plus "globale"...
 
   \paragraph{Remarque} Cet exemple est volontairement très grossier et n'est pas représentatif du
   tout du fonctionnement interne réel d'un ordinateur, ni même de la manière dont processeur va
@@ -176,14 +190,25 @@ outre, lors du parcours des rappels et des prérequis, une intention particuliè
 
   \paragraph{Entrées/Sorties} Après la mémoire, c'est très certainement les entrées/sorties la
   source de goulot d'étranglement la plus commune au sein d'un ordinateur. Pour bien comprendre
-  l'impact de ces dernières sur les performances de l'ordinateur, il suffit de regarder le dessin
-  (TODO) qui décrit, sous forme de pyramide, la vitesse d'accès des différentes
-  entrées/sorties, les unes par à rapport aux autres.
+  l'impact de ces dernières sur les performances de l'ordinateur, il suffit de regarder la figure
+  \ref{pyramid-io} (page \pageref{pyramid-io} qui décrit, sous forme de pyramide, la vitesse d'accès
+  des différentes entrées/sorties, les unes par à rapport aux autres.
+
+  \begin{figure}[h]
+    \begin{center}
+      \includegraphics[scale=0.3]{img/pyramid-io.png}
+      \caption{Vitesse des entrées/sorties selon les périphériques}
+      \label{pyramid-io}
+    \end{center}
+  \end{figure}
+
 }
 
 \ifslide{
-  \begin{frame}
-  TODO: pyramid speed i/o
+  \begin{frame}{Vitesse d'accès des périphériques}
+    \begin{center}
+      \includegraphics[scale=0.3]{img/pyramid-io.png}
+    \end{center}
   \end{frame}
 }
 
@@ -206,20 +231,10 @@ outre, lors du parcours des rappels et des prérequis, une intention particuliè
 
 }
 
-% TODO: parler de ça ?
-%\ifbook{
-%  \subsubsection{Virtualisation \& "Cloud Computing"}
-%}
-%
-%\ifslide {
-%  \begin{frame}{Virtualisation \& "Cloud computing"}
-%  \end{frame}
-%}
-
+\subsection{Le modèle client/serveur}
 
 \ifbook{
-  \subsubsection{Le modèle client/serveur}
-  % Bref histoire du client léger
+  \subsubsection{Bref histoire du client léger}
   \paragraph{} Avec l'apparition des réseaux informatiques, apportés par des technologies telles que
   TCP/IP sur laquelle s'est construit le désormais célèbre protocole HTTP, il est rapidement apparu
   très intéressant de pouvoir répartir le traitement sur plusieurs machines.
@@ -231,25 +246,46 @@ outre, lors du parcours des rappels et des prérequis, une intention particuliè
   une machine lui servant des données et exécutant les traitements demandés- un serveur. Le terminal
   se contentant, dans ce modèle, d'afficher le résultat.
 
+  \begin{figure}[h]
+    \begin{center}
+      \includegraphics[scale=0.3]{img/mainframe-terminals.png}
+      \caption{Terminaux et mainframe}
+      \label{mainframe}
+    \end{center}
+  \end{figure}
+}
+
+\ifslide{
+  \begin{frame}{Mainframe et terminaux}
+    \begin{center}
+      \includegraphics[scale=0.3]{img/mainframe-terminals.png}
+    \end{center}
+  \end{frame}
+}
+
+\ifbook{
+
   \paragraph{} Avant d'aller plus loin, on peut noter avec intérêt que ce modèle n'est en fin de
   compte pas très différent de celui des débuts d'internet. En effet, à leurs débuts, les
   navigateurs "web" (Mozaic, Netscape, puis Internet Explorer) se contenter simplement d'afficher le
   contenu des pages HTML qu'on leur servaient. Nous y reviendrons par la suite...
+
+  \subsubsection{La naissance du client "lourd"}
 
   \paragraph{} Ce premier modèle client/serveur se construisait donc sur deux logicielles distincts,
   une première partie s'exécutant sur le terminal de l'utilisateur, le \textbf{client léger}, et une
   seconde partie, plus élaboré et embarquant la \textbf{logique métier} de l'application, le
   \textbf{serveur}.
 
-  \paragraph{Remarque} L'usage a malheureusement imposé depuis longtemps l'utilisation du même
+  \paragraph{Remarque} \textit{L'usage a malheureusement imposé depuis longtemps l'utilisation du même
   terme, \textit{serveur} pour désigner deux entités conceptuellement, mais concrètement
   différentes. Ce terme peut en effet indiquer une machine physique, un ordinateur, relié à un
   réseau informatique et utilisé, à distance, par des utilisateurs, mais le logicielle s'exécutant
-  sur ce même type d'ordinateur et fournissant un service applicatfs à ces mêmes utilisateurs.
+  sur ce même type d'ordinateur et fournissant un service applicatfs à ces mêmes utilisateurs.}
 
-  \paragraph{} La différence est fortement relativement aisée à saisir, mais elle peut tout de même
+  \paragraph{} \textit{La différence est fortement relativement aisée à saisir, mais elle peut tout de même
   porté à confusion. Si dans le cas de la partie précédente nous évoquions la concept de machine
-  physique, dans cette section, nous parlons très clairement de \textit{serveur logicielle}.
+  physique, dans cette section, nous parlons très clairement de \textbf{serveur logicielle}.}
 
   \paragraph{} Alors que la puissance à la disposition des terminaux augmentaient, et que, dans les
   faits, ceci devinrent des ordinateurs graphiques à usage personnelle ("\textit{Personal Computer
@@ -262,6 +298,16 @@ outre, lors du parcours des rappels et des prérequis, une intention particuliè
   devinrent à leur tour de plus en plus complexe, au point qu'on les qualifia de \textbf{clients
   lourds}.
 
+  \begin{figure}[h]
+    \begin{center}
+      \includegraphics[scale=0.3]{img/fat-clients.png}
+      \caption{L'arrivée du PC et des clients lourds}
+      \label{fat-clients}
+    \end{center}
+  \end{figure}
+
+  \subsubsection{Les limites du modèles}
+
   \paragraph{} Si ce nouvelle déclinaison du modèle aboutit clairement à une manière productivité
   des utilisateurs, du moins dans la plupart des cas, elle posa aussi rapidement des problématiques
   complexes en termes de maintenance. En effet, pour pouvoir faire évoluer le logiciel, il faut
@@ -273,6 +319,9 @@ outre, lors du parcours des rappels et des prérequis, une intention particuliè
 
 \ifslide {
   \begin{frame}{Le modèle client/serveur}
+    \begin{center}
+      \includegraphics[scale=0.3]{img/fat-clients.png}
+    \end{center}
   \end{frame}
 }
 
@@ -318,6 +367,6 @@ outre, lors du parcours des rappels et des prérequis, une intention particuliè
   permettre de stocker les données hors des applications et de les partager, elles permirent, peu à
   peu, d'établir un langage standard pour interagir avec elles, le SQL (\textit{Standard Query
   Language}).
-  % demo SQL ?
 }
 
+\demoframe{Le SQL}{Argument optionnelle pour le moment}

@@ -39,7 +39,7 @@
   fournies par le serveur HTTP. Le \textbf{client lourd} venait de faire un régime et redevenait un
   \textbf{client léger}.
 
-  % Dessins de synthèse
+  % TODO: Dessins de synthèse
 }
 
 
@@ -104,8 +104,17 @@
   sous le nom, rarement utilisé, de ECMAScript.
 }
 
-TODO: JVM ?
-TODO: Architecture 3 tiers en guise de conclusion
+% TODO: JVM ?
+% TODO: Architecture 3 tiers en guise de conclusion
+
+\ifbook{
+  \subsubsection{Architecture n-tiers}
+    \paragraph{} Si nous résumons les différents éléments évoqués jusqu'à maintenant sous forme de
+    la figure ci dessous (TODO), on constate que désormais notre application, qui au départ
+    s'exécutait sur une seule machine, relié par un terminal très primaire, est désormais réellement
+    éclatée entre plusieurs composant, ou \textbf{tiers}.
+    %TODO: dessin
+}
 
 \subsection{Qu'est ce que le middleware ?}
 
@@ -126,9 +135,21 @@ TODO: Architecture 3 tiers en guise de conclusion
 
   \paragraph{} Le \textit{Middleware} est tout simplement ce qui se retrouve, littéralement, au
   milieu ! Soit entre la base de données et les clients utilisées par les usagers du système. Mais
-  au milieu, il y a l'application, non ? Certes oui, mais
-}
+  au milieu, il y a l'application, non ? Certes oui, mais, celle ci s'appuye désormais plus sur les
+  seules API fournies par le système d'exploitation, mais sur une kyrielle de services, soient fourni
+  par son environnement d'exécution - tel que une machine virtuelle comme celle de Java ou C\#, ou un
+  serveur d'application, ou par des composants qu'elle embarque.
 
-%- arch. n tiers
+  \paragraph{} Mais qu'apportent ces services de plus ? Nous allons étudier le "catalogue" en
+  détails durant ce cours, mais en quelques mots, ils apportent beaucoup ! Gestion de \textit{pool}
+  de connexion, cache locale ou distribué, sécurité, intégration avec un service d'authentification
+  distant ou même encore la capacité de mettre en \textit{cluster} l'application pour assurer
+  aisément sa montée en charge simplement en ajoutant de nouvelles machines.
+
+  \paragraph{} Pour en revenir à une sorte de définition du \textit{Middleware}, nous retiendrons
+  donc que ce dernier est l'ensemble des services utilisées par l'application, aussi bien en son
+  sein, que pour communiquer avec des services distants. Bref, en essence, le \textit{Middleware} se
+  trouve bel et bien "au milieu", entre l'application et le reste du monde...}
+
 %- dessin "application" => "pile, gestion de threads, cache, ...", puis vers le modèle java/jee de container
 %- évoqué la problématique du packaging et de la réutilisation de code, probablématique de gestion de version aussi
