@@ -1,31 +1,161 @@
+\ifbook {
+  \subsection{Remarque préliminaires}
+  % disclaimer
+  \paragraph{} Le champ d'expertise de l'auteur de ce document est Java/JEE, et plus spécifiquement,
+  les produits JBoss. Cet état de fait n'est pas sans conséquence sur le contenu du cours, qui
+  s'appuye souvent des composants logicielle spécifique à Java.
+
+  \paragraph{} Ainsi, bien que la plupart des concepts évoqués dans cette partie se retrouvent
+  généralement, sous une forme ou une autre, dans d'autres univers technologique, certains seront
+  néanmoins parfois relativement spécifique à l'univers Java ou au monde JBoss.
+
+  \paragraph{} Dans la mesure du possible, lorsque ces cas seront évoqués, leur spécifités sera
+  soulignés. Le lecteur devra tout de même rester vigilant..
+
+}
+
+\ifslide {
+  \subsection{Conteneur d'exécution virtuelle}
+}
+
+\ifbook {
+  \subsection{Conteneur d'exécution virtuelle}
+
+  %\subsubsection{Difficultés des applications natives}
+
+  \paragraph{} Reprenons là où nous avons arrêté, dans le section précédente, la description d'un
+  serveur. Nous avions donc une machine physique ou virtuelle dont les resources (mémoire,
+  entrées/sorties, processeurs) sont partagé par l'intermédiaire du système d'exploitation, qui joue
+  le rôle d'arbitre entre les différentes applications.
+
+  \paragraph{} Si ce modèle fonctionne très bien, et de nombreuses applications très efficase ont été
+  réalisée sans couche d'abstraction supplémentaire, il pose néanmoins quelques problèmes. Tout
+  d'abord, même si l'application utilise le système d'exploitation pour manipuler ressources et sous
+  processus, son exécution peut toujours mettre en péril le bon fonctionnement de l'ensemble du
+  système.
+
+  \paragraph{} En effet, une application \textbf{native} - qui signifie, dans notre contexte, qu'elle
+  n'utilise que les primitives offertes par le système d'exploitation, peut toujours rendre le système
+  inopérant en allouant trop de mémoire, en créant trop de sous processus ou encore en écrivant
+  beaucoup trop de donnés sur disque.
+
+  \paragraph{} En outre, si les primitives offertes par le système d'exploitation permet au
+  développeur de facilement allouer de la mémoire pour son programme, il reste à sa charge de
+  s'assurer que cette espace mémoire soit bien libéré dès qu'il n'est plus utilisé.
+
+  \paragraph{} De prime abord, ceci peut sembler trivial, mais c'est en fait très complexe, et
+  beaucoup de programme native ont souvent des \textbf{fuites mémoires} qui pose de grave problème
+  de performance lors de l'exécution du programme, ou qui, pire encore, entraine le \textit{crash} du
+  programme lors de son utilisation.
+
+  \paragraph{} Mais comment se font ces fuites mémoires ? Simplement lorsque le ou les développeurs
+  ont oubliés, quelque part au sein de l'application, de libérer des resources. Il peut s'agit par
+  exemple. Ainsi, la mémoire reste alloué, tout le temps, et plus le programme s'exécute, plus ils
+  "bloque" de la mémoire, jusqu'à atteindre un point où le système d'exploitation ne lui permet plus
+  d'en allouer de nouveau.
+
+}
+% TODO: slide fuite mémoire
+
+\subsubsection{L'arrivée des conteneurs d'exécution}
+
+\ifbook{
+%%% Garbage collection (todo:slide)
+\paragraph{} Rapidement la gestion de la mémoire est devenu un tel frein au développement
+d'application, que de nombreuses recherches et expérimentations ont été entreprise pour construire
+une sorte de "méta application" qui assurerait la libération de la mémoire, simplifiant ainsi
+grandement la charge du développeur.
+
+\paragraph{} Ce \textbf{conteneur d'exécution\footnote{Le terme \textbf{conteneur d'exécution
+virtuelle} est une traduction somme toute très personnelle du terme anglais \textit{runtime
+container}. L'usage a imposé de désigne ce genre de container par leur nom (ex: JVM), plutôt que par
+un terme générique, comme système d'exploitation.}} se charge donc garder traces de toute
+allocations mémoires, mais aussi du nombre de référence vers ces dernières. Lorsque il n'existe
+plus, au sein, du programme, de référence vers un espace mémoire allouée, il ne reste plus qu'à
+faire le \textbf{nettoyage}. En anglais, on emploi fréquement le terme de \textit{\textbf{Garbage
+Collection}}.
+
+%%% OS Free (todo: slides)
+\paragraph{} Comme toujours la création de ce nouveau \textbf{contexte d'exécution} a aussi été une
+opportunité d'introduire une nouvelle couche d'abstraction permettant au programme de se détacher du
+système d'exploitation.
+
+\paragraph{} Ainsi, on ne développe plus un programme à l'aide des primitives offertes par tel ou
+tel système d'exploitation, mais à l'aide de celles offertes par son conteneur d'exécution. Charge à
+ce conteneur de s'assurer du fonctionnement idoine de ces primitives quelques soit le système
+d'exploitation sur lequel il s'exécute.
+
+%%% Quelques conteneur
+\paragraph{} La machine virtuelle Java est un exemple de tel conteneur d'exécution, mais aussi
+l'intépréteur python on PHP. Ces différents programmes exécutent un code, qu'il soit compilé ou non
+avant\footnote{C'est d'ailleurs cette seule notion de code compilé ou interprété qui distingue
+principalement la machine virtuelle Java des interpréteurs comme Python}, en abstrayant le système
+d'exploitation sous jacent.
+
+\paragraph{} Il est donc ainsi possible d'écrire un même programme Java ou un script Python de telle
+manière qu'il s'exécute de manière similaire sur différents système d'exploitation. Attention
+néanmoins, il faut prendre soin de veiller à cette \textbf{interopérabilité} lors de la conception
+du programme, car l'on peut toujours aisément rendre son code très adhérant aux systèmes
+d'exploitation.
+
+\paragraph{} Un exemple très concret de ce dernier point est l'utilisation de chemin de fichier
+spécifique à Windows©, plutôt que d'utiliser des URLs.
+
+%%% TODO: Slide Interop: chemin windows vs URLs
+
+\paragraph{} C'est donc à propos des applications développées sur ces nouveaux conteneurs
+d'exécutions, et non plus de manière \textbf{native} que nous allons désormais évoqué. Mais, en fin
+de compte, on se rendra aussi compte que ces conteneurs d'exécutions forment aussi en eux même, un
+premier \textbf{Middleware}...
+
+}
+
 \subsection{Serveur d'applications}
 
 \ifbook{
-  % disclaimer
-\paragraph{} Le champ d'expertise de l'auteur de ce document étant concentré sur le monde Java, et
-plus spécifiquement , le monde des produits JBoss, et cet état de fait n'est pas sans conséquence
-sur ce cours. En effet, bien que la plupart des concepts évoqués dans cette partie se retrouvent
-dans d'autres univers technologique, certains sont néanmoins parfois relativement spécifique à Java
-ou JBoss.
 
-\paragraph{} Dans la mesure du possible, lorsque ces cas seront évoqués, leur spécifités sera
-soulignés. Néanmoins, le lecteur devra rester vigilant, car il n'est pas toujours facile de faire se
-distingo.
+  \paragraph{} À l'aide des conteneurs précédemment évoqués, nous avons maintenant un cadre robuste et
+  portable d'exécution de programme, nous offrant déjà des primitives relatives élaborés. Néanmoins,
+  ces contextes d'exécutions sont toujours conçu pour exécuter un seul programme. Certes, ce programme
+  peut créer des sous processus, mais en essence, le conteneur n'est pas conçu pour exécuter
+  différentes applications de manière concurrente.
 
+  \paragraph{} Nous allons voir apparaitre la notion de \textbf{serveur d'applications} - avec un 's'
+  à applications, car l'enjeu est bien ici de pouvoir exécuter et \textbf{administrer} plusieurs
+  application s'exécutant au sein d'un même et seule unique contexte d'exécution.
 
-- What is an app server ? définition, penser aussi à Rails ou WebWare par exemple
-- Produit d'intégration, offre API standard, gère les prob. d'intg à la place de l'application
-- externalise configuration,
+  \paragraph{} Voyons d'abord une définition du terme serveur d'application pour éclaircir un peu le
+  sujet. La définition suivante est issue de \mylink{http://TODO/}{Wikipédia} (accédé le 21/12/2011):
 
+  \paragraph{} \textit{Un serveur d'applications est un logiciel d'infrastructure offrant un contexte
+  d'exécutiuon pour composants applicatifs. [...] Dans un sens strict les composants hébergés par le
+  serveur d'applicatons ne sont pas de simples procédures ou scripts mais de réels composants
+  logiciels conformes à un modèle de composants (EJB, COM, Fractal,...)}
+
+  \paragraph{} Comme l'illustre assez bien la définition, ce serveur d'application, qu'il s'agisse
+  d'un serveur d'application Java/JEE ou d'un serveur python tel que WebWare, est au final un
+  \textbf{produit d'intégration}. En effet, ce serveur a aussi pour rôle de faciliter, pour les
+  applications qu'il héberge, l'utilisation de programmes connexes, tel que les bases de données ou un
+  serveur d'authenfication. Ainsi, le serveur d'applications permet l'intégration des applications à
+  d'autres applications qui lui seront nécessaires.
+
+  \paragraph{} Comme l'indique la définition, il est important de noter aussi qu'un serveur
+  d'application abrite des \textbf{composants applicatifs}, et non de simple API. Le comportement de
+  ces composants est ainsi beacoup plus configurable et ils offrent, pour la plupart, et à l'inverse
+  des API, des mécanismes d'administration. En outre, les composants, là encore à l'inverse des APIs,
+  sont plus "actifs". Nous reviendrons sur ce point tout au long du cours.
+
+}
 
 \subsubsection{Pool(s) de connexion}
 
-% TODO: definition d'un pool de connexion, intérêt...
+\ifbook {
+ %TODO: definition d'un pool de connexion, intérêt...
+
 
 \paragraph{} Plutôt que de continuer de faire un résumé très théorique, et vraisemblablement peu
 pertinent sur ce sujet - qui ne ferait que satisfaire un goût très Mésopotamien de l'inventaire et
 des catalogues, nous allons voir un petit cas pratiques de configuration d'un pool de connexion.
-
 
 \paragraph{} Cette démarche sera, espérons-le, un peu moins aride, et devrait surtout permettre au
 lecteur de bien saisir les concepts sous jacents. Pour être didactique, cette section contiendra
@@ -35,9 +165,8 @@ manière concrète, les concepts de plus haut niveau qui s'y rapportent.
 
 % TODO: RMI appli avec une connecion, qui dure 60s, renvoie une * toutes les 5s - barre de
 % progression - timeout, puis 2 utilisateurs concurrent
-
 - HTTP, RMI, AJP => offre pool de connexion, partagé entre les applications
 
-
+}
 
 \subsubsection{Threads}
