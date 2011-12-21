@@ -1,0 +1,43 @@
+\subsection{Serveur d'applications}
+
+\ifbook{
+  % disclaimer
+\paragraph{} Le champ d'expertise de l'auteur de ce document étant concentré sur le monde Java, et
+plus spécifiquement , le monde des produits JBoss, et cet état de fait n'est pas sans conséquence
+sur ce cours. En effet, bien que la plupart des concepts évoqués dans cette partie se retrouvent
+dans d'autres univers technologique, certains sont néanmoins parfois relativement spécifique à Java
+ou JBoss.
+
+\paragraph{} Dans la mesure du possible, lorsque ces cas seront évoqués, leur spécifités sera
+soulignés. Néanmoins, le lecteur devra rester vigilant, car il n'est pas toujours facile de faire se
+distingo.
+
+
+- What is an app server ? définition, penser aussi à Rails ou WebWare par exemple
+- Produit d'intégration, offre API standard, gère les prob. d'intg à la place de l'application
+- externalise configuration,
+
+
+\subsubsection{Pool(s) de connexion}
+
+% TODO: definition d'un pool de connexion, intérêt...
+
+\paragraph{} Plutôt que de continuer de faire un résumé très théorique, et vraisemblablement peu
+pertinent sur ce sujet - qui ne ferait que satisfaire un goût très Mésopotamien de l'inventaire et
+des catalogues, nous allons voir un petit cas pratiques de configuration d'un pool de connexion.
+
+
+\paragraph{} Cette démarche sera, espérons-le, un peu moins aride, et devrait surtout permettre au
+lecteur de bien saisir les concepts sous jacents. Pour être didactique, cette section contiendra
+donc des extraits de codes et de configuration, mais là encore, l'objectif pédagogique ne sera pas
+retenir, ni même de forcément comprend l'intégralité de ces extraits, mais de bien cerner, de
+manière concrète, les concepts de plus haut niveau qui s'y rapportent.
+
+% TODO: RMI appli avec une connecion, qui dure 60s, renvoie une * toutes les 5s - barre de
+% progression - timeout, puis 2 utilisateurs concurrent
+
+- HTTP, RMI, AJP => offre pool de connexion, partagé entre les applications
+
+
+
+\subsubsection{Threads}
