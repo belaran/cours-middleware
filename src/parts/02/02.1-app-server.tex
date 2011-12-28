@@ -14,13 +14,9 @@
 
 }
 
-\ifslide {
-  \subsection{Conteneur d'exécution virtuelle}
-}
+\subsection{Conteneur d'exécution virtuelle}
 
 \ifbook {
-  \subsection{Conteneur d'exécution virtuelle}
-
   %\subsubsection{Difficultés des applications natives}
 
   \paragraph{} Reprenons là où nous avons arrêté, dans le section précédente, la description d'un
@@ -155,7 +151,7 @@ premier \textbf{Middleware}...
 
 \paragraph{} Plutôt que de continuer de faire un résumé très théorique, et vraisemblablement peu
 pertinent sur ce sujet - qui ne ferait que satisfaire un goût très Mésopotamien de l'inventaire et
-des catalogues, nous allons voir un petit cas pratiques de configuration d'un pool de connexion.
+du catalogage, nous allons voir un petit cas pratiques de configuration d'un pool de connexion.
 
 \paragraph{} Cette démarche sera, espérons-le, un peu moins aride, et devrait surtout permettre au
 lecteur de bien saisir les concepts sous jacents. Pour être didactique, cette section contiendra
@@ -166,7 +162,33 @@ manière concrète, les concepts de plus haut niveau qui s'y rapportent.
 % TODO: RMI appli avec une connecion, qui dure 60s, renvoie une * toutes les 5s - barre de
 % progression - timeout, puis 2 utilisateurs concurrent
 - HTTP, RMI, AJP => offre pool de connexion, partagé entre les applications
-
 }
 
 \subsubsection{Threads}
+% TODO Demo slide
+
+\ifbook{
+
+  \paragraph{} De la même manière dont il existe un \textit{pool} de connexion, dont la gestion est
+  confiée au serveur d'applications, la gestion du nombre de sous processus, ou plutôt de
+  \textit{thread} pour reprendre le terme anglais plus souvent utilisé, est elle aussi confier au
+  serveur d'application.
+
+  \paragraph{} Dans une suite logique à ce que nous venons de voir, nous allons voir comment
+  augmenter ou réduire le nombre de \textit{threads} qu'une application, s'exécutant au sein de
+  JBoss, peut utiliser.
+
+  \subsubsection{Première conclusion}
+
+  \paragraph{} En étudiant, de manière sommaire, la gestion de types distincts de ressources (d'une
+  part des connexions à une source de données, d'autres part le nombre de thread), nous pouvons
+  désormais un peu mieux comprendre le rôle du serveur d'application.
+
+  \paragraph{} Réel produit d'intégration, le serveur d'application prend donc en charge la gestion
+  de nombreux, si ce n'est tous, aspects techniques, laissant les applications utilisées de simple
+  API, standard pour la plupart. Une fois déployé au sein du serveur, on dispose néanmoins de
+  nombreux mécanismes pour régler et configurer l'utilisation des ressources par l'application, de
+  manière à exploiter au mieux possible ces dernières.
+}
+
+% TODO: Dessin de synthèse regroupant l'ensemble des couches et leurs différents rôles...
