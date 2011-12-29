@@ -67,6 +67,21 @@ generateDoc() {
     fi
 }
 
+clean() {
+  # cleaning
+  if [ "${clean}" != "" ] ; then
+    echo -n "Cleaning..."
+    rm -rf "${work}"
+    rm -f *.pdf
+    rm -rf "${delivery_folder}"
+    echo "Done."
+  fi
+}
+
+mkdir -p "${work}"
+cp -R "${src}"/* "${work}"
+
+
 #set -e
 while getopts dcsbHa OPT; do
     case "$OPT" in
@@ -88,6 +103,7 @@ while getopts dcsbHa OPT; do
             readonly debug='true'
             ;;
         a)
+            readonly clean='true'
             setBuildSlides
             setBuildBook
             ;;
@@ -99,15 +115,7 @@ while getopts dcsbHa OPT; do
     esac
 done
 
-# cleaning
-if [ "${clean}" != "" ] ; then
-    echo -n "Cleaning..."
-    rm -rf "${work}"
-    rm -f *.pdf
-    rm -rf "${delivery_folder}"
-    echo "Done."
-    exit 0
-fi
+clean
 
 mkdir -p "${work}"
 cp -R "${src}"/* "${work}"
