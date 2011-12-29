@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.1 r9760"
-   inkscape:export-filename="/home/rpelisse/Repositories/redhat/rpelisse-ignite.hg/img/atos-era.png"
+   inkscape:export-filename="/home/rpelisse/Repositories/isep/middleware.hg/img/transaction.png"
    inkscape:export-xdpi="80.650002"
    inkscape:export-ydpi="80.650002"
    sodipodi:docname="transaction.svg">
@@ -16243,7 +16243,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
