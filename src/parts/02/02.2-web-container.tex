@@ -1,5 +1,5 @@
 \newpage
-\subsection{Conteneur "Web"}
+\mysubsection{Conteneur "Web"}
 
 \ifbook{
 
@@ -19,7 +19,7 @@
   Tomcat ou JBoss Web, mais, dans l'ensemble, quelques soit sa technologie, un serveur d'application
   devrait proposés la plupart de ces fonctionnalités aux applications qu'il déploie.
 
-  \subsubsection{Support du protocole HTTP}
+  \mysubsubsection{Support du protocole HTTP}
 
   \paragraph{} Comme décrit dans une précédente partie, HTTP est un protocole texte ouvert et
   standardisé. Bien qu'il soit possible pour un programmeur d'implémenter lui même un serveur
@@ -46,8 +46,8 @@
 }
 
 \ifbook{
- \subsubsection{Session, gestion des entrées/sorties et exécution concurrente}
-
+ \mysubsubsection{Session, gestion des entrées/sorties et exécution concurrente}
+ \mysubsubsubsection{Java Servlet}
  \paragraph{} Le modèle proposée par les Servlet Java est assez élégant. En effet, il abstrait le
  programmeur de la complexité du protocle HTTP, fourni des objets Java simple à utiliser et fournit,
  au final, un cavenas, très similaire à celui d'un simple programme, pour développer son programme.
@@ -67,8 +67,7 @@
  manipulées par l'applicatif, et les informations associées à la \textbf{présentation} (structure de
  la page HTML) de ces dernières.
 
- % JSP
-
+ \mysubsubsubsection{JSP}
  \paragraph{} Pour faciliter la conception rapide de page web et, surtout séparer la présentation
  des données de leurs traitements, la spécification associée aux Servlets a été enrichi pour offrir
  une syntaxe plus approprié, désigné sous le nom de Java Server Pages, ou JSP.

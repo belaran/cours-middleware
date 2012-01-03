@@ -1,5 +1,5 @@
 \ifbook {
-  \subsection{Remarque préliminaires}
+  \mysubsection{Remarque préliminaires}
   % disclaimer
   \paragraph{} Le champ d'expertise de l'auteur de ce document est Java/JEE, et plus spécifiquement,
   les produits JBoss. Cet état de fait n'est pas sans conséquence sur le contenu du cours, qui
@@ -14,10 +14,10 @@
 
 }
 
-\subsection{Conteneur d'exécution virtuelle}
+\mysubsection{Conteneur d'exécution virtuelle}
 
 \ifbook {
-  %\subsubsection{Difficultés des applications natives}
+  \mysubsubsection{Difficultés des applications natives}
 
   \paragraph{} Reprenons là où nous avons arrêté, dans le section précédente, la description d'un
   serveur. Nous avions donc une machine physique ou virtuelle dont les resources (mémoire,
@@ -53,60 +53,61 @@
 }
 % TODO: slide fuite mémoire
 
-\subsubsection{L'arrivée des conteneurs d'exécution}
+\mysubsection{L'arrivée des conteneurs d'exécution}
 
 \ifbook{
-%%% Garbage collection (todo:slide)
-\paragraph{} Rapidement la gestion de la mémoire est devenu un tel frein au développement
-d'application, que de nombreuses recherches et expérimentations ont été entreprise pour construire
-une sorte de "méta application" qui assurerait la libération de la mémoire, simplifiant ainsi
-grandement la charge du développeur.
+  \mysubsubsection{Garbage collection} %todo:slide
+  \paragraph{} Rapidement la gestion de la mémoire est devenu un tel frein au développement
+  d'application, que de nombreuses recherches et expérimentations ont été entreprise pour construire
+  une sorte de "méta application" qui assurerait la libération de la mémoire, simplifiant ainsi
+  grandement la charge du développeur.
 
-\paragraph{} Ce \textbf{conteneur d'exécution\footnote{Le terme \textbf{conteneur d'exécution
-virtuelle} est une traduction somme toute très personnelle du terme anglais \textit{runtime
-container}. L'usage a imposé de désigne ce genre de container par leur nom (ex: JVM), plutôt que par
-un terme générique, comme système d'exploitation.}} se charge donc garder traces de toute
-allocations mémoires, mais aussi du nombre de référence vers ces dernières. Lorsque il n'existe
-plus, au sein, du programme, de référence vers un espace mémoire allouée, il ne reste plus qu'à
-faire le \textbf{nettoyage}. En anglais, on emploi fréquement le terme de \textit{\textbf{Garbage
-Collection}}.
+  \paragraph{} Ce \textbf{conteneur d'exécution\footnote{Le terme \textbf{conteneur d'exécution
+  virtuelle} est une traduction somme toute très personnelle du terme anglais \textit{runtime
+  container}. L'usage a imposé de désigne ce genre de container par leur nom (ex: JVM), plutôt que par
+  un terme générique, comme système d'exploitation.}} se charge donc garder traces de toute
+  allocations mémoires, mais aussi du nombre de référence vers ces dernières. Lorsque il n'existe
+  plus, au sein, du programme, de référence vers un espace mémoire allouée, il ne reste plus qu'à
+  faire le \textbf{nettoyage}. En anglais, on emploi fréquement le terme de \textit{\textbf{Garbage
+  Collection}}.
 
-%%% OS Free (todo: slides)
-\paragraph{} Comme toujours la création de ce nouveau \textbf{contexte d'exécution} a aussi été une
-opportunité d'introduire une nouvelle couche d'abstraction permettant au programme de se détacher du
-système d'exploitation.
+  %%% OS Free (todo: slides)
+  \mysubsubsubsection{Libération de la mémoire}
+  \paragraph{} Comme toujours la création de ce nouveau \textbf{contexte d'exécution} a aussi été une
+  opportunité d'introduire une nouvelle couche d'abstraction permettant au programme de se détacher du
+  système d'exploitation.
 
-\paragraph{} Ainsi, on ne développe plus un programme à l'aide des primitives offertes par tel ou
-tel système d'exploitation, mais à l'aide de celles offertes par son conteneur d'exécution. Charge à
-ce conteneur de s'assurer du fonctionnement idoine de ces primitives quelques soit le système
-d'exploitation sur lequel il s'exécute.
+  \paragraph{} Ainsi, on ne développe plus un programme à l'aide des primitives offertes par tel ou
+  tel système d'exploitation, mais à l'aide de celles offertes par son conteneur d'exécution. Charge à
+  ce conteneur de s'assurer du fonctionnement idoine de ces primitives quelques soit le système
+  d'exploitation sur lequel il s'exécute.
 
-%%% Quelques conteneur
-\paragraph{} La machine virtuelle Java est un exemple de tel conteneur d'exécution, mais aussi
-l'intépréteur python on PHP. Ces différents programmes exécutent un code, qu'il soit compilé ou non
-avant\footnote{C'est d'ailleurs cette seule notion de code compilé ou interprété qui distingue
-principalement la machine virtuelle Java des interpréteurs comme Python}, en abstrayant le système
-d'exploitation sous jacent.
+  \mysubsubsection{Quelques conteneurs d'exécution}
+  \paragraph{} La machine virtuelle Java est un exemple de tel conteneur d'exécution, mais aussi
+  l'intépréteur python on PHP. Ces différents programmes exécutent un code, qu'il soit compilé ou non
+  avant\footnote{C'est d'ailleurs cette seule notion de code compilé ou interprété qui distingue
+  principalement la machine virtuelle Java des interpréteurs comme Python}, en abstrayant le système
+  d'exploitation sous jacent.
 
-\paragraph{} Il est donc ainsi possible d'écrire un même programme Java ou un script Python de telle
-manière qu'il s'exécute de manière similaire sur différents système d'exploitation. Attention
-néanmoins, il faut prendre soin de veiller à cette \textbf{interopérabilité} lors de la conception
-du programme, car l'on peut toujours aisément rendre son code très adhérant aux systèmes
-d'exploitation.
+  \paragraph{} Il est donc ainsi possible d'écrire un même programme Java ou un script Python de telle
+  manière qu'il s'exécute de manière similaire sur différents système d'exploitation. Attention
+  néanmoins, il faut prendre soin de veiller à cette \textbf{interopérabilité} lors de la conception
+  du programme, car l'on peut toujours aisément rendre son code très adhérant aux systèmes
+  d'exploitation.
 
-\paragraph{} Un exemple très concret de ce dernier point est l'utilisation de chemin de fichier
-spécifique à Windows©, plutôt que d'utiliser des URLs.
+  \paragraph{} Un exemple très concret de ce dernier point est l'utilisation de chemin de fichier
+  spécifique à Windows©, plutôt que d'utiliser des URLs.
 
-%%% TODO: Slide Interop: chemin windows vs URLs
+  %%% TODO: Slide Interop: chemin windows vs URLs
 
-\paragraph{} C'est donc à propos des applications développées sur ces nouveaux conteneurs
-d'exécutions, et non plus de manière \textbf{native} que nous allons désormais évoqué. Mais, en fin
-de compte, on se rendra aussi compte que ces conteneurs d'exécutions forment aussi en eux même, un
-premier \textbf{Middleware}...
+  \paragraph{} C'est donc à propos des applications développées sur ces nouveaux conteneurs
+  d'exécutions, et non plus de manière \textbf{native} que nous allons désormais évoqué. Mais, en fin
+  de compte, on se rendra aussi compte que ces conteneurs d'exécutions forment aussi en eux même, un
+  premier \textbf{Middleware}...
 
-}
+  }
 
-\subsection{Serveur d'applications}
+\mysubsection{Serveur d'applications}
 
 \ifbook{
 
@@ -143,28 +144,28 @@ premier \textbf{Middleware}...
 
 }
 
-\subsubsection{Pool(s) de connexion}
+\mysubsubsection{Pool(s) de connexion}
 
 \ifbook {
- %TODO: definition d'un pool de connexion, intérêt...
+   %TODO: definition d'un pool de connexion, intérêt...
 
 
-\paragraph{} Plutôt que de continuer de faire un résumé très théorique, et vraisemblablement peu
-pertinent sur ce sujet - qui ne ferait que satisfaire un goût très Mésopotamien de l'inventaire et
-du catalogage, nous allons voir un petit cas pratiques de configuration d'un pool de connexion.
+  \paragraph{} Plutôt que de continuer de faire un résumé très théorique, et vraisemblablement peu
+  pertinent sur ce sujet - qui ne ferait que satisfaire un goût très Mésopotamien de l'inventaire et
+  du catalogage, nous allons voir un petit cas pratiques de configuration d'un pool de connexion.
 
-\paragraph{} Cette démarche sera, espérons-le, un peu moins aride, et devrait surtout permettre au
-lecteur de bien saisir les concepts sous jacents. Pour être didactique, cette section contiendra
-donc des extraits de codes et de configuration, mais là encore, l'objectif pédagogique ne sera pas
-retenir, ni même de forcément comprend l'intégralité de ces extraits, mais de bien cerner, de
-manière concrète, les concepts de plus haut niveau qui s'y rapportent.
+  \paragraph{} Cette démarche sera, espérons-le, un peu moins aride, et devrait surtout permettre au
+  lecteur de bien saisir les concepts sous jacents. Pour être didactique, cette section contiendra
+  donc des extraits de codes et de configuration, mais là encore, l'objectif pédagogique ne sera pas
+  retenir, ni même de forcément comprend l'intégralité de ces extraits, mais de bien cerner, de
+  manière concrète, les concepts de plus haut niveau qui s'y rapportent.
 
-% TODO: RMI appli avec une connecion, qui dure 60s, renvoie une * toutes les 5s - barre de
-% progression - timeout, puis 2 utilisateurs concurrent
-- HTTP, RMI, AJP => offre pool de connexion, partagé entre les applications
+  % TODO: RMI appli avec une connecion, qui dure 60s, renvoie une * toutes les 5s - barre de
+  % progression - timeout, puis 2 utilisateurs concurrent
+  - HTTP, RMI, AJP => offre pool de connexion, partagé entre les applications
 }
 
-\subsubsection{Threads}
+\mysubsubsection{Threads}
 % TODO Demo slide
 
 \ifbook{
@@ -178,7 +179,7 @@ manière concrète, les concepts de plus haut niveau qui s'y rapportent.
   augmenter ou réduire le nombre de \textit{threads} qu'une application, s'exécutant au sein de
   JBoss, peut utiliser.
 
-  \subsubsection{Première conclusion}
+  \mysubsubsection{Première conclusion}
 
   \paragraph{} En étudiant, de manière sommaire, la gestion de types distincts de ressources (d'une
   part des connexions à une source de données, d'autres part le nombre de thread), nous pouvons

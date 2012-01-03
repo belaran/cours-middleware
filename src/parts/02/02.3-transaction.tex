@@ -1,5 +1,5 @@
 \newpage
-\subsection{Transaction}
+\mysubsection{Transaction}
 
 \ifbook{
 
@@ -58,7 +58,7 @@
   informatique est un point important car c'est souvent à la charge du serveur d'applications ou du
   \textit{middleware} utilisé par l'application de l'assurer.
 
-  % Deadlock
+  \mysubsubsection{Deadlock}
 
   \paragraph{} Le principal intérêt des transactions réside dans la garantie sur la cohérence des
   données. En effet, l'utilisation de transactions assurent que si deux processus accèdent et
@@ -76,7 +76,7 @@
   à A + 1, pendant que le second devra attendra la fin de la transaction pour effectuer son
   opération. A l'issu des opérations, la valeur de la donnée est donc A + 2.
 
-  % Transaction implicite
+  \mysubsubsection{Transaction implicite}
 
   \paragraph{} Il est aussi important de souligner que même si l'application n'est pas
   transactionnel en tant que tel elle peut utiliser tout à fait utiliser des transactions de manière
@@ -94,7 +94,7 @@
   peut se retrouver face à des problématiques d'isolation ou de \textit{deadlock}, sans que
   l'application métier soit, en tant que tel, transactionnel.
 
-  % Coût en perf de la tx
+  \mysubsubsection{Coût des transactions}
 
   \paragraph{} Si effectuer une opération au sein d'une transaction apporte de grande avantage, il
   va s'en dire qu'elle s'accompagne de grandes contraintes et surtout d'un coût certain en terme de
@@ -126,7 +126,7 @@
 }
 
 \ifbook{
-  % tx ot not tx ?
+  \mysubsubsection{Être (transactionelle) ou ne pas être (transactionnel) ?}
 
   \paragraph{} Il est donc bien important, lors de la conception d'une application, de bien
   réflechir à la nécessité ou non d'utiliser des transactions. Une preuve très flagrante de ceci est

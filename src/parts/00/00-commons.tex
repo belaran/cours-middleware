@@ -73,5 +73,38 @@
     #2
     \end{center}
   \end{frame}
+}
 
+\newcommand{\mysection}[1]{
+  \ifthenelse{ \boolean{slides} }{
+     \section{#1}
+  }{
+     \chapter{#1}
+  }
+}
+
+\newcommand{\mysubsection}[1]{
+  \ifthenelse{ \boolean{slides} }{
+     \subsection{#1}
+  }{
+     \section{#1}
+  }
+}
+
+\newcommand{\mysubsubsection}[1]{
+  \ifthenelse{ \boolean{slides} }{
+     ERROR: No subsubsection for slides
+     #1
+  }{
+     \subsection{#1}
+  }
+}
+
+\newcommand{\mysubsubsubsection}[1]{
+  \ifthenelse{ \boolean{slides} }{
+     ERROR: No subsubsubsection for slides
+     #1
+  }{
+     \subsubsection{#1}
+  }
 }

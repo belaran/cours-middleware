@@ -14,11 +14,7 @@
   \part{Introduction au Middleware}
 }
 
-\ifbook{
-  \chapter{Le Middleware}
-}
-
-\section{A - Rappel} % (09/01/2012)}
+\mysection{A - Rappel} % (09/01/2012)
 
 \abstractframe{En introduction au cours, une suite de rappels et de définitions sont effectués dans
 ce chapitre. Cette démarche assure la mise en place d'une sémantique et d'une terminologie commune. En
@@ -31,7 +27,7 @@ outre, lors du parcours des rappels et des prérequis, une intention particuliè
 \input{parts/01/01.3-web}
 \input{parts/01/01.4-poo}
 
-\section{B - Les services applicatifs} % 1/2 (10/01/2012)}
+\mysection{B - Les services applicatifs} % 1/2 (10/01/2012)}
 
 \abstractframe{Ciblé sur application, ce chapitre du cours se concentre
 sur les services et composants proposés par les \textit{middlewares} à cette
@@ -43,18 +39,18 @@ dernière}{../img/overview-services.png}
 \input{parts/02/02.4-cache}
 
 %\section{B - Les services applicatifs} % 2/2 (10/01/2012)}
-\subsection{Gestion des processus métiers (BPM)}
+\mysubsection{Gestion des processus métiers (BPM)}
 
-\subsection{Message et communication asynchrone}
+\mysubsection{Message et communication asynchrone}
 
-\subsection{Sécurité}
+\mysubsection{Sécurité}
 % \begin{frame}
 %   \begin{itemize}
 %   \item Gestion d'identité (SSO, Annuaire,...)
 %   \item Modèle de Sécurité (EJB, JAAS)
 %   \end{itemize}
 % \end{frame}
-\subsection{Modèle de programmation}
+\mysubsection{Modèle de programmation}
 % \begin{frame}
 %   \begin{itemize}
 %     \item gestion de l'état
@@ -62,48 +58,3 @@ dernière}{../img/overview-services.png}
 %   \end{itemize}
 % \end{frame}
 
-%--\section{C - Application distribuée et intégration (11/01/2012)}
-%--\abstractframe{Élargissant le spectre au-delà du périmètre de l'application,
-%--cette partie étudie les services et composants proposés par les
-%--\textit{middlewares} pour dialoguer, et s'intégrer, à son environnement, et plus
-%--spécialement à la nature \textbf{distribuée} du système d'information dans lequel
-%--elle évolue.}{../img/overview-integration.png}
-%--
-%--\subsection{Source de données}
-%--
-%--\subsubsection{Fichiers et ressources}
-%--\subsubsection{SQL et base de données relationnelle}
-%--\subsubsection{Annuaire}
-%--\subsubsection{NoSQL}
-%--\subsection{Programmation distribuée}
-%--% \begin{block}{Historique}
-%--%   \begin{itemize}
-%--%     \item RPC
-%--%     \item CORBA
-%--%     \item Java-RMI
-%--%     \item DCE
-%--%     \item COM/DCOM
-%--%   \end{itemize}
-%--% \end{block}
-%--\subsection{Transaction distribuée}
-%--\subsection{Architecture orientée service (SOA)}
-%--\subsubsection{WebServices}
-%--%   \begin{itemize}
-%--%     \item SOAP et WSDL
-%--%     \item ReST
-%--%   \end{itemize}
-%--
-%--\subsubsection{Bus logiciel (ESB)}
-%--\subsection{ETL, EAI et autres middlewares}
-%--
-%--\section{D - Mise à échelle et production (12/01/2012)}
-%--
-%--\subsection{Problématique de performances des middlewares}
-%--
-%--\subsection{Stratégie de mise à l'échelle (Ferme, clustering...)}
-%--
-%--\subsection{Indicateur, surveillance et alertes}
-%--
-%--\abstractframe{Cette partie évoque les problématiques liées à la mise en production
-%--et la surveillance d'une application et des \textit{middlewares} qu'elle
-%--utilise.}{../img/overview-monitoring.png}
