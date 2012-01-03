@@ -166,7 +166,13 @@
 }
 
 \mysubsubsection{Threads}
-% TODO Demo slide
+\demoframe{Threads}{
+  \begin{block}{Configuration d'un "pool" de connexion}
+    \begin{itemize}
+      \item ToDo
+    \end{itemize}
+  \end{block}
+}
 
 \ifbook{
 
@@ -190,6 +196,20 @@
   API, standard pour la plupart. Une fois déployé au sein du serveur, on dispose néanmoins de
   nombreux mécanismes pour régler et configurer l'utilisation des ressources par l'application, de
   manière à exploiter au mieux possible ces dernières.
+
+  \begin{figure}[hb]
+    \begin{center}
+      \includegraphics[scale=0.4]{img/integration-product.png}
+      \caption{Exemple de serveur d'application: JBoss}
+      \label{integration-product}
+    \end{center}
+  \end{figure}
 }
 
-% TODO: Dessin de synthèse regroupant l'ensemble des couches et leurs différents rôles...
+\ifslide{
+  \begin{frame}{Vision d'ensemble d'un serveur applicatif (JBoss AS)}
+   \begin{center}
+     \includegraphics[scale=0.3]{img/integration-product.png}
+   \end{center}
+  \end{frame}
+}
