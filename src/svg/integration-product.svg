@@ -17,7 +17,7 @@
    sodipodi:version="0.32"
    inkscape:version="0.48.1 r9760"
    version="1.0"
-   sodipodi:docname="whatisjbossas.svg"
+   sodipodi:docname="integration-product.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    inkscape:export-filename="/home/rpelisse/Repositories/isep/middleware.hg/img/integration-product.png"
    inkscape:export-xdpi="300"
@@ -29724,7 +29724,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="505.16352"
+     inkscape:cx="543.65716"
      inkscape:cy="366.67239"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -29746,7 +29746,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -31886,7 +31886,7 @@
          id="tspan33207">Container</tspan></text>
     <path
        sodipodi:type="arc"
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#ff0000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path18110"
        sodipodi:cx="255.56859"
        sodipodi:cy="448.11978"
@@ -31897,7 +31897,7 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot18112"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Bitstream Vera Sans"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#1a1a1a;font-family:Bitstream Vera Sans"
        transform="translate(-2.0203051,5.9796949)"><flowRegion
          id="flowRegion18114"><rect
            id="rect18116"
@@ -31905,7 +31905,7 @@
            height="36.36549"
            x="62.629459"
            y="693.58685"
-           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;font-family:Bitstream Vera Sans" /></flowRegion><flowPara
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#1a1a1a;font-family:Bitstream Vera Sans" /></flowRegion><flowPara
          id="flowPara18118">Connector</flowPara></flowRoot>    <rect
        style="opacity:1;fill:none;fill-opacity:1;stroke:#ffcc00;stroke-width:1.90768373;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect20256"
@@ -32060,7 +32060,7 @@
          sodipodi:cy="253.85521"
          sodipodi:cx="260.68973"
          id="path25734"
-         d="M 495.64613 253.85521 A 234.95641 236.07524 0 1 1  25.733322,253.85521 A 234.95641 236.07524 0 1 1  495.64613 253.85521 z" />
+         d="m 495.64613,253.85521 c 0,130.38075 -105.19356,236.07524 -234.9564,236.07524 -129.76284,0 -234.956408,-105.69449 -234.956408,-236.07524 0,-130.38076 105.193568,-236.075242 234.956408,-236.075242 129.76284,0 234.9564,105.694482 234.9564,236.075242 z" />
       <path
          transform="matrix(0,-0.169729,0.807961,0,43.34661,181.9851)"
          style="font-size:12px;fill:#ffcc00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:8.8014822;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -32070,7 +32070,7 @@
          sodipodi:cy="253.85521"
          sodipodi:cx="260.68973"
          id="path25736"
-         d="M 495.64613 253.85521 A 234.95641 236.07524 0 1 1  25.733322,253.85521 A 234.95641 236.07524 0 1 1  495.64613 253.85521 z" />
+         d="m 495.64613,253.85521 c 0,130.38075 -105.19356,236.07524 -234.9564,236.07524 -129.76284,0 -234.956408,-105.69449 -234.956408,-236.07524 0,-130.38076 105.193568,-236.075242 234.956408,-236.075242 129.76284,0 234.9564,105.694482 234.9564,236.075242 z" />
     </g>
     <rect
        style="opacity:1;fill:none;fill-opacity:1;stroke:#008000;stroke-width:1.63603616;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
