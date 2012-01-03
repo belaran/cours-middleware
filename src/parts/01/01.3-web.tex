@@ -50,13 +50,21 @@
   \textbf{client léger}.
 
   % TODO: Dessins de synthèse "web" début
+    \begin{figure}[h]
+      \begin{center}
+        \includegraphics[scale=0.3]{img/internet.png}
+        \caption{Extrait de code HTML contenant du Javascript et du CSS}
+        \label{internet}
+      \end{center}
+    \end{figure}
 }
 
-
 \ifslide {
-  \begin{frame}{Le "Web"}
-  TODO: Dessin de synthèse "web" début
-  \end{frame}
+    \begin{frame}{Le "Web"}
+      \begin{center}
+        \includegraphics[scale=0.3]{img/internet.png}
+      \end{center}
+    \end{frame}
 }
 
 \ifbook{
@@ -79,7 +87,7 @@
   et le serveur, il fût nécessaire d'ajouter un mécanisme de son coté pour lui permettre de
   conserver les données associées à l'utilisateur, ou plutôt à sa \textbf{session}.
 
-% Cookies ?
+% TODO:Cookies ?
 %  \paragraph{} L'ajout donc de la notion de session HTTP permit, là encore, de contourner les limites
 %  du modèle original, mais elle ne suffit pas entièrement. De la même manière dont le serveur avait
 %  besoin de garder trace de son utilisateur, il fallait aussi que l'on soit en mesure, coté client,
@@ -157,10 +165,26 @@
   suffisante pour l'application, ou recruter un développeur sans que celui ci n'est besoin d'autre
   compétences que la seule maitrise de la technologie.
 
-  \paragraph{} En outre, ces technologies promeuvent un \textbf{modèle de programmation}, et
-  fournissent des composants prêt à utiliser destiné à faciliter grandement le développement
-  d'application "web" robuste et capable de monter en charge.
-  %TODO: dessin sur le conteneur JVM ?
+  \paragraph{} En outre, ces technologies promeuvent, pour la plupart, un certain \textbf{modèle de
+  programmation}, et l'ecosystème qui les entourent apportent son lot de composants prêt à utiliser
+  et destiné à faciliter le développement d'application robuste et capable de monter en charge.
+
+    \begin{figure}[h]
+      \begin{center}
+        \includegraphics[scale=0.3]{img/execution-container.png}
+        \caption{Rôle d'un conteneur d'exécution}
+        \label{execution-container}
+      \end{center}
+    \end{figure}
+}
+
+
+\ifslide {
+    \begin{frame}{Conteneur d'exécution}
+      \begin{center}
+        \includegraphics[scale=0.3]{img/execution-container.png}
+      \end{center}
+    \end{frame}
 }
 
 \subsection{Qu'est ce que le middleware ?}
@@ -188,7 +212,7 @@
 }
 
 \ifslide{
-   \begin{frame}{Architecture n-tiers}
+   \begin{frame}{Qu'est ce que le middleware ?}
      \begin{center}
        \includegraphics[scale=0.35]{img/n-tiers.png}
      \end{center}
