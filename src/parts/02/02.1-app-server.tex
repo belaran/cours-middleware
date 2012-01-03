@@ -1,16 +1,15 @@
 \ifbook {
   \mysubsection{Remarque préliminaires}
-  % disclaimer
-  \paragraph{} Le champ d'expertise de l'auteur de ce document est Java/JEE, et plus spécifiquement,
+  \paragraph{} \textit{Le champ d'expertise de l'auteur de ce document est Java/JEE, et plus spécifiquement,
   les produits JBoss. Cet état de fait n'est pas sans conséquence sur le contenu du cours, qui
-  s'appuye souvent des composants logicielle spécifique à Java.
+  s'appuye souvent des composants logicielle spécifique à Java.}
 
-  \paragraph{} Ainsi, bien que la plupart des concepts évoqués dans cette partie se retrouvent
+  \paragraph{} \textit{Ainsi, bien que la plupart des concepts évoqués dans cette partie se retrouvent
   généralement, sous une forme ou une autre, dans d'autres univers technologique, certains seront
-  néanmoins parfois relativement spécifique à l'univers Java ou au monde JBoss.
+  néanmoins parfois relativement spécifique à l'univers Java ou au monde JBoss.}
 
-  \paragraph{} Dans la mesure du possible, lorsque ces cas seront évoqués, leur spécifités sera
-  soulignés. Le lecteur devra tout de même rester vigilant..
+  \paragraph{} \textit{Dans la mesure du possible, lorsque ces cas seront évoqués, leur spécifités sera
+  soulignés. Le lecteur devra tout de même rester vigilant...}
 
 }
 
@@ -55,8 +54,16 @@
 
 \mysubsection{L'arrivée des conteneurs d'exécution}
 
+\ifslide{
+  \begin{frame}{Garbage collection}
+   \begin{center}
+     \includegraphics[scale=0.3]{img/garbage-collection.jpg}
+   \end{center}
+  \end{frame}
+}
+
 \ifbook{
-  \mysubsubsection{Garbage collection} %todo:slide
+  \mysubsubsection{"Garbage collection"}
   \paragraph{} Rapidement la gestion de la mémoire est devenu un tel frein au développement
   d'application, que de nombreuses recherches et expérimentations ont été entreprise pour construire
   une sorte de "méta application" qui assurerait la libération de la mémoire, simplifiant ainsi
@@ -71,7 +78,6 @@
   faire le \textbf{nettoyage}. En anglais, on emploi fréquement le terme de \textit{\textbf{Garbage
   Collection}}.
 
-  %%% OS Free (todo: slides)
   \mysubsubsubsection{Libération de la mémoire}
   \paragraph{} Comme toujours la création de ce nouveau \textbf{contexte d'exécution} a aussi été une
   opportunité d'introduire une nouvelle couche d'abstraction permettant au programme de se détacher du
@@ -89,23 +95,59 @@
   principalement la machine virtuelle Java des interpréteurs comme Python}, en abstrayant le système
   d'exploitation sous jacent.
 
-  \paragraph{} Il est donc ainsi possible d'écrire un même programme Java ou un script Python de telle
-  manière qu'il s'exécute de manière similaire sur différents système d'exploitation. Attention
-  néanmoins, il faut prendre soin de veiller à cette \textbf{interopérabilité} lors de la conception
-  du programme, car l'on peut toujours aisément rendre son code très adhérant aux systèmes
-  d'exploitation.
+  \begin{figure}[hb]
+    \begin{center}
+      \includegraphics[scale=0.3]{img/sample-containers.png}
+      \caption{Quelques conteneurs d'exécution le plus utilisé}
+      \label{interop}
+    \end{center}
+  \end{figure}
+}
+
+\ifslide{
+  \begin{frame}{Quelques conteneurs d'exécution}
+   \begin{center}
+     \includegraphics[scale=0.3]{img/sample-containers.png}
+   \end{center}
+  \end{frame}
+}
+
+\ifbook{
+  \paragraph{} Si les conteneurs d'exécution abstrait le programe du système d'exploitation sur
+  lequel il s'exécute, il est donc ainsi possible d'écrire un même programme Java ou un script
+  Python de telle manière qu'il s'exécute de manière similaire sur différents système d'exploitation.
+
+  \paragraph{} Attention néanmoins, si cette \textbf{interopérabilité} est rendue possible par
+  l'utilisation d'un conteneur d'exécution, il faut néanmoins prendre soin de l'assurer lors de la
+  conception du programme. En effet, on peut toujours aisément rendre son code très adhérant aux systèmes
+  d'exploitation utilisé, et ceci malgré l'abstraction offerte par le conteneur.
 
   \paragraph{} Un exemple très concret de ce dernier point est l'utilisation de chemin de fichier
-  spécifique à Windows©, plutôt que d'utiliser des URLs.
+  spécifique à Windows©, plutôt que d'utiliser des URLs ou un chemin de fichier standard:
 
-  %%% TODO: Slide Interop: chemin windows vs URLs
+  \begin{figure}[hb]
+    \begin{center}
+      \includegraphics[scale=0.3]{img/interop.png}
+      \caption{Exemple de problématique de portabilité au sein d'un conteneur}
+      \label{interop}
+    \end{center}
+  \end{figure}
+}
 
+\ifslide{
+  \begin{frame}{Interopérabilité}
+   \begin{center}
+     \includegraphics[scale=0.25]{img/interop.png}
+   \end{center}
+  \end{frame}
+}
+
+\ifbook{
   \paragraph{} C'est donc à propos des applications développées sur ces nouveaux conteneurs
-  d'exécutions, et non plus de manière \textbf{native} que nous allons désormais évoqué. Mais, en fin
-  de compte, on se rendra aussi compte que ces conteneurs d'exécutions forment aussi en eux même, un
-  premier \textbf{Middleware}...
-
-  }
+  d'exécutions, et non plus de manière \textbf{native}, que nous allons désormais discuté. On
+  notera, au passage, que, au bout du compte, ces conteneurs d'exécutions forment un premier
+  \textbf{Middleware} pour l'application.
+}
 
 \mysubsection{Serveur d'applications}
 
@@ -144,11 +186,9 @@
 
 }
 
-\mysubsubsection{Pool(s) de connexion}
-
 \ifbook {
-   %TODO: definition d'un pool de connexion, intérêt...
-
+  %TODO: definition d'un pool de connexion, intérêt...
+  \mysubsubsection{Pool(s) de connexion}
 
   \paragraph{} Plutôt que de continuer de faire un résumé très théorique, et vraisemblablement peu
   pertinent sur ce sujet - qui ne ferait que satisfaire un goût très Mésopotamien de l'inventaire et
@@ -162,16 +202,19 @@
 
   % TODO: RMI appli avec une connecion, qui dure 60s, renvoie une * toutes les 5s - barre de
   % progression - timeout, puis 2 utilisateurs concurrent
-  - HTTP, RMI, AJP => offre pool de connexion, partagé entre les applications
+  % HTTP, RMI, AJP => offre pool de connexion, partagé entre les applications
+
+  \mysubsubsection{Threads}
 }
 
-\mysubsubsection{Threads}
-\demoframe{Threads}{
-  \begin{block}{Configuration d'un "pool" de connexion}
-    \begin{itemize}
-      \item ToDo
-    \end{itemize}
-  \end{block}
+\ifslide{
+  \demoframe{Threads}{
+    \begin{block}{Configuration d'un "pool" de connexion}
+      \begin{itemize}
+        \item ToDo
+      \end{itemize}
+    \end{block}
+  }
 }
 
 \ifbook{
