@@ -1,3 +1,23 @@
+%\section{B - Les services applicatifs} % 2/2 (10/01/2012)}
+\mysubsection{Gestion des processus métiers (BPM)}
+
+\mysubsection{Message et communication asynchrone}
+
+\mysubsection{Sécurité}
+% \begin{frame}
+%   \begin{itemize}
+%   \item Gestion d'identité (SSO, Annuaire,...)
+%   \item Modèle de Sécurité (EJB, JAAS)
+%   \end{itemize}
+% \end{frame}
+\mysubsection{Modèle de programmation}
+% \begin{frame}
+%   \begin{itemize}
+%     \item gestion de l'état
+%     \item concurrence
+%   \end{itemize}
+% \end{frame}
+
 \mysection{C - Application distribuée et intégration (11/01/2012)}
 \abstractframe{Élargissant le spectre au-delà du périmètre de l'application,
 cette partie étudie les services et composants proposés par les
@@ -5,31 +25,41 @@ cette partie étudie les services et composants proposés par les
 spécialement à la nature \textbf{distribuée} du système d'information dans lequel
 elle évolue.}{../img/overview-integration.png}
 
-\subsection{Source de données}
+\mysubsection{Source de données}
 
+\ifbook{
 \mysubsubsection{Fichiers et ressources}
 \mysubsubsection{SQL et base de données relationnelle}
 \mysubsubsection{Annuaire}
 \mysubsubsection{NoSQL}
+}
+
 \mysubsection{Programmation distribuée}
-% \begin{block}{Historique}
-%   \begin{itemize}
-%     \item RPC
-%     \item CORBA
-%     \item Java-RMI
-%     \item DCE
-%     \item COM/DCOM
-%   \end{itemize}
-% \end{block}
+
+\ifslide{
+ \begin{block}{Historique}
+   \begin{itemize}
+     \item RPC
+     \item CORBA
+     \item Java-RMI
+     \item DCE
+     \item COM/DCOM
+   \end{itemize}
+ \end{block}
+}
+
 \mysubsection{Transaction distribuée}
 \mysubsection{Architecture orientée service (SOA)}
-\mysubsubsection{WebServices}
-%   \begin{itemize}
-%     \item SOAP et WSDL
-%     \item ReST
-%   \end{itemize}
+\ifbook{
+  \mysubsubsection{WebServices}
+    \begin{itemize}
+      \item SOAP et WSDL
+      \item ReST
+    \end{itemize}
 
-\mysubsubsection{Bus logiciel (ESB)}
+  \mysubsubsection{Bus logiciel (ESB)}
+}
+
 \mysubsection{ETL, EAI et autres middlewares}
 
 \mysection{D - Mise à échelle et production (12/01/2012)}
