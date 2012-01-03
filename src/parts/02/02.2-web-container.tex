@@ -30,12 +30,21 @@
 
   \paragraph{} Illustrons ce point par l'exemple, en étudiant l'API Java des Servlets. Cette API a
   été conçue pour faciliter le plus possible le développement d'application "web". Elle permet, en
-  effet, de simplement étendre une classe existente pour créer un nouveau programme ou disons plutôt
+  effet, de simplement étendre une classe existente pour créer un nouveau programme ou disons
+  plutôt une nouvelle Servlet capable de traiter une requête HTTP:
+
+  \begin{figure}[hb]
+    \begin{center}
+      \includegraphics[scale=0.25]{img/servlet-api-tour.png}
+      \caption{Exemple de Servlet}
+      \label{servlet-demo}
+    \end{center}
+  \end{figure}
 }
 
 \ifslide{
  \demoframe{Un rapide tour de l'API Servlet}{
-   % FIXME: add a nice picture for servlet API tour
+
    \begin{block}{Squelette d'une application Web Java}
      \begin{itemize}
        \item le descripteur (\textit{web.xml})
@@ -43,6 +52,10 @@
        \item ...
      \end{itemize}
    \end{block}
+
+    \begin{center}
+      \includegraphics[scale=0.2]{img/servlet-api-tour.png}
+    \end{center}
  }
 }
 
