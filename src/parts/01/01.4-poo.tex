@@ -43,13 +43,29 @@
   ne le laisse le reste du programme interagir avec ces données que par le biais des fonctions
   qu'elles proposent. Ces fonctiones se nomment en fait désormais des \textbf{méthodes}.
 
+
   \paragraph{} L'objectif de ceci est de \textbf{masquer} la nature réelle des données, et de
   n'exposer que les traitements disponibles autour de ces données. Ainsi, si la nature des données ou
   même des détails d'implémentations des traitements proposés venaient à changer, ces modifications
   seront transparente pour le reste du programme.
+
+  \begin{figure}[h]
+    \begin{center}
+      \includegraphics[scale=0.35]{img/object-and-methods.png}
+      \caption{Données et méthodes}
+      \label{object-and-methods}
+    \end{center}
+  \end{figure}
 }
 
 \ifslide {
+
+  \begin{frame}
+    \begin{center}
+      \includegraphics[scale=0.30]{img/object-and-methods.png}
+    \end{center}
+  \end{frame}
+
   \mysubsection{Programmation impérative versus programmation orienté objet}
   \begin{frame}
     \begin{block}{Ajout d'un nouvel employé}
