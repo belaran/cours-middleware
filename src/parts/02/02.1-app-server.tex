@@ -64,6 +64,7 @@
 
 \ifbook{
   \mysubsubsection{"Garbage collection"}
+
   \paragraph{} Rapidement la gestion de la mémoire est devenu un tel frein au développement
   d'application, que de nombreuses recherches et expérimentations ont été entreprise pour construire
   une sorte de "méta application" qui assurerait la libération de la mémoire, simplifiant ainsi
@@ -79,6 +80,7 @@
   Collection}}.
 
   \mysubsubsubsection{Libération de la mémoire}
+
   \paragraph{} Comme toujours la création de ce nouveau \textbf{contexte d'exécution} a aussi été une
   opportunité d'introduire une nouvelle couche d'abstraction permettant au programme de se détacher du
   système d'exploitation.
@@ -89,6 +91,7 @@
   d'exploitation sur lequel il s'exécute.
 
   \mysubsubsection{Quelques conteneurs d'exécution}
+
   \paragraph{} La machine virtuelle Java est un exemple de tel conteneur d'exécution, mais aussi
   l'intépréteur python on PHP. Ces différents programmes exécutent un code, qu'il soit compilé ou non
   avant\footnote{C'est d'ailleurs cette seule notion de code compilé ou interprété qui distingue
@@ -116,6 +119,12 @@
   \paragraph{} Si les conteneurs d'exécution abstrait le programe du système d'exploitation sur
   lequel il s'exécute, il est donc ainsi possible d'écrire un même programme Java ou un script
   Python de telle manière qu'il s'exécute de manière similaire sur différents système d'exploitation.
+
+  \paragraph{} Il est donc ainsi possible d'écrire un même programme Java ou un script Python de telle
+  manière qu'il s'exécute de manière similaire sur différents système d'exploitation. Attention
+  néanmoins, il faut prendre soin de veiller à cette \textbf{interopérabilité} lors de la conception
+  du programme, car l'on peut toujours aisément rendre son code très adhérant aux systèmes
+  d'exploitation.
 
   \paragraph{} Attention néanmoins, si cette \textbf{interopérabilité} est rendue possible par
   l'utilisation d'un conteneur d'exécution, il faut néanmoins prendre soin de l'assurer lors de la
@@ -192,7 +201,7 @@
 
   \paragraph{} Plutôt que de continuer de faire un résumé très théorique, et vraisemblablement peu
   pertinent sur ce sujet - qui ne ferait que satisfaire un goût très Mésopotamien de l'inventaire et
-  du catalogage, nous allons voir un petit cas pratiques de configuration d'un pool de connexion.
+  des catalogues, nous allons voir un petit cas pratiques de configuration d'un pool de connexion.
 
   \paragraph{} Cette démarche sera, espérons-le, un peu moins aride, et devrait surtout permettre au
   lecteur de bien saisir les concepts sous jacents. Pour être didactique, cette section contiendra

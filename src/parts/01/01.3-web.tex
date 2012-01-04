@@ -1,30 +1,30 @@
 \ifbook{
   \mysubsubsection{Le Web}
-  \paragraph{} Avec l'arrivé des technologies du "Web", soit essentiellement au début, HTML et HTTP,
-  le mouvement de balancier évoqué une précédente section s'inverse de nouveau. Dans leurs
-  laboratoires, les concepteurs initiale de ce protocole de communication visèrent avant tout la
-  simplicitié pour assurer surtout une bonne compatibilité entre les différents systèmes existants
+  \paragraph{} Avec l'arrivée des technologies du "Web", soit essentiellement au début, HTML et HTTP,
+  le mouvement de balancier évoqué dans une précédente section s'inverse de nouveau. Dans leurs
+  laboratoires, les concepteurs initiaux de ce protocole de communication visèrent avant tout la
+  simplicité pour assurer surtout une bonne compatibilité entre les différents systèmes existants
   de part le monde.
 
   \paragraph{} En effet, avant d'aller plus loin, il est important de se rappeler que à cette
-  époque, il existait de nombreux systèmes d'exploitation, tous différents et rarement interopérable
-  entre eux. Les plus connues aujourd'hui Apple et Windows, mais à l'époque s'ajouté aussi de
+  époque, il existait de nombreux systèmes d'exploitation, tous différents et rarement interopérables
+  entre eux. Les plus connus aujourd'hui sont Apple et Windows, mais à l'époque s'ajoutaient aussi de
   nombreux types d'Unix différents (cf. \textit{\mylink{http://en.wikipedia.org/wiki/Unix\_wars}{Unix
-  Wars}}), accompagné par nombreux autres systèmes, tel que OpenVMS.
+  Wars}}), accompagnés par de nombreux autres systèmes, tel que OpenVMS.
 
   \paragraph{} Sans compter que ces systèmes avaient même des protocoles de communications
-  différents. Pour reprendre l'exemple de OpenVMS, ce système utilisé un protocole propriétaire à
+  différents. Pour reprendre l'exemple de OpenVMS, ce système utilisait un protocole propriétaire à
   son constructeur, intitulé DecNet et non le standard \textit{de facto} d'aujourd'hui, le protocole
   TCP/IP.
 
   \paragraph{} Ainsi, concevoir un système applicatif portable - c'est à dire qui fonctionnerait à
   peu près partout et permettrait de communiquer aisément entre des systèmes différents n'était pas
-  une simple tâche. C'est donc pour ces raisons, en autres, que les concepteurs de HTTP et de HTML
+  une simple tâche. C'est donc pour ces raisons, entre autres, que les concepteurs de HTTP et de HTML
   ont choisi de faire très simple.
 
-  \paragraph{} Le protocole en lui même est un simple protocole \textbf{texte}, et non binaire, il
+  \paragraph{} Le protocole en lui-même est un simple protocole \textbf{texte}, et non binaire, il
   est donc aisé de l'implémenter et, au besoin, de regarder l'échange en lui même pour comprendre la
-  source d'un problème. Comme les données échangés sont du texte, tout systèmes de l'époque, aussi
+  source d'un problème. Comme les données échangées sont du texte, tout système de l'époque, aussi
   différent soit-il des autres, était capable de le comprendre.
 }
 
@@ -32,7 +32,7 @@
   \begin{block}{Démonstrations}
     \begin{itemize}
       \item simple connection avec telnet
-      \item connection complète avec les développeurs tools de Google Chrome
+      \item connection complète avec les developpers tools de Google Chrome
     \end{itemize}
   \end{block}
 }
@@ -44,8 +44,8 @@
   au milieu universitaire de publier, facilement et rapidement,  à l'intention de leurs confrères,
   des informations.
 
-  \paragraph{} La conséquence directe de ce choix simple de données utilisés à été de limiter le
-  rôle du client à afficher, du mieux possible selon le systèmes utilisées, les informations
+  \paragraph{} La conséquence directe de ce choix simple de données utilisées à été de limiter le
+  rôle du client à afficher, du mieux possible selon le système utilisée, les informations
   fournies par le serveur HTTP. Le \textbf{client lourd} venait de faire un régime et redevenait un
   \textbf{client léger}.
 
@@ -70,21 +70,21 @@
   \mysubsubsection{Les technologies "Web" s'enrichissent}
   \mysubsubsubsection{Formulaire et session HTTP}
 
-  \paragraph{} Le protocole HTTP, et son format de donnée, HTML, a eu le succès qu'on connait, et
-  rapidement, malgré l'élégance de la simplicité de la solution, il apparu clair que d'\textbf{absence
-  d'interfaction} entre l'utilisateur et le serveur HTTP était une limite trop contraignante. En
+  \paragraph{} Le protocole HTTP, et son format de données, HTML, a eu le succès qu'on connait, et
+  rapidement, malgré l'élégance de la simplicité de la solution, il apparut clair que l'\textbf{absence
+  d'interaction} entre l'utilisateur et le serveur HTTP était une limite trop contraignante. En
   effet, tel que nous l'avons évoqué jusqu'à maintenant, le modèle ne permet en essence que de
-  télécharger un page au contenu \textbf{statique}.
+  télécharger une page au contenu \textbf{statique}.
 
   \paragraph{} Pour introduire plus d'interactivité, et permettre au serveur HTTP de modifier
   \textbf{dynamiquement} le contenu des pages présentées selon les demandes des utilisateurs, les
-  formulaires ont été introduit. Ces derniers, associés à la méthode HTTP POST, ont donc permis aux
+  formulaires ont été introduits. Ces derniers, associés à la méthode HTTP POST, ont donc permis aux
   utilisateurs d'envoyer des données au serveur HTTP, qui furent le point de départ des premières
   applications "web".
 
   \paragraph{} Mais une fois qu'il fût possible d'envoyer ces données, d'autres limites firent leur
   irruptions. La plupart des applications nécessitant souvent plusieurs échanges entre l'utilisateur
-  et le serveur, il fût nécessaire d'ajouter un mécanisme de son coté pour lui permettre de
+  et le serveur, il fut nécessaire d'ajouter un mécanisme de son côté pour lui permettre de
   conserver les données associées à l'utilisateur, ou plutôt à sa \textbf{session}.
 
 % TODO:Cookies ?
@@ -94,10 +94,10 @@
 %  de conserver une trace.
 
   \mysubsubsubsection{CSS et Javascript}
-  \paragraph{} Alors que la première génération de site web finissaient de fleurir, une
-  problématique, jusque là invisible, apparu de plus en plus clairement. Le HTML, dans toute la
+  \paragraph{} Alors que la première génération de site web finissait de fleurir, une
+  problématique, jusque là invisible, apparut de plus en plus clairement. Le HTML, dans toute la
   beauté de sa simplicité, enfreint par son essence même, une règle pourtant fondamentale de
-  l'informatique, que nous avons déjà évoqué avec les bases données : la séparation du contenu et de
+  l'informatique, que nous avons déjà évoqué avec les bases de données : la séparation du contenu et de
   sa présentation.
 
   \begin{figure}[h]
@@ -120,54 +120,55 @@
 
 \ifbook{
   \paragraph{} En effet, au sein d'une page HTML, on mélange avec allégresse texte avec sa
-  présentation qu'il s'agisse de le mettre en gras ou ialic, ou bien de le positionner au sein de la
-  page. Et cet état fait rendu rapidement très difficile de faire évoluer, du point fonctionnel, les sites -
-  puisque les graphistes ou ergonomes ne pouvait pas travailler de manière indépendantes des
-  programmeurs, mais aussi de faire évoluer leurs chartes graphiques, puisque leurs simples mise à
-  jour nécessitant de modifier l'intégralité des pages...
+  présentation qu'il s'agisse de le mettre en gras ou en italique, ou bien de le positionner au sein de la
+  page. Et cet état de fait a rendu rapidement très difficile de faire évoluer, du point fonctionnel, les sites -
+  puisque les graphistes ou ergonomes ne pouvaient pas travailler de manière indépendante des
+  programmeurs, mais aussi de faire évoluer leurs chartes graphiques, puisque leur simple mise à
+  jour nécessitait de modifier l'intégralité des pages...
 
-  \paragraph{} C'est ainsi que est apparu le CSS, \textit{Cascading Style Sheet}, ou plus
+  \paragraph{} C'est ainsi qu'est apparu le CSS, \textit{Cascading Style Sheet}, ou plus
   simplement, les feuilles de styles, dont l'objectif était non seulement de permettre de modifier
   la présentation d'une page HTML existante, mais aussi de séparer la partie présentation d'un site,
   de ses données.
 
   \paragraph{} En parallèle à l'utilisation du CSS, un autre langage a été introduit, sous forme de
-  script, placés dans la page, mais dont l'exécution est déclencheur par le navigareur et qui donc
-  fonctionne non plus le serveur, mais sur l poste client.
+  scripts, placés dans la page, mais dont l'exécution est déclenchée par le navigateur et qui donc
+  fonctionne non plus sur le serveur, mais sur le poste client.
 
-  \paragraph{} Introduit tout d'abord de manière propriétaire, ce petit langage permis de rendre les
-  sites "web" tellement plus dynamique et \textbf{conviviale}, en améliorant grandement
-  l'interfaction de l'utilisateur avec ces dernirs, qu'il fût rapidement adopté, et même normalisé
+  \paragraph{} Introduit tout d'abord de manière propriétaire, ce petit langage permit de rendre les
+  sites "web" tellement plus dynamiques et \textbf{conviviaux}, en améliorant grandement
+  l'interaction de l'utilisateur avec ces derniers, qu'il fut rapidement adopté, et même normalisé
   sous le nom, rarement utilisé, de ECMAScript.
 }
 
 \ifbook {
-  \mysubsubsection{Conteneur d'exéctution d'application}
+  \mysubsubsection{Conteneur d'exécution d'application}
   \paragraph{} Comme nous l'avons brièvement résumé, les technologies du "web" se sont construites
   sur une forte volonté d'offrir un système ouvert, standard et interopérable. À l'aide des
-  abstractions choisi, et du modèle relativement simple, une page HTML, aussi complexe soit-elle,
-  peut être rendu - à peu près, de manière similaire, quelques soit le système d'exploitation
+  abstractions choisies, et du modèle relativement simple, une page HTML, aussi complexe soit-elle,
+  peut être rendu - à peu près, de manière similaire, quelque soit le système d'exploitation
   utilisé.
 
-  \paragraph{} Mais, du coté serveur, les technologies étaient toujours très \textbf{adhérente} à ce
+  \paragraph{} Mais, du coté serveur, les technologies étaient toujours très \textbf{adhérentes} à ce
   dernier. Que vous exécutiez sur Apache HTTP, à l'aide du mod CGI, des scripts Shell sous Unix, ou
   que vous écriviez des pages ASP sur un serveur Microsoft, le code réalisé restait indéniablement
   spécifique à son cadre d'exécution.
 
-  \paragraph{} Progressivement, un certain nombres de cadre d'exécution (et de dévelopements)
+  \paragraph{} Progressivement, un certain nombres de cadre d'exécution (et de développements)
   d'application "web" virent le jour, tel que PHP et Java. Ces deux derniers, pour continuer avec
   eux, forment des langages de programmation à part entière, mais le modèle qu'ils proposent apporte
   surtout une réelle interopérabilité coté serveur.
 
   \paragraph{} En effet, avec ce genre de technologie, il devint possible d'exécuter son programme
-  sur n'importe quel type de serveur avec un comportement (presque) identique. On pu donc enfin
-  aisément migrer de systèmes d'exploitation, dans le cas où celui ci ne se comporte pas de manière
-  suffisante pour l'application, ou recruter un développeur sans que celui ci n'est besoin d'autre
+  sur n'importe quel type de serveur avec un comportement (presque) identique. On put donc enfin
+  aisément migrer de systèmes d'exploitation, dans le cas où celui-ci ne se comporte pas de manière
+  suffisante pour l'application, ou recruter un développeur sans que celui-ci n'est besoin d'autres
   compétences que la seule maitrise de la technologie.
 
   \paragraph{} En outre, ces technologies promeuvent, pour la plupart, un certain \textbf{modèle de
-  programmation}, et l'ecosystème qui les entourent apportent son lot de composants prêt à utiliser
-  et destiné à faciliter le développement d'application robuste et capable de monter en charge.
+  programmation}, et l'ecosystème qui les entoure apporte son lot de composants prêts à utiliser 
+  et destinés à faciliter grandement le développement d'applications "web" robustes et capables de 
+  monter en charge.
 
   \begin{figure}[h]
     \begin{center}
@@ -191,15 +192,15 @@
 
 \ifbook {
   \paragraph{} Après ce vaste état des lieux, nous allons enfin pouvoir rentrer dans le thème de ce
-  cour: le \textit{Middleware}. En premier lieu, essayons de trouver une définition un plus parlante
-  de ce terme, qui n'est pas réellement de traduction française.
+  cours: le \textit{Middleware}. En premier lieu, essayons de trouver une définition un plus parlante
+  de ce terme, qui n'a pas réellement de traduction française.
 
-  \paragraph{} Si on on traduit très littéralement ce terme, on obtient quelques chose de l'ordre du
-  "matériel du milieu". Bon, c'est peu parlant, mais clairement le suffix "\textit{-ware}" fait echo
+  \paragraph{} Si l'on traduit très littéralement ce terme, on obtient quelque chose de l'ordre du
+  "matériel du milieu". Bon, c'est peu parlant, mais clairement le suffixe "\textit{-ware}" fait echo
   aux termes \textit{"software"} - le matériel logiciel, et \textit{"hardware"}, le matériel
   physique, ce qui signifie que, en fait, le mot clé ici, est le "milieu".
 
-  \paragraph{} Mais de quoi exactement sommes nous au milieu ici ? Revoyons simplement notre dessin
+  \paragraph{} Mais de quoi exactement sommes-nous au milieu ici ? Revoyons simplement notre dessin
   d'architecture à n-tiers:
 
   \begin{figure}[h]
