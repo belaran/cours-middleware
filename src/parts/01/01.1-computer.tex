@@ -20,22 +20,41 @@
   ordinateur, aussi complexe soit-il peut être résumé aux trois composants suivants:
   \begin{description}
     \item[Processeur] unité de traitement de l'ordinateur, c'est lui qui réalise les calculs et qui
-    produit les résultats.
-    \item[Mémoire] espace de travail du processeur, la mémoire lui permet de placer les résultats,
-    intermédiaires ou finaux, de ses calculs
+    produit les résultats ;
+    \item[Mémoire] espace de travail du processeur, la mémoire lui permet de stocker les résultats,
+    intermédiaires ou finaux, de ses calculs ;
     \item[Entrées/Sorties] pour communiquer avec le "monde extérieur" (clavier, écran, disques durs,
-    réseaux,...) l'ordinateur dispose de différents composant matériels dédiés aux différentes
-    entrées/sorties avec qui il interagit.
+    réseaux,...) le processeur dispose de différents composants matériels dédiés aux différentes
+    entrées/sorties.
   \end{description}
 
   \paragraph{Distinction mémoire vive et mémoire morte} Sans rentrer dans les détails techniques, il
-  est important de noter que les périphériques de stockage, tels que les disques durs,
-  ne sont pas conceptuellement très différents de la mémoire. Dans les deux cas, ils permettent au
-  processeur de stocker des résultats.
+  est important de noter que les périphériques de stockage, tels que les disques durs, ne sont pas 
+  conceptuellement très différents de la mémoire. Dans les deux cas, ils permettent au processeur de 
+  stocker des résultats.
 
-  \paragraph{} Ce qui sépare donc ces deux composants est leur \textbf{persistance}. L'information
-  située en mémoire est \textbf{volatile}, elle disparaît si l'ordinateur s'éteint brusquement. À
-  l'inverse, les données placées sur un périphérique de stockage, persiste au-delà de l'extinction de
+  \paragraph{Distinction des types de mémoires} Il existe différents types de mémoires qui peuvent 
+  être séparées selon qu'elles sont rapide ou lente : plus la mémoire est "proche" du processeur, 
+  plus elle est rapide. Nous avons donc par ordre décroissant de vitesse : 
+
+  \begin{itemize}
+    \item la RAM,
+    \item le disque dur,
+    \item le stockage sur une machine distincte.
+  \end{itemize}
+
+  \paragraph{Distinction mémoire vive et mémoire morte}  En outre, il faut noter qu'une mémoire 
+  \textbf{volatile} a besoin d'électricité pour être concervée, à la différence du \textbf{stockage 
+  de masse} qui lui conserver l'information une fois l'alimentation coupé. La mémoire volatile est 
+ donc perdu à chaque arrêt d'un ordinateur alors que les données placées dans la mémoire de masse 
+ sont conservés.. 
+
+  \paragraph{} La mémoire vive d'un ordinateur (la "RAM") est une mémoire volatile, et les disques 
+  dur sont des mémoires de masse.
+
+  \paragraph{} Ce qui sépare donc ces deux composants est leur \textbf{persistence}. L'information
+  située en mémoire dite vive (comme la RAM) est \textbf{volatile} : elle disparait si l'ordinateur s'éteint brusquement. À
+  l'inverse, les données placées sur un périphérique de stockage, persiste au délà de l'extinction de
   l'ordinateur.
 }
 
@@ -56,13 +75,13 @@
 
     \paragraph{} En repartant de ce que nous venons de détailler sur le fonctionnement d'un
     ordinateur, plusieurs points peuvent rapidement être gênants. Le principal est que le processeur
-    n'exécute qu'un seul programme à la fois, donc tel quel, seule une application peut s'exécuter
-    sur un ordinateur.
+    n'exécute qu'un seul programme à la fois, donc tel quel, une seule application peut s'exécuter
+    sur un ordinateur à la fois.
 
     \paragraph{} Le système d'exploitation est une couche logicielle qui va permettre aux programmes
     s'exécutant sur l'ordinateur de se partager les ressources mises à disposition par l'ordinateur
     (processeur, mémoire, périphériques de stockage,...). En outre, le système d'exploitation va
-    jouer le rôle d'arbitre entre ses différents programmes, leur attribuant, chacun à leur tour, un
+    jouer le rôle d'arbitre entre ces différents programmes, leur attribuant chacun à leur tour un
     certain temps d'utilisation de ces ressources.
 
     \paragraph{} Ainsi, c'est grâce aux systèmes d'exploitation que de multiples programmes vont
@@ -70,7 +89,7 @@
     processeurs.
 
     \paragraph{} Il est important de noter qu'aucun ordinateur ne pourra effectuer plus de tâches en
-    parallèle que son nombre de processeurs, mais les cycles d'exécutions étant extrêmement rapides,
+    parallèle que son nombre de processeurs, mais les cycles d'exécutions étant extrêmement courts,
     un seul ordinateur, équipé d'un seul processeur, peut donner l'impression à son utilisateur
     d'exécuter simultanément plusieurs tâches. C'est l'impression que vous donne tous les jours,
     les ordinateurs dédiés à la bureautique que vous utilisez.
@@ -141,7 +160,7 @@
 
   \paragraph{} Illustrons rapidement ce point par un exemple concret. Supposons que l'on confie à
   l'ordinateur de trier un tableau de données, composé d'une seule colonne, par ordre de grandeur
-  croissante du contenu de chaque cellule
+  croissante du contenu de chaque cellule:
 
   \begin{figure}[h]
     \begin{center}
@@ -162,8 +181,20 @@
   \end{frame}
 }
 
+
 \ifbook{
-  \paragraph{} Si l'ordinateur ne peut stocker qu'un seul résultat intermédiaire, en l'occurrence la
+
+  %TODO:Relire
+  \paragraph{} Prenons d'abord comme exemple un ordinateur qui ne pourrait stocker que le contenu 
+  des quelques cellules du tableau en mémoire rapide. Il devrait alors lire une cellule, lire la 
+  cellule voisine, les comparer et les réécrire dans le bon ordre. Pour cette opération deux lectures
+  et deux écritures ont été nécessaire dans une mémoire lente.
+
+  \paragraph{} Si l'ordinateur avait plus de mémoire alors il aurait pu stocker tout le tableau en mémoire rapide et réaliser les opérations de lecture beaucoup plus rapidement avant d'écrire, en une seule fois, le tableau reclassé en mémoire lente
+
+  \paragraph{Remarque} Cet exemple est volontairement grossier afin de souligner l'importance de la mémoire sur la vitesse de traitement. 
+
+  \paragraph{} Si l'ordinateur ne peut stocker qu'un seul résultat intermédiaire, en l'occurence la
   taille du contenu de la cellule, il ne peut réordonner le tableau qu'en échangeant les cellules
   de positons. En effet, il peut calculer la taille d'une cellule, la stocker, calculer la taille de
   la seconde cellule, la comparer à la précédente et changer l'ordre des deux cellules, si
@@ -171,7 +202,7 @@
 
   \paragraph{} Après un laborieux travail, cet \textbf{algorithme}, illustré sur la figure
   \ref{algo-exemple}  (page \pageref{algo-exemple}), sera donc capable de réordonner l'ensemble du
-  tableau, mais en effectuant un important nombre de calculs. À l'inverse, si le processeur est
+  tableau, mais en effectuant un important nombre d'opérations. À l'inverse, si le processeur est
   libre de placer autant de résultats en mémoire que d'entrées dans le tableau, il pourra se
   contenter de calculer, une fois pour toute, la taille de chaque cellule, puis de les trier de
   manière plus "globale"...

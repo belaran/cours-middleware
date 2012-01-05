@@ -9,9 +9,9 @@
   \paragraph{} En effet, au début de l'informatique, les machines puissantes coûtaient relativement
   cher, et avaient des capacités de calcul permettant d'effectuer des calculs complexes et de
   répondre aux besoins de nombreux utilisateurs. Ainsi est né le modèle client/serveur, où
-  l'utilisateur, à l'aide d'un terminal - une machine peu puissante et peu couteuse, se connecte à
-  une machine lui servant des données et exécutant les traitements demandés - un serveur. Le terminal
-  se contentant, dans ce modèle, d'afficher le résultat.
+  l'utilisateur, à l'aide d'un terminal - une machine peu puissante et peu coûteuse de comme le minitel
+   - se connecte à une machine lui servant des données et exécutant les traitements demandés - un serveur. 
+  Le terminal se contentant, dans ce modèle, d'afficher le résultat.
 
   \begin{figure}[h]
     \begin{center}
@@ -75,7 +75,7 @@
 
   \mysubsubsection{Les limites du modèle}
 
-  \paragraph{} Si cette nouvelle déclinaison du modèle aboutit clairement à une productivité
+  \paragraph{} Si cette nouvelle déclinaison du modèle aboutit clairement à une meilleure productivité
   des utilisateurs, du moins dans la plupart des cas, elle posa aussi rapidement des problématiques
   complexes en terme de maintenance. En effet, pour pouvoir faire évoluer le logiciel, il faut
   désormais modifier à la fois le client et à la fois le serveur, et assurer leur redéploiement
@@ -106,16 +106,17 @@
   mécanismes pour assurer leur \textbf{persistance}.
 
   \paragraph{} L'unité atomatique de cette persistance est le \textbf{fichier}. Cette abstraction
-  permet de sauvegarder sur une unité de stockage (en langage vernaculaire, un "disque dur") un ensemble d'information de manière séquentielle. On peut retrouver les informations stockées à
-  l'aide du nom du fichier.
+  permet de sauvegarder sur une unité de stockage (en langage vernaculaire, un "disque dur") un ensemble 
+  d'information de manière séquentielle. On peut retrouver les informations stockées à l'aide du nom 
+  du fichier.
 
   \paragraph{} En fait, on peut aisément comparer un fichier à une simple feuille, sur laquelle on
   écrit les données que l'on souhaite voir persister, un peu de la même manière dont on écrit sur une
   feuille sa liste de courses, pour justement, ne pas l'oublier.
 
   \paragraph{} Pour permettre de trier et de ranger ses fichiers, dans la prolongation de l'image
-  choisie pour les fichiers, des fichiers spéciaux, les \textbf{répertoires} ont été conçus pour
-  permettre de ranger aisément et de hiérarchiser les fichiers.
+  choisie pour les fichiers, des fichiers spéciaux, les \textbf{répertoires} ont été conçu pour
+  permettre de ranger aisément et hierarchiquement ces fichiers.
 
   \paragraph{} Malheureusement, la manière séquentielle d'organiser les informations d'un fichier
   se révéla contraignante. En effet, alors que les applications se complexifiaient, et qu'une donnée
@@ -125,7 +126,7 @@
   \paragraph{} En outre, les données nécessitent bien souvent d'être partagées entre plusieurs
   applications, et il est fort complexe de partager un fichier de données entre plusieurs
   applications. Comment gérer les accès concurrents ? Comment assurer la cohérence des données qui
-  ont persisté ?
+  ont été persistées ?
   % base de donnée
   \paragraph{} Pour palier à ces nombreux problèmes et surtout clairement séparer les données des
   applicatifs, les premières bases de données relationnelles firent leur apparition. En plus de
