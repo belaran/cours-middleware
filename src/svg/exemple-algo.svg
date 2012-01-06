@@ -16540,8 +16540,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="550.494"
-     inkscape:cy="399.96283"
+     inkscape:cx="552.51431"
+     inkscape:cy="181.9821"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -16577,26 +16577,14 @@
     <path
        inkscape:connector-curvature="0"
        id="path6767-9-0"
-       d="m 1209.6469,-74.694549 2.8571,700.000009"
+       d="m 1209.6469,-159.54736 2.8571,700.00001"
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 8;stroke-dashoffset:0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 8;stroke-dashoffset:0"
-       d="M 215.07546,-95.551692 217.9326,604.44832"
+       d="m 215.07546,-180.40451 2.85714,700.00002"
        id="path6767"
        inkscape:connector-curvature="0" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot3756"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="translate(317.7143,-480.49497)"><flowRegion
-         id="flowRegion3758"><rect
-           id="rect3760"
-           width="630.33521"
-           height="76.771591"
-           x="153.54318"
-           y="271.65448"
-           style="fill:#000000;fill-opacity:1" /></flowRegion><flowPara
-         id="flowPara3762">Exemple d'algorithme de tri</flowPara></flowRoot>    <text
+    <text
        style="font-size:6px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
        xml:space="preserve"
        id="text10689"
@@ -16676,7 +16664,7 @@
        xml:space="preserve"
        id="flowRoot6633"
        style="font-size:170px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="matrix(1.0870295,0,0,0.96357654,8.486452,-211.18368)"><flowRegion
+       transform="matrix(1.0870295,0,0,0.96357654,8.486452,-296.03649)"><flowRegion
          id="flowRegion6635"><rect
            id="rect6637"
            width="334.28574"
@@ -16691,20 +16679,20 @@
        width="140"
        height="97.14286"
        x="147.9326"
-       y="-121.09844" />
+       y="-205.95126" />
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="204.26071"
-       y="-57.946934"
+       y="-142.79974"
        id="text6659"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan6661"
          x="204.26071"
-         y="-57.946934">B</tspan></text>
+         y="-142.79974">B</tspan></text>
     <g
-       transform="translate(-78.000003,123.42529)"
+       transform="translate(-78.000003,38.572476)"
        id="g6709-7">
       <rect
          y="-118.35212"
@@ -16726,7 +16714,7 @@
            sodipodi:role="line">A</tspan></text>
     </g>
     <g
-       transform="translate(-78.000003,249.59683)"
+       transform="translate(-78.000003,164.74402)"
        id="g6709-1">
       <rect
          y="-118.35212"
@@ -16748,7 +16736,7 @@
            sodipodi:role="line">C</tspan></text>
     </g>
     <g
-       transform="translate(-78.000003,375.7684)"
+       transform="translate(-78.000003,290.91559)"
        id="g6709-4">
       <rect
          y="-118.35212"
@@ -16775,28 +16763,28 @@
        width="140"
        height="97.14286"
        x="403.64688"
-       y="-59.837402" />
+       y="-144.69022" />
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="414.26071"
-       y="3.3141048"
+       y="-81.538712"
        id="text6659-1"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan6661-77"
          x="414.26071"
-         y="3.3141048">A &gt; B</tspan></text>
+         y="-81.538712">A &gt; B</tspan></text>
     <path
        inkscape:connector-curvature="0"
        id="path6767-9"
-       d="m 724.25927,-101.04434 2.85714,700.00001"
+       d="m 724.25927,-185.89715 2.85714,700.00001"
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:8, 8;stroke-dashoffset:0" />
     <flowRoot
        style="font-size:170px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;font-family:Sans"
        id="flowRoot6633-6"
        xml:space="preserve"
-       transform="matrix(-1,0,0,1,911.00773,-230.22318)"><flowRegion
+       transform="matrix(-1,0,0,1,911.00773,-315.07599)"><flowRegion
          id="flowRegion6635-6"><rect
            style="font-size:170px;fill:#ff0000"
            y="96.321709"
@@ -16807,7 +16795,7 @@
          style="font-size:170px;fill:#ff0000"
          id="flowPara6639-1">}</flowPara></flowRoot>    <g
        id="g7074"
-       transform="translate(0,2.746325)">
+       transform="translate(0,-82.106489)">
       <g
          id="g6709-9"
          transform="translate(431.18381,-5.492649)">
@@ -16909,7 +16897,7 @@
            width="122.85715"
            id="rect6890" /></flowRegion><flowPara
          id="flowPara6892" /></flowRoot>    <flowRoot
-       transform="translate(542.41551,-100.59377)"
+       transform="translate(542.41551,-185.44658)"
        xml:space="preserve"
        id="flowRoot6633-3"
        style="font-size:170px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
@@ -16927,18 +16915,18 @@
        width="140"
        height="97.14286"
        x="912.21832"
-       y="68.734024" />
+       y="-16.11879" />
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="922.83209"
-       y="131.88551"
+       y="47.0327"
        id="text6659-1-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan6661-77-1"
          x="922.83209"
-         y="131.88551">C &lt; B</tspan></text>
+         y="47.0327">C &lt; B</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot6973"
@@ -16951,7 +16939,7 @@
            y="52.035992" /></flowRegion><flowPara
          id="flowPara6979" /></flowRoot>    <g
        id="g7056"
-       transform="translate(0,1.710605)">
+       transform="translate(0,-83.142209)">
       <g
          id="g6709-9-2"
          transform="translate(915.81998,-4.4569291)">
@@ -17045,7 +17033,7 @@
        style="font-size:170px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;font-family:Sans"
        id="flowRoot6633-6-8"
        xml:space="preserve"
-       transform="matrix(-1,0,0,1,1401.4497,-102.02235)"
+       transform="matrix(-1,0,0,1,1401.4497,-186.87516)"
        inkscape:transform-center-x="454.28572"
        inkscape:transform-center-y="-180"><flowRegion
          id="flowRegion6635-6-0"><rect
