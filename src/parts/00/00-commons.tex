@@ -74,9 +74,18 @@
   \end{frame}
 }
 
+\newcommand{\sectionslide}[1]{
+  \begin{frame}
+    \begin{center}
+      \textbf{#1}
+    \end{center}
+  \end{frame}
+}
+
 \newcommand{\mysection}[1]{
   \ifthenelse{ \boolean{slides} }{
      \section{#1}
+     \sectionslide{#1}
   }{
      \chapter{#1}
   }
@@ -85,6 +94,7 @@
 \newcommand{\mysubsection}[1]{
   \ifthenelse{ \boolean{slides} }{
      \subsection{#1}
+     \sectionslide{#1}
   }{
      \section{#1}
   }
