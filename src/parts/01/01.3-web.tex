@@ -28,13 +28,15 @@
   différent soit-il des autres, était capable de le comprendre.
 }
 
-\demoframe{Le protocole HTTP}{
-  \begin{block}{Démonstrations}
-    \begin{itemize}
-      \item simple connection avec telnet
-      \item connection complète avec les \textit{Developers tools} de Google Chrome
-    \end{itemize}
-  \end{block}
+\ifslide{
+  \demoframe{Le protocole HTTP}{
+    \begin{block}{Démonstrations}
+      \begin{itemize}
+        \item simple connection avec telnet
+        \item connection complète avec les \textit{Developers tools} de Google Chrome
+      \end{itemize}
+    \end{block}
+  }
 }
 
 \ifbook{
@@ -88,7 +90,7 @@
   conserver les données associées à l'utilisateur, ou plutôt à sa \textbf{session}.
 
 % TODO:Cookies ?
-%  \paragraph{} DPL: Le protocole HTTP est un protocole d'échange de page et sans notion de session. 
+%  \paragraph{} DPL: Le protocole HTTP est un protocole d'échange de page et sans notion de session.
 %  Le cookie a été utilisé pour palier à ce manque.
 %  L'ajout donc de la notion de session HTTP permit, là encore, de contourner les limites
 %  du modèle original, mais elle ne suffit pas entièrement. De la même manière dont le serveur avait
@@ -168,8 +170,8 @@
   compétences que la seule maîtrise de la technologie.
 
   \paragraph{} En outre, ces technologies promeuvent, pour la plupart, un certain \textbf{modèle de
-  programmation}, et l'écosystème qui les entoure apporte son lot de composants prêts à utiliser 
-  et destinés à faciliter grandement le développement d'applications "web" robustes et capables de 
+  programmation}, et l'écosystème qui les entoure apporte son lot de composants prêts à utiliser
+  et destinés à faciliter grandement le développement d'applications "web" robustes et capables de
   monter en charge.
 
   \begin{figure}[h]
@@ -190,6 +192,7 @@
   \end{frame}
 }
 
+\newpage
 \mysubsection{Qu'est ce que le middleware ?}
 
 \ifbook {
