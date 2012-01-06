@@ -16220,7 +16220,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497474"
-     inkscape:cx="154.29364"
+     inkscape:cx="158.33425"
      inkscape:cy="289.29403"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -16336,7 +16336,7 @@
        sodipodi:cy="300.71426"
        sodipodi:rx="146.42857"
        sodipodi:ry="105"
-       d="m 468.57143,300.71426 a 146.42857,105 0 1 1 -292.85715,0 146.42857,105 0 1 1 292.85715,0 z"
+       d="m 468.57143,300.71426 c 0,57.9899 -65.55831,105 -146.42858,105 -80.87027,0 -146.42857,-47.0101 -146.42857,-105 0,-57.98989 65.5583,-105 146.42857,-105 80.87027,0 146.42858,47.01011 146.42858,105 z"
        transform="translate(470.99651,-111.69286)" />
     <flowRoot
        xml:space="preserve"
