@@ -2,7 +2,7 @@
   \mysubsection{Remarque préliminaires}
   \paragraph{} \textit{Le champ d'expertise de l'auteur de ce document est Java/JEE, et plus spécifiquement,
   les produits JBoss. Cet état de fait n'est pas sans conséquence sur le contenu du cours, qui
-  s'appuye souvent des composants logicielle spécifique à Java.}
+  s'appuie souvent des composants logicielle spécifique à Java.}
 
   \paragraph{} \textit{Ainsi, bien que la plupart des concepts évoqués dans cette partie se retrouvent
   généralement, sous une forme ou une autre, dans d'autres univers technologique, certains seront
@@ -19,11 +19,11 @@
   \mysubsubsection{Difficultés des applications natives}
 
   \paragraph{} Reprenons là où nous avons arrêté, dans le section précédente, la description d'un
-  serveur. Nous avions donc une machine physique ou virtuelle dont les resources (mémoire,
+  serveur. Nous avions donc une machine physique ou virtuelle dont les ressources (mémoire,
   entrées/sorties, processeurs) sont partagé par l'intermédiaire du système d'exploitation, qui joue
   le rôle d'arbitre entre les différentes applications.
 
-  \paragraph{} Si ce modèle fonctionne très bien, et de nombreuses applications très efficase ont été
+  \paragraph{} Si ce modèle fonctionne très bien, et de nombreuses applications très efficace ont été
   réalisée sans couche d'abstraction supplémentaire, il pose néanmoins quelques problèmes. Tout
   d'abord, même si l'application utilise le système d'exploitation pour manipuler ressources et sous
   processus, son exécution peut toujours mettre en péril le bon fonctionnement de l'ensemble du
@@ -40,11 +40,11 @@
 
   \paragraph{} De prime abord, ceci peut sembler trivial, mais c'est en fait très complexe, et
   beaucoup de programme native ont souvent des \textbf{fuites mémoires} qui pose de grave problème
-  de performance lors de l'exécution du programme, ou qui, pire encore, entraine le \textit{crash} du
+  de performance lors de l'exécution du programme, ou qui, pire encore, entraîne le \textit{crash} du
   programme lors de son utilisation.
 
   \paragraph{} Mais comment se font ces fuites mémoires ? Simplement lorsque le ou les développeurs
-  ont oubliés, quelque part au sein de l'application, de libérer des resources. Il peut s'agit par
+  ont oubliés, quelque part au sein de l'application, de libérer des ressources. Il peut s'agit par
   exemple. Ainsi, la mémoire reste alloué, tout le temps, et plus le programme s'exécute, plus ils
   "bloque" de la mémoire, jusqu'à atteindre un point où le système d'exploitation ne lui permet plus
   d'en allouer de nouveau.
@@ -76,7 +76,7 @@
   un terme générique, comme système d'exploitation.}} se charge donc garder traces de toute
   allocations mémoires, mais aussi du nombre de référence vers ces dernières. Lorsque il n'existe
   plus, au sein, du programme, de référence vers un espace mémoire allouée, il ne reste plus qu'à
-  faire le \textbf{nettoyage}. En anglais, on emploi fréquement le terme de \textit{\textbf{Garbage
+  faire le \textbf{nettoyage}. En anglais, on emploi fréquemment le terme de \textit{\textbf{Garbage
   Collection}}.
 
   \mysubsubsubsection{Libération de la mémoire}
@@ -93,7 +93,7 @@
   \mysubsubsection{Quelques conteneurs d'exécution}
 
   \paragraph{} La machine virtuelle Java est un exemple de tel conteneur d'exécution, mais aussi
-  l'intépréteur python on PHP. Ces différents programmes exécutent un code, qu'il soit compilé ou non
+  l'interpréteur python on PHP. Ces différents programmes exécutent un code, qu'il soit compilé ou non
   avant\footnote{C'est d'ailleurs cette seule notion de code compilé ou interprété qui distingue
   principalement la machine virtuelle Java des interpréteurs comme Python}, en abstrayant le système
   d'exploitation sous jacent.
@@ -116,7 +116,7 @@
 }
 
 \ifbook{
-  \paragraph{} Si les conteneurs d'exécution abstrait le programe du système d'exploitation sur
+  \paragraph{} Si les conteneurs d'exécution abstrait le programme du système d'exploitation sur
   lequel il s'exécute, il est donc ainsi possible d'écrire un même programme Java ou un script
   Python de telle manière qu'il s'exécute de manière similaire sur différents système d'exploitation.
 
@@ -168,7 +168,7 @@
   peut créer des sous processus, mais en essence, le conteneur n'est pas conçu pour exécuter
   différentes applications de manière concurrente.
 
-  \paragraph{} Nous allons voir apparaitre la notion de \textbf{serveur d'applications} - avec un 's'
+  \paragraph{} Nous allons voir apparaître la notion de \textbf{serveur d'applications} - avec un 's'
   à applications, car l'enjeu est bien ici de pouvoir exécuter et \textbf{administrer} plusieurs
   application s'exécutant au sein d'un même et seule unique contexte d'exécution.
 
@@ -176,20 +176,20 @@
   sujet. La définition suivante est issue de \mylink{http://TODO/}{Wikipédia} (accédé le 21/12/2011):
 
   \paragraph{} \textit{Un serveur d'applications est un logiciel d'infrastructure offrant un contexte
-  d'exécutiuon pour composants applicatifs. [...] Dans un sens strict les composants hébergés par le
-  serveur d'applicatons ne sont pas de simples procédures ou scripts mais de réels composants
+  d'exécution pour composants applicatifs. [...] Dans un sens strict les composants hébergés par le
+  serveur d'applications ne sont pas de simples procédures ou scripts mais de réels composants
   logiciels conformes à un modèle de composants (EJB, COM, Fractal,...)}
 
   \paragraph{} Comme l'illustre assez bien la définition, ce serveur d'application, qu'il s'agisse
   d'un serveur d'application Java/JEE ou d'un serveur python tel que WebWare, est au final un
   \textbf{produit d'intégration}. En effet, ce serveur a aussi pour rôle de faciliter, pour les
   applications qu'il héberge, l'utilisation de programmes connexes, tel que les bases de données ou un
-  serveur d'authenfication. Ainsi, le serveur d'applications permet l'intégration des applications à
+  serveur d'authentification. Ainsi, le serveur d'applications permet l'intégration des applications à
   d'autres applications qui lui seront nécessaires.
 
   \paragraph{} Comme l'indique la définition, il est important de noter aussi qu'un serveur
   d'application abrite des \textbf{composants applicatifs}, et non de simple API. Le comportement de
-  ces composants est ainsi beacoup plus configurable et ils offrent, pour la plupart, et à l'inverse
+  ces composants est ainsi beaucoup plus configurable et ils offrent, pour la plupart, et à l'inverse
   des API, des mécanismes d'administration. En outre, les composants, là encore à l'inverse des APIs,
   sont plus "actifs". Nous reviendrons sur ce point tout au long du cours.
 
@@ -203,8 +203,8 @@
   pertinent sur ce sujet - qui ne ferait que satisfaire un goût très Mésopotamien de l'inventaire et
   des catalogues, nous allons voir un petit cas pratiques de configuration d'un pool de connexion.
 
-  \paragraph{} Cette démarche sera, espérons-le, un peu moins aride, et devrait surtout permettre au
-  lecteur de bien saisir les concepts sous jacents. Pour être didactique, cette section contiendra
+  \paragraph{} Cette démarche sera, espérons le, un peu moins aride, et devrait surtout permettre au
+  lecteur de bien saisir les concepts sous jacent. Pour être didactique, cette section contiendra
   donc des extraits de codes et de configuration, mais là encore, l'objectif pédagogique ne sera pas
   retenir, ni même de forcément comprend l'intégralité de ces extraits, mais de bien cerner, de
   manière concrète, les concepts de plus haut niveau qui s'y rapportent.
