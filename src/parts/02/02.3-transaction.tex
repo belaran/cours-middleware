@@ -100,11 +100,22 @@
     \item \textbf{commit}
     \item \textbf{rollback}
   \end{itemize}
+
+  \begin{figure}[hb]
+    \begin{center}
+      \includegraphics[scale=0.3]{img/tx-isolation.png}
+      \caption{Isolation d'une transaction}
+      \label{tx-isolation}
+    \end{center}
+  \end{figure}
 }
 
-\ifslide {
-%% TODO: 2 phases commit
-
+\ifslide{
+  \begin{frame}{Coût en performance d'une transaction}
+   \begin{center}
+     \includegraphics[scale=0.25]{img/tx-isolation.png}
+   \end{center}
+  \end{frame}
 }
 
 \ifbook {
@@ -220,7 +231,7 @@
 %% TODO: nested tx
 
 \ifbook{
-  \mysubsubsection{Messied transaction}
+  \mysubsubsection{Nested transaction}
 
   \paragraph{} Moins souvent utilisée et rencontrée, les \textit{nested transaction} méritent
   néanmoins d'être brièvement mentionnées. Elles concevoir une transaction en encapsulant en son
