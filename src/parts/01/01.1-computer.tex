@@ -29,13 +29,13 @@
   \end{description}
 
   \paragraph{Distinction mémoire vive et mémoire morte} Sans rentrer dans les détails techniques, il
-  est important de noter que les périphériques de stockage, tels que les disques durs, ne sont pas 
-  conceptuellement très différents de la mémoire. Dans les deux cas, ils permettent au processeur de 
+  est important de noter que les périphériques de stockage, tels que les disques durs, ne sont pas
+  conceptuellement très différents de la mémoire. Dans les deux cas, ils permettent au processeur de
   stocker des résultats.
 
-  \paragraph{Distinction des types de mémoires} Il existe différents types de mémoires qui peuvent 
-  être séparées selon qu'elles sont rapide ou lente : plus la mémoire est "proche" du processeur, 
-  plus elle est rapide. Nous avons donc par ordre décroissant de vitesse : 
+  \paragraph{Distinction des types de mémoires} Il existe différents types de mémoires qui peuvent
+  être séparées selon qu'elles sont rapide ou lente : plus la mémoire est "proche" du processeur,
+  plus elle est rapide. Nous avons donc par ordre décroissant de vitesse :
 
   \begin{itemize}
     \item la RAM,
@@ -43,13 +43,13 @@
     \item le stockage sur une machine distincte.
   \end{itemize}
 
-  \paragraph{Distinction mémoire vive et mémoire morte}  En outre, il faut noter qu'une mémoire 
-  \textbf{volatile} a besoin d'électricité pour être conservée, à la différence du \textbf{stockage 
-  de masse} qui lui conserver l'information une fois l'alimentation coupé. La mémoire volatile est 
- donc perdu à chaque arrêt d'un ordinateur alors que les données placées dans la mémoire de masse 
- sont conservés.. 
+  \paragraph{Distinction mémoire vive et mémoire morte}  En outre, il faut noter qu'une mémoire
+  \textbf{volatile} a besoin d'électricité pour être conservée, à la différence du \textbf{stockage
+  de masse} qui lui conserver l'information une fois l'alimentation coupé. La mémoire volatile est
+ donc perdu à chaque arrêt d'un ordinateur alors que les données placées dans la mémoire de masse
+ sont conservés..
 
-  \paragraph{} La mémoire vive d'un ordinateur (la "RAM") est une mémoire volatile, et les disques 
+  \paragraph{} La mémoire vive d'un ordinateur (la "RAM") est une mémoire volatile, et les disques
   dur sont des mémoires de masse.
 
   \paragraph{} Ce qui sépare donc ces deux composants est leur \textbf{persistance}. L'information
@@ -185,14 +185,18 @@
 \ifbook{
 
   %TODO:Relire
-  \paragraph{} Prenons d'abord comme exemple un ordinateur qui ne pourrait stocker que le contenu 
-  des quelques cellules du tableau en mémoire rapide. Il devrait alors lire une cellule, lire la 
+  \paragraph{} Prenons d'abord comme exemple un ordinateur qui ne pourrait stocker que le contenu
+  des quelques cellules du tableau en mémoire rapide. Il devrait alors lire une cellule, lire la
   cellule voisine, les comparer et les réécrire dans le bon ordre. Pour cette opération deux lectures
   et deux écritures ont été nécessaire dans une mémoire lente.
 
-  \paragraph{} Si l'ordinateur avait plus de mémoire alors il aurait pu stocker tout le tableau en mémoire rapide et réaliser les opérations de lecture beaucoup plus rapidement avant d'écrire, en une seule fois, le tableau reclassé en mémoire lente
+  \paragraph{} Si l'ordinateur avait plus de mémoire alors il aurait pu stocker tout le tableau dans
+  sa mémoire la plus rapide, et ainsi réaliser les opérations de lecture beaucoup plus rapidement
+  avant d'enfin écrire, en une seule fois, le tableau reclassé dans sa mémoire de stockage de masse,
+  elle beaucoup plus lente.
 
-  \paragraph{Remarque} Cet exemple est volontairement grossier afin de souligner l'importance de la mémoire sur la vitesse de traitement. 
+  \paragraph{Remarque} \textit{Cet exemple est volontairement grossier afin de souligner
+  l'importance de la mémoire sur la vitesse de traitement.}
 
   \paragraph{} Si l'ordinateur ne peut stocker qu'un seul résultat intermédiaire, en l'occurrence la
   taille du contenu de la cellule, il ne peut réordonner le tableau qu'en échangeant les cellules
