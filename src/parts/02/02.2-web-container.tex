@@ -15,7 +15,7 @@
   \paragraph{} Cette section s'intéresse donc tout particulièrement au services fournies par ce
   composant aux applicatifs exécutées par le serveur d'applications. Encore une fois, il est
   possible que certains des détails techniques évoqués dans cette partie soient plus ou moins
-  spécifique au conteneur de servlet (TODO) du monde Java ou même à des produits spécifiques, tel
+  spécifique au conteneur de servlet du monde Java ou même à des produits spécifiques, tel
   Tomcat ou JBoss Web, mais, dans l'ensemble, quelques soit sa technologie, un serveur d'application
   devrait proposés la plupart de ces fonctionnalités aux applications qu'il déploie.
 
@@ -30,7 +30,7 @@
 
   \paragraph{} Illustrons ce point par l'exemple, en étudiant l'API Java des Servlets. Cette API a
   été conçue pour faciliter le plus possible le développement d'application "web". Elle permet, en
-  effet, de simplement étendre une classe existente pour créer un nouveau programme ou disons
+  effet, de simplement étendre une classe existante pour créer un nouveau programme ou disons
   plutôt une nouvelle Servlet capable de traiter une requête HTTP:
 
   \begin{figure}[hb]
@@ -63,32 +63,32 @@
  \mysubsubsection{Session, gestion des entrées/sorties et exécution concurrente}
  \mysubsubsubsection{Java Servlet}
  \paragraph{} Le modèle proposée par les Servlet Java est assez élégant. En effet, il abstrait le
- programmeur de la complexité du protocle HTTP, fourni des objets Java simple à utiliser et fournit,
- au final, un cavenas, très similaire à celui d'un simple programme, pour développer son programme.
+ programmeur de la complexité du protocole HTTP, fourni des objets Java simple à utiliser et fournit,
+ au final, un cavena, très similaire à celui d'un simple programme, pour développer son programme.
 
  \paragraph{} Au delà du support du protocole de HTTP, et du travail de \textit{marshalling}
  effectué par la Servlet pour le développeur, l'API Servlet apporte aussi un ensemble de fonctions
- simpe pour manipuler la Session.
+ simple pour manipuler la Session.
 
  \paragraph{} Enfin, On notera au passage que le modèle abstrait intégralement le programmeur de la
  nature \textbf{concurrente} des applications Web. Le serveur exécutant cette Servlet se chargera de
  créer une instance de cette dernière par requête, et isolera ces exécutions les uns des autres.
 
  \paragraph{} Maintenant, il est évident que construire intégralement une page Web, de manière
- programmatique, à travers les primitives offertes par l'API Servelt, est une tâche très laborieuse
+ programmatique, à travers les primitives offertes par l'API Servlet, est une tâche très laborieuse
  et redondante. En outre, adopter cette stratégie à aussi pour désagréable effet de bord,
- d'allégrement mélanger le code \textbf{métier} - les traitements effectués sur les données
+ d'allègrement mélanger le code \textbf{métier} - les traitements effectués sur les données
  manipulées par l'applicatif, et les informations associées à la \textbf{présentation} (structure de
  la page HTML) de ces dernières.
 
  \mysubsubsubsection{JSP}
  \paragraph{} Pour faciliter la conception rapide de page web et, surtout séparer la présentation
  des données de leurs traitements, la spécification associée aux Servlets a été enrichi pour offrir
- une syntaxe plus approprié, désigné sous le nom de Java Server Pages, ou JSP.
+ une syntaxe plus approprié, désigné sous le nom de \textit{Java Server Pages}, ou JSP.
 
  \paragraph{} Plutôt que de construire intégralement une page HTML au sein d'un code Java, les JSPs
  inverse le paradigme, permettant simplement d'écrire une page HTML habituelle, injectant le code
- \textbf{métier} dans les seuls parties où il est requis.
+ \textbf{métier} dans les seules parties où il est requis.
 
  \paragraph{} Ainsi, une page JSP peut aisément être manipulée, et surtout modifier, par un
  ergonome ou un graphiste, sans pour autant nécessiter de modifier le code métier.
