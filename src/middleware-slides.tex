@@ -28,9 +28,36 @@
 \input{parts/00/00-commons}
 
 \begin{document}
-	\begin{frame}
-		\titlepage
-	\end{frame}
-	\include{part1}
-    \include{part2}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+
+  \begin{frame}{About me...}
+    \begin{columns}
+
+    \begin{column}[l]{.3\textwidth}
+      \begin{center}
+        \includegraphics[height=120px]{../img/rpe.jpg}
+      \end{center}
+    \end{column}
+
+    \begin{column}[r]{.7\textwidth}
+      \begin{block}{Romain PELISSE}
+        \begin{itemize}
+          \item \textbf{Middleware Consultant} at \mylink{http://redhat.com}{Red Hat} (2011)
+          \begin{itemize}
+            \item Architecte Middleware JBOSS
+            \item Red Hat Linux Technician
+          \end{itemize}
+          \item Committer \mylink{http://pmd.sourceforge.net/}{PMD} and \mylink{http://xradar.sourceforge.net/}{XRadar}
+          \item Translation for \mylink{http://www.selenic.com/mercurial/wiki/index.cgi/TranslatingMercurial}{HgBook}
+          \item Teach build technologies and OPP at \mylink{http://www.esme.fr/}{ESME Sudria}
+        \end{itemize}
+      \end{block}
+    \end{column}
+   \end{columns}
+ \end{frame}
+
+ \include{part1}
+ \include{part2}
 \end{document}
