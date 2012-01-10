@@ -8,48 +8,32 @@
 \input{parts/02/02.8-modele-de-programmtion-ejb}
 
 \mysection{C - Application distribuée et intégration (11/01/2012)}
+
 \abstractframe{Élargissant le spectre au-delà du périmètre de l'application,
 cette partie étudie les services et composants proposés par les
 \textit{middlewares} pour dialoguer et s'intégrer à son environnement et plus
 spécialement à la nature \textbf{distribuée} du système d'information dans lequel
 elle évolue.}{../img/overview-integration.png}
 
-\mysubsection{Source de données}
-
-\ifbook{
-\mysubsubsection{Fichiers et ressources}
-\mysubsubsection{SQL et base de données relationnelle}
-\mysubsubsection{Annuaire}
-\mysubsubsection{NoSQL}
+\input{parts/03/03.1-datasources}
+\input{parts/03/03.2-distributed-prog}
+\ifslide {
+  \begin{frame}{Les Outils d'un projet informatique (2) }
+    \begin{center}
+      Le gestionnaire de source
+    \end{center}
+  \end{frame}
 }
 
-\mysubsection{Programmation distribuée}
-
-\ifslide{
- \begin{block}{Historique}
-   \begin{itemize}
-     \item RPC
-     \item CORBA
-     \item Java-RMI
-     \item DCE
-     \item COM/DCOM
-     \item EJB
-   \end{itemize}
- \end{block}
+\input{parts/03/03.3-distributed-tx}
+\input{parts/03/03.4-ws-esb-soa}
+\ifslide {
+  \begin{frame}{Les Outils d'un projet informatique (3) }
+    \begin{center}
+      Outil de gestion de tâche (\textit{bugtracking}
+    \end{center}
+  \end{frame}
 }
-
-\mysubsection{Transaction distribuée}
-\mysubsection{Architecture orientée service (SOA)}
-\ifbook{
-  \mysubsubsection{WebServices}
-    \begin{itemize}
-      \item SOAP et WSDL
-      \item ReST
-    \end{itemize}
-
-  \mysubsubsection{Bus logiciel (ESB)}
-}
-\mysubsection{ETL, EAI et autres middlewares}
 
 \mysection{D - Mise à échelle et production (12/01/2012)}
 
