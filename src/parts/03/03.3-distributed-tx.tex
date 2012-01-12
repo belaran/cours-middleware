@@ -1,1 +1,53 @@
 \mysubsection{Transaction distribuée}
+
+\ifslide{
+  \begin{frame}
+    \begin{block}{Transaction distribué}
+      \begin{itemize}
+        \item implique plusieurs ressources (transactionnelle)
+        \item nécessite un \textbf{context}
+        \begin{itemize}
+          \item transparent pour l'application
+          \item mais peut être explicite
+        \end{itemize}
+      \end{itemize}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}
+    \begin{block}{Implémentation de la propagation}
+      \begin{itemize}
+        \item \textbf{context} doit être propagé
+        \item utilise "ce qui existe"
+        \begin{itemize}
+          \item CORBA
+          \item IIOP
+          \item SOAP
+          \item ...
+        \end{itemize}
+      \end{itemize}
+    \end{block}
+
+    \begin{block}{Impact sur le système transactionnel}
+      \begin{itemize}
+        \item implémentation définie limites et capacité
+      \end{itemize}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}
+    \begin{block}{\textit{Distributed Transaction Processing} (DTP)}
+      \begin{itemize}
+        \item défini par l'\textit{Open Group}
+        \item implémenter (par exemple) en Java, par JTA
+        \item défini l'API (XA) entre
+        \begin{itemize}
+          \item \textit{Ressource Manager} [RM] (ex: base de données SQL)
+          \item \textit{Transaction Manager} [TM] (Transaction Manager)
+        \end{itemize}
+      \end{itemize}
+    \end{block}
+  \end{frame}
+
+
+}
