@@ -1,0 +1,81 @@
+\mysection{D - Mise à échelle et production (12/01/2012)}
+
+\abstractframe{Cette partie évoque les problématiques liées à la mise en production
+et la surveillance d'une application et des \textit{middlewares} qu'elle
+utilise.}{../img/overview-monitoring.png}
+
+\mysubsection{Problématique de performances des middlewares}
+
+\ifslide{
+  \begin{frame}
+    \begin{block}{Performance et mise production des \textit{middlewares}}
+      \begin{itemize}
+        \item au coeur du problème
+        \item complexité
+        \item charge élévée
+        \item attente accrue
+        \item plus de période de repos
+      \end{itemize}
+    \end{block}
+
+    \begin{block}{Effet "boite noire"}
+      \begin{itemize}
+        \item l'application en elle même
+        \item rôle et fonctionnement des \textit{middleware}
+        \item complexité et distribution
+      \end{itemize}
+    \end{block}
+  \end{frame}
+}
+
+
+\mysubsection{Stratégie de mise à l'échelle (Ferme, clustering...)}
+
+\ifslide{
+  \begin{frame}
+    \begin{block}{Objectifs}
+      \begin{itemize}
+        \item Tolérance aux pannes (et reprise sur pannes)
+        \item Haute Disponibiités
+      \end{itemize}
+    \end{block}
+    \begin{block}{Techniques}
+      \begin{itemize}
+        \item Balance de charge
+        \item Ferme de serveurs
+        \item \textit{Cluster}
+      \end{itemize}
+    \end{block}
+  \end{frame}
+}
+
+\mysubsection{Indicateur, surveillance et alertes}
+
+\ifslide{
+  \begin{frame}
+    \begin{block}{Problématique de la surveillance}
+      \begin{itemize}
+        \item Que faut il surveiller ? Que faut il mesurer ?
+        \item Quelles alertes ?
+      \end{itemize}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}
+    \begin{center}
+    \Large{Le \textit{monitoring} applicatif est forcément spécifique !}
+    \end{center}
+
+    \begin{block}{Définir sa stratégie}
+      \begin{itemize}
+        \item Maitriser la complexité de ses applicatifs
+        \item Choisir ses indicateurs
+        \item Donner les moyens de surveiller son applicatifs
+      \end{itemize}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{\textit{Time to draw some clever shit on the board...}}
+  \end{frame}
+
+}
