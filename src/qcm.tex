@@ -1,0 +1,203 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{beamerarticle}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[pdftex,colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{fullpage}
+\usepackage{times}
+\usepackage{fancybox}
+\usepackage[french]{qcm}
+
+\renewcommand{\normalfont}{\sffamily} % Pour avoir de "l'arial"
+
+
+\begin{document}
+
+\begin{center}
+  \begin{Large}
+    Questionnaire d'évaluation des acquis\\
+    Formation .. - Cours \textit{Middleware} 2012
+  \end{Large}
+\end{center}
+
+\section{A - Rappel}
+
+\begin{question}{À l'aide d'une application spécifique, développée de manière "native" (en C++)
+et fonctionnant uniquement sur Windows, un agent des ministères peut afficher et modifier son
+calendrier. Lorsqu'il a fini, et qu'il appuye sur le bouton "Sauvegarder", les informations contenus
+dans le calendrier sont envoyés à un système central et publiées pour être mis à disposition de ces
+collaborateurs. Le système central, lui, ne fonctionne pas sur Windows.}
+  \true C'est application est une application de type client/serveur.
+  \false C'est une application de type client léger, utilisant les protocoles internet pour inter
+  agir avec le serveur.
+  \false C'est une application de type client/serveur utilisant (probablement) RMI pour communiquer
+  avec le système central.
+  \false C'est une application de type client/serveur utilisant (probablement) un Web Service pour
+  communiquer avec le serveur central.
+\end{question}
+
+\begin{question}{Vous concevez une application destinée à travailler sur un vaste (plusieurs
+\textit{giga}) ensemble de données hétéroclite. L'objetif de votre application est de fournir à ses
+utilisateurs un maximum de fonctionnalités de recherche sur ces données, permettant, entre autre, de
+aisément croiser les informations et les relier entre elles. En première approximation, quelle mode
+de persistance, parmi les modes suivants, utiliseriez vous ?}
+  \false une simple arboresence de fichiers plats (plusieurs fichiers de petites tailles, réparties
+  dans plusieurs répertoires)
+  \false un unique fichier XML
+  \true une base de donnée relationnelle
+  \true une base de donnée non relationnelle (de type "NoSQL" ou un LDAP)
+\end{question}
+
+
+\begin{question}{Au coeur des technologies du \textit{web}, on trouve le protocole HTTP. Quelles
+sont les caractéristiques de ce dernier ? \textit{Attention, on parle ici uniquement du protocole
+HTTP tel qu'il est spécifié et non des éventuels ajouts/contournement qui ont pu s'y greffer par la
+suite...}}
+  \false HTTP est un protocole connecté et sans état. On ne peut donc conserver d'état sur le
+  serveur mais on peut donc exécuter plusieurs requêtes, au sein d'un même appel HTTP.
+  \false HTTP est un protocole asynchrone, qui peut fonctionner même si le serveur à qu'il s'adresse
+  est indisponible.
+  \true HTTP est un protocole synchrone, mais déconnecté - une fois la réponse à la requête reçue,
+  la connection est fermée. En outre, HTTP est sans état, aucun état n'est conservé sur le serveur.
+  \true HTTP est un protocole synchrone, sans état et déconnecté - une fois la réponse à la requête
+  reçue, la connection est fermée. On peut stocker des informations sur le serveur à l'aide de la
+  session.
+\end{question}
+
+\section{B - Services applicatifs}
+
+\begin{question}{Pour la réalisation d'un projet interne, vous disposez d'un serveur Apache,
+installé et configuré avec le \textit{mod\_php5}, sur une machine \textit{Red Hat Enterprise Linux}.
+Vous disposez donc, du point de vue conceptuel:}
+  \false d'un moyen de réaliser des applications natives, et non des applications web. Vos
+  développeurs devront par ailleurs prendre soin de libérer, de manière explicite, la mémoire qu'ils
+  alloueront, et, enfin, l'application réalisée ne sera pas portable, et ne fonctionnera donc que
+  sur Linux.
+  \false d'un conteneur d'exécution conçu pour réaliser des applications Web. Ce dernier, en outre,
+  apporte une certaine portabilité, mais vos développeurs devront prendre soin de libérer, de manière explicite,
+  toute allocation mémoire que leur code effectuera.
+  \true d'un conteneur d'exécution conçu pour réaliser des applications Web, et prenant en charge le
+  nettoyage de la mémoire, sans appel explicite par les développeurs. La stratégie de nettoyage de
+  la mémoire est simple, après chaque requête, la mémoire allouée est libéré, aucune données ou
+  instructions chargées en mémoire n'est conservées.
+  \true d'un conteneur d'exécution conçu pour réaliser des applications Web, et prenant en charge le
+  nettoyage de la mémoire, sans appel explicite par les développeurs. La stratégie de nettoyage de
+  la mémoire utilise un \textit{Garbage Collector} qui détermine, à interval régulier, si la mémoire
+  allouée peut être liberée ou non.
+\end{question}
+
+\begin{question}{Pour décrire les propriétés d'une transaction, on utilise l'acronyme ACID. Laquelle
+des définitions ci dessous de chacune des lettres de l'acronyme est erronée:}
+  \true \textbf{atomique}: la suite d'opérations est indivisible, en cas d'échec en cours
+  d'une des opérations, la suite d'opérations doit être complètement annulée (rollback) quel que
+  soit le nombre d'opérations déjà réussies.
+  \true \textbf{cohérente} le contenu de la base de données à la fin de la transaction doit être
+  cohérent sans pour autant que chaque opération durant la transaction donne un contenu cohérent.
+  Un contenu final incohérent doit entraîner l'échec et l'annulation de toutes opérations de la
+  transaction.
+  \false \textbf{isolée} lorsque deux transactions A et B sont exécutées en même temps, elles se
+  déroulent sur des ressources différentes, comme par exemple deux base de données distinctes.
+  \true \textbf{durable} Une fois validé, l'état de la base de données doit être permanent, et aucun
+  incident technique (exemple: crash) ne doit pouvoir engendrer une annulation des opérations
+  effectuées durant la transaction.
+\end{question}
+
+\begin{question}{Laquelle des assertions ci desous, toute au sujet des caches, est correcte:}
+  \false Si l'on change la valeur d'une adresse IP associée à un nom DNS, cette nouvelle valeur est
+  propagée immédiatement sur le réseau car il n'y aucune mise en cache de la résolution de nom DNS.
+  \false Lorsque l'on met un cache applicatif en place, on est limité par la taille mémoire alouée
+  à l'application. % demi point
+  \false Un cache améliore beaucoup les performances des applications exécutant beaucoup
+  d'opérations d'écriture.
+  \true Lorsque l'on met en place un cache, l'objectif est d'avoir un très bon taux de \textit{hit}
+  (ce qui signifie que l'application trouve très souvent l'information recherchée dans le cache).
+\end{question}
+
+\begin{question}{Pour améliorer les performances de votre application, vous avez mis en place un
+cache applicatif, au sein même de cette dernière. Malheureusement, après mesure, celui ci ne peut
+contenir que les 10 résultats les plus souvent sollicités par vos utilisateurs et vous avez
+déterminé que votre application, pour être plus rapide, doit pouvoir accéder plus rapidement au 100
+premiers résultats les plus sollicités par vos utilisateur. Laquelle des stratégies suivantes est
+correcte et permettra (vraisemblablement) à votre application d'être plus rapide:}
+  \true On place un cache de second niveau, entre l'application et la base de données, par exemple
+  une instance MemCached, dans laquelle on place les 100 premiers résultats.
+  \false On change la politique d'éviction du cache pour qu'il enlève plus rapidement les éléments
+  périmés qu'il contient.
+  \false On démarre plus d'instance de l'application pour améliorer les performances globales du
+  système.
+  \false Il faut modifier l'application pour changer la politique de mise en cache des informations.
+\end{question}
+
+\section{C - Intégration et application distribuée}
+
+\begin{question}{Vous devez réaliser une application A qui doit communiquer avec une autre
+application B lors de l'un de ses traitements. Elle doit en effet transférer vers B un ensemble de
+données, pour que B les traite. Dans quel cas suivant (1 seul) pourriez vous utiliser un MOM pour
+implémenter la communication entre A et B:}
+  \false Juste après l'envoi des données, l'application A doit utiliser un identifiant, retourné par
+  l'application B pour continuer son traitement.
+  \false Le service B est implémenté sous forme de Web Service, et votre application (A) doit se
+  connecter directement à ce dernier (sans passer par exemple, par un ESB).
+  \true Les données envoyées par A à B sont des données statistiques. La fonction du service B est
+  essentiellement de stocker et regrouper les données statistiques envoyées par les applications.
+  \false Pour communiquer avec le service B, vous devez utiliser RMI.
+\end{question}
+
+\begin{question}{Pour accéder à une ressource, on met souvent en place un \textit{connection pool}.
+Laquelle des assertions à leurs sujets, qui suivent, n'est pas exacte:}
+  \false l'utilisation de \textit{pool} de connexion évite aux applications de baisser en
+  performance en lui fournissant une connexion "prête à l'emploi"
+  \false l'utilisation d'un \textit{pool} de connexion permet d'assurer qu'un serveur d'application
+  abritant plusieurs applications, utilisant toute la même source de données, ne dépassera en aucun
+  cas un certain nombre de connexion.
+  \true la mise en place d'un \textit{pool} de connexion est complexe, et nécessite de modifier
+  l'application. Il n'est pas possible de disposer d'un tel mécanisme en passant par une API
+  standard.
+  \false On ne peut pas utiliser un \textit{pool} de connexion avec un LDAP.
+\end{question}
+
+\begin{question}{Votre application doit offrir deux services accessibles par d'autres programmes. Le
+premier (WS A) service permet d'envoyer un ensemble de données cohérents, qui seront ajoutés à la base de
+données de votre service - à condition que les données fournies soient valides. L'autre service (WS
+B) est un service de supervision, qui permet de savoir dans quel état est votre application. Si il est
+invoqué, il retourne simplement le nombre de transaction en cours et une chaine de caractère "OK" ou
+"KO" selon si votre application est fonctionnelle ou non. Parmi les choix suivants quel est le plus
+adapté pour implémenter votre application:}
+  \true SOAP/XML pour WS A et ReST pour le WS B.
+  \false ReST pour les deux.
+  \false SOAP/XML pour les deux.
+  \false SOAP/XML pour le WS B et ReST pour le WS A.
+\end{question}
+
+\section{D - Mise à échelle et production}
+
+\begin{question}{Une application a été mise en production avec trois instances, placées derrière un
+\textit{load balancer} (Apache, avec le mod\_proxy). L'application répond en moyenne en 3s et les
+utilisateurs sont satisfait du temps de réponse. Néanmoins, ils se plaignent que, de temps en temps,
+quand une instance tombe, pour une raison ou une autre, ils perdent le travail en cours et doivent
+recommencer depuis le début leurs saisies. Quelle stratégie adoptée pour assurer cette reprise sur
+panne ?}
+  \false Remplacer mod\_proxy par mod\_jk.
+  \false Placer un ALTHEON (\textit{load balancer hardware} devant le système.
+  \false Mettre en place un \textit{firewall} :)
+  \true Mettre en \textit{cluster} l'application
+\end{question}
+
+\begin{question}{Pour assurer la surveillance d'une simple application "web", réalisée en Java et
+déployée au sein d'un serveur JBoss, quelles indicateurs choissieriez vous ?}
+  \false l'utilisation du CPU de la machine, la température du processeur et la \textit{swap}
+  \false l'utilisation mémoire de la machine et la taille maximum du \textit{pool} de connexion à la
+  base de donnée
+  \true le nombre de processus dédiée aux requêtes HTTP, le nombre de session, la consommation de la
+  mémoire de la machine virtuelle Java, et le nombre de connexion active à la base de données
+  \false la consommation mémoire de la machine virtuelle, la fréquence de passage du \textit{Garbage
+  Collector} et sa durée.
+\end{question}
+
+\end{document}

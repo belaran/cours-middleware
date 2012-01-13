@@ -22,6 +22,10 @@ setBuildBook() {
     if [ -z ${book} ] ; then readonly book="${prefix}-book"; fi
 }
 
+setQcm() {
+    if [ -z ${qcm} ] ; then readonly qcm="qcm"; fi
+}
+
 run_latex() {
     local file="${1}"
     local verbose="${2}"
@@ -83,7 +87,7 @@ cp -R "${src}"/* "${work}"
 
 
 #set -e
-while getopts dcsbHa OPT; do
+while getopts dcsbHaq OPT; do
     case "$OPT" in
         H)
             echo "help requested:"
@@ -99,6 +103,9 @@ while getopts dcsbHa OPT; do
         b)
             setBuildBook
             ;;
+        q)
+            setQcm
+            ;;
         d)
             readonly debug='true'
             ;;
@@ -106,6 +113,7 @@ while getopts dcsbHa OPT; do
             readonly clean='true'
             setBuildSlides
             setBuildBook
+            setQcm
             ;;
         *)
             echo "unknown option ${OPT}"
@@ -125,3 +133,4 @@ mkdir -p "${delivery_folder}"
 
 generateDoc "${slides}" "${slides}" 'true'
 generateDoc "${book}" "${book}" 'true'
+generateDoc "${qcm}" "${qcm}" 'false'
