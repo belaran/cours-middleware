@@ -13,15 +13,15 @@
 }
 
 \ifbook{
-  \paragraph{} Cette dernière section s'attarde sur les nombreux caches auquel une application
-  seront confronté par l'intermédiaire du \textit{Middleware} qu'elle utilisera. Comme nous allons
+  \paragraph{} Cette dernière section s'attarde sur les nombreux caches auxquel une application
+  sera confrontée par l'intermédiaire du \textit{Middleware} qu'elle utilisera. Comme nous allons
   le voir, les caches sont partout, posent parfois des problèmes et sont malheureusement (ou pas)
   indispensables.
 
   \mysubsubsection{Rôle d'un cache}
 
   \paragraph{} Le rôle d'un cache est en fait très simple: il s'agit de conserver une information "à
-  porté de main", pour ne pas avoir à aller la recherche "plus loin", par la suite. Pour prendre un
+  porté de la main", pour ne pas avoir à aller la recherche "plus loin", par la suite. Pour prendre un
   exemple trivial, un bricoleur du dimanche qui sort un pack de bière du frigo et les descend avec
   lui dans la cave, où il va travailler, se créer simplement un cache de bière\footnote{.. et
   probablement quelques problèmes de santé à la longue.}, pour ne pas avoir à retourner en chercher.
@@ -40,17 +40,17 @@
   \paragraph{Intérêt des caches} Le seul et unique intérêt du cache est la \textbf{performance} de
   l'application. Maintenant, il est important de réaliser qu'ils ne sont pour autant en aucun cas
   dispensable. Sans cache, la plupart des applications sont généralement tellement lente qu'elles
-  deviennent simplement inutilisable.
+  deviennent simplement inutilisables.
 
-  \paragraph{Contraintes associées} Les caches contenant des informations qui sont désynchronisés
-  de la source de données, ils ont souvent tendance à cacher d'éventuel dysfonctionnement, de
+  \paragraph{Contraintes associées} Les caches contenant des informations qui sont désynchronisées
+  de la source de données, ils ont souvent tendance à cacher d'éventuels dysfonctionnements, de
   manière partielle ou non, rendant complexe leur résolution. En outre, la \textbf{stratégie de mise
-  en cache} adoptée, comme celle d'\textbf{éviction} sont critiques pour le fonctionnement correcte
+  en cache} adoptée, comme celle d'\textbf{éviction} sont critiques pour le fonctionnement correctes
   de l'applicatif.
 
   \mysubsubsection{Où se situent les caches ?}
 
-  \paragraph{} La réponse est un peu partout ! L'inventaire suivante présente les caches les plus
+  \paragraph{} La réponse est un peu partout ! L'inventaire suivant présente les caches les plus
   usuels qu'une application "Web" sera naturellement amené à utiliser:
 
   \allcaches
@@ -69,10 +69,10 @@
 \ifbook{
   \mysubsubsection{Niveau de cache}
 
-  \paragraph{} Sans rentrer dans les détails les plus pointues sur la gestion de cache, on notera
+  \paragraph{} Sans rentrer dans les détails les plus pointus sur la gestion de cache, on notera
   qu'il existe plusieurs niveau de cache. Ces derniers sont généralement consultés les uns après les
   autres, par ordre d'efficacité, jusqu'à que l'un d'eux soit en mesure de retourner l'information
-  recherché ou, si aucun ne le peut, l'application se retourne vers la source de données.
+  recherchée ou, si aucun ne le peut, l'application se retourne vers la source de données.
 
   \paragraph{} Prenons un exemple concret de niveau de cache. Lorsqu'une application nécessite une
   information d'authentification, elle dispose généralement d'un jeton d'authentification. Si elle
@@ -115,7 +115,7 @@
 
   \paragraph{} Une implémentation simple, et élégante, consiste à placer toutes informations
   retrouvées depuis la source de données en cache, et lui associer une date de péremption (par
-  exemple, une heure après sa mise en cache). À chaque fois que la donnée est retrouvé dans le
+  exemple, une heure après sa mise en cache). À chaque fois que la donnée est retrouvée dans le
   cache, sa date de péremption est repoussée d'une heure.
 
   \paragraph{} Ainsi, après quelques heures d'exécutions, le cache de l'application contiendra les

@@ -67,7 +67,7 @@
   à la fin de l'exécution d'une opération transactionnelle, on se retrouve soit dans un nouvel état
   (un \textbf{commit} a été effectué) ou dans l'état initial (un \textbf{rollback} a été réalisé).
   En outre, une transaction est très souvent une unité insécable, elle ne peut être découpée en
-  plusieurs sous opérations distinctes, elle doit se réalise (ou non) au sein d'une opération, qui
+  plusieurs sous opérations distinctes, elle doit se réaliser (ou non) au sein d'une opération, qui
   est donc atomique.
 }
 
@@ -84,13 +84,13 @@
   manière concurrente un objet. Si deux transactions concurrentes souhaitent modifier le même objet,
   l'une prendra la priorité et la seconde attendra la fin de cette dernière.
 
-  \paragraph{} Un autre enjeu de l'isolation d'une transaction est de masqué les éventuels états
-  intermédiaires obtenues lors de son exécution. À l'insu de la transaction, on se trouve dans
+  \paragraph{} Un autre enjeu de l'isolation d'une transaction est de masquer les éventuels états
+  intermédiaires obtenus lors de son exécution. À l'insue de la transaction, on se trouve dans
   l'état souhaité ou dans l'état initial, mais en aucun cas, dans un état intermédiaire.
 
   \paragraph{} Néanmoins, sérialiser systématiquement les transactions pose de gros problèmes de
-  performances, et ce n'est donc pas toujours possibles. Certains systèmes, tel que la plupart des
-  bases de données, utilise donc un système de contrôle actifs des opérations concurrentes, et
+  performances, et ce n'est donc pas toujours possible. Certains systèmes, tel que la plupart des
+  bases de données, utilise donc un système de contrôle actif des opérations concurrentes, et
   n'isole donc pas leurs transactions.
 
   \paragraph{} On peut donc déjà noter qu'une transaction n'a que deux statuts de fin d'exécution
@@ -123,7 +123,7 @@
 
   \paragraph{} La théorie derrière la notion de transaction dispose, comme toute théorie, de sa
   propre sémantique, offrant un certain niveau d'abstraction. Pour décrire la réalisation d'une
-  transaction, on désigne les différents systèmes entre en jeu sous les noms suivants:
+  transaction, on désigne les différents systèmes qui entre en jeu sous les noms suivants:
 
   \begin{itemize}
     \item les \textbf{participants} sont les différents systèmes impliqués dans la transaction ;
@@ -131,20 +131,20 @@
   \end{itemize}
 
   \paragraph{} Plus concrètement, au début d'une transaction, le \textbf{coordinateur} demande à
-  chaque \textbf{participants} si ils sont près à effectuer leur \textbf{commit}. Une fois que tous
-  ont répondu de manière favorable, le coordinateur demande à tous d'effectuer l'opération, et
-  retourne et l'état de \textbf{commit} est retourné.
+  chaque \textbf{participants} si il est prêt à effectuer leur \textbf{commit}. Une fois que tous
+  ont répondu de manière favorable, le coordinateur demande à tous d'effectuer l'opération, la
+  transaction est alors achevée avec succès.
 
   \paragraph{} Dans la théorie, bien évidemment, les participants sont garant de leur état, et, si
-  ils s'engagent à pouvoir effectue leur \textbf{commit}, ils ne peuvent en aucun cas échoué par la
+  ils s'engagent à pouvoir effectue leur \textbf{commit}, ils ne peuvent en aucun cas échoués par la
   suite. Dans la pratique, il est difficile de garantir une telle robustesse\footnote{Spécialement,
   pour garantir que leur opération soit ACID, les systèmes doivent pouvoir obtenir un
   \textbf{verrou} sur la ressource qu'il manipule, et, dans la pratique, c'est en fait très
   difficile à mettre en place...}.
 
   \paragraph{} Ce mécanisme de transaction est souvent désigné sous le nom de \textbf{two phase
-  commit}. En effet, ce dernier se déroule en deux phases, une de préparation où chaque participants
-  s'engagent (ou non) à effectuer un \textbf{commit}, et une seconde, où leur coordinateur déclenche
+  commit}. En effet, ce dernier se déroule en deux phases, une de préparation où chaque participant
+  s'engage (ou non) à effectuer un \textbf{commit}, et une seconde, où leur coordinateur déclenche
   l'exécution de ces opérations.
 
   \paragraph{} On notera que le protocole du \textbf{two phase commit} est très abstrait et ne
@@ -160,8 +160,8 @@
 
   \paragraph{} On peut simplifier les transactions exécutées par un système en deux catégorie : les
   transactions effectuant des opérations de lecture (\textbf{READ}) et celle d'écriture
-  (\textbf{WRITE}). Il est évident que des opérations de lectures peuvent s'exécuter de manière
-  concurrente sans nécessiter de verrou sur les données qu'elles accèdent.
+  (\textbf{WRITE}). Il est évident que des opérations de lecture peuvent s'exécuter de manière
+  concurrente sans nécessiter de verrou sur les données auquelles elles accèdent.
 
   \paragraph{} À l'inverse, les opérations d'écriture nécessitent la mise en place d'un
   \textbf{verrou exclusif}. Ce dernier a pour rôle de bloquer d'éventuels autres opérations
@@ -178,8 +178,8 @@
     négatif sur les performances, cette stratégie augmente le risque d'apparition \textbf{deadlock} (que
     nous verrons plus loin), mais elle assure une forte cohérence des données obtenues.
     \item[Optimiste] Cette stratégie se fonde elle sur justement très peu d'opérations en écritures
-    concurrentes et un très grand nombre d'opération en lecture. Pour assurer que ces derniers ne
-    soient pas entraver par les opérations en écritures, ces dernières ne posent pas de verrou, et
+    concurrentes et un très grand nombre d'opération de lecture. Pour assurer que ces derniers ne
+    soient pas entravés par les opérations en écritures, ces dernières ne posent pas de verrou, et
     le système se contente d'effectuer un \textbf{rollback} en cas d'opération d'écriture
     concurrente.
   \end{description}
@@ -192,7 +192,7 @@
   \mysubsubsection{Deadlock}
 
   \paragraph{} Le principal intérêt des transactions réside dans la garantie sur la cohérence des
-  données. En effet, l'utilisation de transactions assurent que si deux processus accèdent et
+  données. En effet, l'utilisation de transactions assure que si deux processus accèdent et
   modifient, de manière concurrente, la même donnée, l'une des opérations n'écrasera pas simplement
   le résultat de l'autre.
 
@@ -204,7 +204,7 @@
   hors de toute transaction, le résultat A + 1, puisque lors de leur accès à la valeur, celle ci est
   égale à A, et que les deux requêtes de chaque processus, aboutit à l'enregistrement de la valeur A
   +1. En isolant ces opérations à l'aide de transactions, l'un des processus modifiera la valeur A
-  à A + 1, pendant que le second devra attendra la fin de la transaction pour effectuer son
+  à A + 1, pendant que le second devra attendre la fin de la transaction pour effectuer son
   opération. A l'issu des opérations, la valeur de la donnée est donc A + 2.
 
   \paragraph{} De manière similaire à la gestion de processus au sein d'un système d'exploitation,
@@ -218,11 +218,11 @@
   \begin{description}
     \item[\textit{timeout}] Cette stratégie, simple et robuste, consiste à poser une contrainte de
     temps, de l'ordre de quelques minutes la plupart du temps, selon l'exécution d'une transaction.
-    Si cette dernière n'a pas fini de s'exécuter avant ce délais, elle est tout simplement avortée,
+    Si cette dernière n'a pas fini de s'exécuter avant ce délai, elle est tout simplement avortée,
     et un \textbf{rollback} est effectué.
     \item[graphe] Une autre stratégie plus élaborée consiste à conserver un état du graphe formé par
     l'ensemble des transactions, et de le parcourir, pour détecter des situations de verrouillage.
-    Ce mécanisme est bien évidemment beaucoup plus couteaux et complexe à mettre en place, mais
+    Ce mécanisme est bien évidemment beaucoup plus coûteux et complexe à mettre en place, mais
     permet d'assurer la détection, et la résolution, des situations de \textbf{deadlock} beaucoup
     plus rapidement.
   \end{description}
@@ -233,8 +233,8 @@
 \ifbook{
   \mysubsubsection{Nested transaction}
 
-  \paragraph{} Moins souvent utilisée et rencontrée, les \textit{nested transaction} méritent
-  néanmoins d'être brièvement mentionnées. Elles concevoir une transaction en encapsulant en son
+  \paragraph{} Moins souvent utilisées et rencontrées, les \textit{nested transaction} méritent
+  néanmoins d'être brièvement mentionnées. Elles réalisent une transaction en encapsulant en son
   sein différents autres transactions (ou sans transactions).
 
   \paragraph{} L'avantage de cette stratégie est que l'on peut aisément rejouer une des sous
@@ -254,20 +254,20 @@
   \mysubsubsection{Transaction implicite}
 
   \paragraph{} Il est aussi important de souligner que même si l'application n'est pas
-  transactionnel en tant que tel elle peut utiliser tout à fait utiliser des transactions de manière
+  transactionnelle en tant que telle, elle peut utiliser tout à fait utiliser des transactions de manière
   implicite. En effet, de nombreux services ou composant, justement issu du \textit{middleware}
-  utilisé par l'application, peuvent tout à fait présenter des aspects transactionnel.
+  utilisé par l'application, peuvent tout à fait présenter des aspects transactionnels.
 
   \paragraph{} Prenons par exemple une application affichant sur un terminal sur un tableau. Elle se
   contente d'effectuer, à intervalles régulier, une opération de sélection sur la table d'une base
   de données et elle n'effectue aucune opération en écriture. En première analyse, il n'y a aucune
-  raison pour que l'application soit transactionnel.
+  raison pour que l'application soit transactionnelle.
 
   \paragraph{} Elle ne l'est pas, mais elle utilise néanmoins une source de données sur laquelle
   elle effectue des requêtes SQL, qui, elles, sont transactionnelles. Ainsi, pour peu que
   l'application utilise, par ailleurs, un autre \textit{middleware}, lui aussi transactionnel, on
   peut se retrouver face à des problématiques d'isolation ou de \textit{deadlock}, sans que
-  l'application métier soit, en tant que tel, transactionnel.
+  l'application métier soit, en tant que telle, transactionnelle.
 }
 
 \ifbook{
@@ -309,7 +309,7 @@
   réfléchir à la nécessité ou non d'utiliser des transactions. Une preuve très flagrante de ceci est
   l'émergence des bases de données non transactionnel.
 
-  \paragraph{} Avec l'augmentation des applications "web", mais surtout de leurs nombres
+  \paragraph{} Avec l'augmentation des applications "web", mais surtout de leur nombre
   d'utilisateurs, les bases de données relationnelles deviennent généralement le goulot
   d'étranglement. Comme évoqué précédemment, chaque requête vers ces base de données sont en effet
   des transactions exigeant, dans chaque tiers, un certains travail supplémentaire. En supprimant
