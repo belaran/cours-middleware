@@ -48,6 +48,9 @@ buildDoc() {
     local runtwice="${2}"
 
     run_latex "${file}" "${debug}"
+    if [ "${?}" -ne 0 ] ; then
+        return
+    fi
     if [ "${runtwice}" != "" ] ; then
       run_latex "${file}" ""
     fi
