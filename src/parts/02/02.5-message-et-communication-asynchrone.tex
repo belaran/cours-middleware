@@ -143,6 +143,23 @@ encore, un terrain d'investigation intéressant pour la conception de \textit{mi
    \end{frame}
  }
 
+\ifbook{
+
+  \mysubsubsection{Autre considérations relatives à l'usage des MOM}
+
+  \paragraph{} Bien qu'en première anlayse les MOMs sont des outils relativements simple dans le
+  concept - une simple pile de message, leurs usages entrainent vite l'apparition de problématiques,
+  déjà évoqués précédemment, telles que:
+  \begin{description}
+    \item[aspect transactionel] Il est en fait possible de souhaiter que le  MOM utilisé est un
+    comportement transactionnel - spécialement si ce dernier doit prendre part à des \textit{Two
+    Phase Commit}.
+    \item[sécurité] De la même manière, tous les problématiques usuels de sécurité, ainsi que les
+    méchanismes classiques associés, se retrouvent lors du dépoiement d'un MOM au sein d'un système.
+  \end{description}
+
+}
+
 \ifslide{
 
   \begin{frame}{Message Oriented Middleware (MOM)}
@@ -153,7 +170,34 @@ encore, un terrain d'investigation intéressant pour la conception de \textit{mi
       \end{itemize}
     \end{block}
   \end{frame}
+}
 
+\ifbook{
+
+  \mysubsubsection{Rôle d'un MOM dans l'architecture d'un système}
+
+
+  \paragraph{} Disposer d'un MOM au sein de son architecture logicielle apporte de nombreux
+  avantages. Premièrement, on dispose d'un mécanisme permettant d'établir, de manière indépendante
+  du protocole sous jacent, une \textbf{communication par message}, dans laquel le MOM fait office
+  d'intermédiaire.
+
+  \paragraph{} Ce rôle d'intermédiaire permet au MOM de jouer d'apporter plusieurs fonctionnalités
+  très intéressantes en termes de \textbf{découplage}, de stratégie de \textit{montée} ou
+  \textbf{répartition} de charge. Ainsi, on peut en effet imaginer, par exemple, d'utiliser un MOM
+  pour faire office de tampon temporaire entre deux systèmes.
+
+  \paragraph{} Un autre exemple est le routage de message. Une application se contente d'envoyer des
+  messages à un MON, et celui ci redistribue les messages selon leur métadonnées à différents
+  systèmes consommateurs. Bien évidemment, on peut aussi placer plusieurs instances du MON en parallèle et
+  effectuer, entre ces différentes instances, une équilibrage de charge.
+
+  \paragraph{} Tout ces exemples soulignent bien la souplesse et la flexibilité qu'un MOM peut
+  donner à une architecture logicielle. Ces derniers s'accompagnent néanmoins d'une complexité qu'il
+  faut savoir maitriser.
+}
+
+\ifslide{
   \begin{frame}
     \begin{block}{Advantages}
       \begin{itemize}
@@ -180,6 +224,6 @@ encore, un terrain d'investigation intéressant pour la conception de \textit{mi
       \end{itemize}
     \end{block}
  \end{frame}
-}
 
-\demoframe{Communication Asynchrone}{Exemple avec JMS}
+ \demoframe{Communication Asynchrone}{Exemple avec JMS}
+}
