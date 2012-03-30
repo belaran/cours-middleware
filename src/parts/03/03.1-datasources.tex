@@ -2,6 +2,39 @@
 
 \ifbook{
   \mysubsubsection{Qu'est ce qu'une ressource ?}
+
+\paragraph{} Dans le domaine du \textit{middleware}, on utilise régulièrement des abstractions, du
+plus au niveaux possibles, pour permettr de créer des composants les plus génériques possibles,
+pouvant donc être aisément réutilisé, et configuré pour répondre à des problématiques similaires.
+Une de ces abstractions les plus courament utilisée est la notion de \textbf{ressource}\footnote{Là
+encore, l'expérience très orientée Java/JEE de l'auteur de ce document influence peut être la
+sémantique. Fort heureusement, les concepts décrits ici devraient pouvoir s'appliquer à toutes
+autres technologies.}.
+
+\paragraph{} Cette notion de ressource désigne en fait une application tierse, un service au sens le
+plus générique du terme, que l'application accède pour transmettre et recevoir des donnnées. Une
+ressource peut donc être un simple fichier ou quelquechose d'aussi complexe qu'une base de données
+relationnelle. Une simple chaîne de caractère, au sein d'un programme, peut même être considéré
+comme une \textbf{ressource}.
+
+\paragraph{} Les entités désignées par ce terme sont volontairement très abstrait pour permettre de
+aisément utiliser différents élements ou mécanisme de manière similaire. Mais, aussi abstrait soient
+elles, les ressources partage tout de même certains point en communs:
+
+\begin{description}
+  \item[processus externe] \paragraph{} une \textbf{ressource} est forcèment quelques chose d'externe au
+  processus de l'appication. Un cache local, par exemple, même s'exécutant dans un processus séparé,
+  ne peut pas réellement être considéré comme \textbf{ressource}
+    \paragraph{} Si le cache est dans une application séparée - par exemple une instance de
+    \mylink{TODO}{MemCached} s'exécutant sur un autre serveur que l'application, il peut alors être
+    considéré comme une \textbf{ressource}.
+  \item[entrées/sorties] Par nature, une \textbf{ressource} est donc sources d'entrées/sorties. Un
+  échange de données est effectué entre l'application et cette dernière. Ce postulat implique donc
+  qu'il faut donc gérer, la plupart du temps, une forme de connexion (ou un \textit{pool} de
+  connexion) vers cette dernière. Bien évidemment, comme évoqué déjà plus en amont du cours, avec un
+  tel échange, la notion de \textbf{transaction} ne tarde pas à apparaitre, et, avant elle, les
+  problématiques d'\textbf{authentification} et de \textbf{sécurité}...
+\end{description}
 }
 
 \ifslide{
@@ -32,7 +65,59 @@
       \end{itemize}
     \end{block}
   \end{frame}
+}
 
+\ifbook{
+  \mysubsubsection{Gestionnaire de connexion}
+
+  \paragraph{} La notion de \textbf{ressource} étant défini - dans ses grandes lignes, nous allons
+  maintenant évoqué brièvement un mécanisme qui leur sont très souvent associé : les gestionnaires
+  de connexion (souvent désigné par leur appelation anglaise de \textit{pool} de connexion).
+
+  \paragraph{} Pour comprendre la raison de leur existence, il est nécessaire de comprendre que
+  l'établissement d'une connexion à une resource - encore une fois qu'il s'agit d'une base de
+  données SQL ou d'un annuaire d'entreprise utilisant le protocole LDAP, est une opération
+  \textbf{coûteuse}. En plus des coûts associés à la connexion réseau - les ressources étant souvent
+  des application s'exécutant sur une machine séparée, toute la logique d'\textbf{authentification}
+  et d'\textbf{indentification} qui leurs sont associées, ont généralement aussi un impact.
+
+  \paragraph{} Fort de ce constat, il apparait pertinent de prémunir l'application utilisant une
+  ressource d'être pénalisé en performance, en devant systématiquement ouvrir une nouvelle connexion
+  à chaque requête. Et c'est à cette fin que la plupart des \textit{middlewares} proposent de
+  disposer d'un \textit{pool} de connexion.
+
+  \paragraph{} Ce dernier consiste en effet en ensemble de connexion pré établis. À chaque requête,
+  l'application demande au gestionnaire de connexion de lui fournir une connexion par laquelle elle
+  accèdera à la ressource. Une fois son travail effectué, elle restitue au gestionnaire la
+  connexion, qui pourra donc de nouveau la transmettre à un autre processus - qu'il s'agisse de la
+  même application ou d'une autre.
+
+  \paragraph{} Si la demande intervient à un moment où il n'y a aucune connexion de libre, la
+  requête doit donc attendre qu'une connexion se libère pour finir de s'exécuter. De ce constat,
+  deux points importants apparaisent immédiatement:
+
+  \begin{enumerate}
+    \item La présence d'un \textit{pool} de connexion protège la ressource vis à vis de ses
+    consommateurs. Comme cette dernière est vraisemblablement partagée, ce mécanisme empêche une
+    application connaissant une grave avarie ou un pic de charge inattendu, de soudainement rendre
+    la ressource totalement inaccessible à ses autres utilisateurs.
+    \item Par le même raisonnement, un \textit{pool} de connexion sous dimensionné formera
+    rapidement le \textbf{goulot d'étranglement} de l'application, qui ne pourra répondre aux
+    demandes de ses utilisateurs, puisqu'elle sera tout le temps en attente de libération de
+    connexion.
+  \end{enumerate}
+
+  \paragraph{} C'est la raison pour laquelle les ressources, et spécialement les bases de données,
+  forment souvent un goulot d'étranglement applicatif. On notera néanmoins qu'une application
+  utilisant une ressource de manière abusive, en exécutant - par exemple, des requêtes SQL d'une
+  complexité insensée, peut tout à fait être à la source d'un goulot d'étranglement, même si il
+  apparait en extérieur que c'est la resource qui est à blâmé\footnote{Encore une fois, si ce n'a
+  pas déjà été fait, on soulignera que les problèmes de performances sont difficiles à cerner et à
+  résoudre, et qu'il est important de ne pas juger de leur nature à "l'emporte pièce".}
+
+}
+
+\ifslide{
   \begin{frame}
     \begin{block}{\textit{Connection pooling}}
       \begin{itemize}
@@ -46,7 +131,55 @@
 
 
 \ifbook{
-  \mysubsubsection{SQL et base de données relationnelle}
+  \paragraph{} Comme pour beacoup des thèmes abordé dans ce cours, des ouvrages entiers pourraient
+  être écrit (et ont été écrits) sur le sujet de la gestion des ressources. Pour éclairer le lecteur
+  de manière simple et pragmatique, nous allons donc remplacer ce potentiellement très long discours
+  théorique, par l'étude de deux exemples concrets et pragmatiques d'utilisation de ressources.
+
+  \paragraph{} Là encore, les exemples seront issues d'outils et de pratiques généralement associés
+  à l'environement de développement et au cadre d'exécution Java, mais la logique sous jacente
+  devrait se retrouver naturellement dans d'autres univers technologique, telle que C# ou Python.
+
+  \mysubsubsection{SQL et les base de données relationnelles}
+
+  \paragraph{} Le premier exemple de ressource étudié est de loin le plus courament rencontré, car
+  presque toutes les applications utilisent une base de données relationnelle pour persister ses
+  données. L'exécution des requêtes SQL - utilisées pour manipuler ces données, sont elles
+  encapsulées d'une connexion à cette base de données, ce qui aboutit naturellement à faire des
+  bases de données un cas parfait de \textbf{ressource} tel que nous l'avons défini un peu plus
+  haut.
+
+
+  \paragraph{} L'extrait de code Java ci dessous présente la manière dont une application Java
+  accède, de manière standard à une \textbf{source de  données} - nom générique donnée aux bases de
+  données dans le monde Java, pour une application JEE:
+
+  \begin{center}
+    \includegraphics[scale=0.3]{img/datasource-connection.png}
+  \end{center}
+
+  \paragraph{} Il est important de remarque que là encore, le souci d'abstraction apparait
+  clairement. Le code présenté n'a en effet aucune dépendance à une API spécique à la base de
+  données utilisée (Oracle, Postgresql,...). L'établissement de la construction ne se fait que par
+  l'utilisation d'un simple nom logique, désignant la ressource que l'on cherche à accéder. Le
+  travaille consiste à localiser cette ressource et établir une connexion avec elle a été
+  entièrement déléguée au conteneur d'exécution de l'application.
+
+  \paragraph{} Maintenant, regardons comment le dit connecteur sait quelle ressource s'y connecter
+  et quelles paramètre et configuration utilisé. Dans le monde Java/JEE, on utilise, comme souvent,
+  un fichier XML pour placer ces informations:
+
+  \begin{center}
+    \includegraphics[scale=0.3]{img/datasource.png}
+  \end{center}
+
+  \paragraph{} Ce fichier contient donc les informations usuelles de connexion à une base de données
+  (nom d'utilisateur, mot de passe, URL de connexion,...) mais aussi un ensemble de paramètre
+  spécique à la ressource utilisé (nom du \textit{driver} Java à utiliser, durée maximum d'attente
+  d'une connexion - \textit{timeout}, de type de support transactionnel, etc...). On peut donc ainsi
+  facilement modifier le base de données utilisée, ainsi que son comportement, selon que l'on soit,
+  par exemple, en développement ou en production.
+
 }
 
 \ifslide {
@@ -72,8 +205,25 @@
   \end{frame}
 }
 
-\ifbook{
+\ifbook {
   \mysubsubsection{Annuaire}
+
+  \paragraph{} Le second exemple que nous allons étudier est probablement presque aussi courant que
+  l'utilisation de base de données relationnelle. Il s'agit de l'utilisation, par une application,
+  d'un annuaire, dont le schéma et le protocole suivant, la plupart du temps, le standard
+  \mylink{TODO}{LDAP}. Comme nous allons sommairement le voir, cette nouvelle ressource, pourtant de
+  nature très différente, se présente de la même manière à l'application.
+
+  \paragraph{} En effet, l'extrait de code ci dessous, qui présente le code Java standard à utiliser
+  pour se connecter à un \textit{pool} de connexion vers un annuaire LDAP, ressemble pour beaucoup à
+  celui présenté dans la précédente section:
+
+  \begin{center}
+    \includegraphics[scale=0.3]{img/ldap-pooling.png}
+  \end{center}
+
+  \paragraph{} Les notions sous jacentes au ressource ayant été amplement démontrées à ce point
+  qu'il n'est pas pertinent de présenter la configuration de l'annuaire en tant que telle.
 }
 
 \ifslide{
@@ -86,6 +236,37 @@
 
 \ifbook{
   \mysubsubsection{NoSQL}
+
+  \paragraph{} Si les bases de données et les annuaires font parti du paysage des systèmes
+  d'informations depuis maintenant fort longtemps, il apparait important de prolonger cette partie
+  pour évoquer ces nouvelles ressource que sont les bases de données \textit{NoSQL}.
+
+  \paragraph{} Commençons d'ailleurs par souligner que ces dernières ne construisent pas en
+  opposition au modèle SQL - comme leur nom pourrait sous entendre, mais comme une alternative ou
+  plus souvent un complètement à l'usage de base de données SQL. En effait, l'acronyme
+  \textit{NoSQL} signifie en \textit{"Not Only SQL"\footnote{Traduction: Pas seulement du SQL}}.
+
+  \paragraph{} Ces ressources utilisent d'autres mécanismes pour effectuer la persistance et/ou la
+  recherche de données. Parmi les plus courants, nous pouvons nommer les suivants:
+
+  \begin{itemize}
+    \item clé/valeur (\mylink{TODO}{Memcached})
+    \item document (\mylink{TODO}{Mongodb})
+    \item graphe (\mylink{TODO}{Neo4j})
+    \item objet (\mylink{TODO}{db4o})
+    \item "hybride" (\mylink{TODO}{infinite span})
+  \end{itemize}
+
+  \paragraph{} Présenter en détail ces différents mécanismes dépasse largement le contexte de ce
+  cours. Ce qu'il est important de retenir dans le contexte du \textit{middleware} est que ces
+  nouvelles bases de données demeurent des \textbf{ressource} et que donc l'ensemble des
+  problématiques évoqués dans cette section (gestionnaire de connexion, authentification, sécurité,
+  transaction,...) s'appliquent tout autant à elles qu'à leurs prédécesseurs.
+
+  \paragraph{} Si leur utilisation, dans le cadre de la réalisation d'une application peut très
+  certainement se révéler judicieux et apporter une approche plus adapté à la problématique
+  adressée, elles ne sont en aucun des solutions miracles, et les difficultés rencontrées avec les
+  ressources plus traditionnelles, feront tout autant surface avec elles.
 }
 
 \ifslide{
