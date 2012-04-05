@@ -22,12 +22,11 @@ aisément utiliser différents élements ou mécanisme de manière similaire. Ma
 elles, les ressources partage tout de même certains point en communs:
 
 \begin{description}
-  \item[processus externe] \paragraph{} une \textbf{ressource} est forcèment quelques chose d'externe au
+  \item[processus externe] une \textbf{ressource} est forcèment quelques chose d'externe au
   processus de l'appication. Un cache local, par exemple, même s'exécutant dans un processus séparé,
-  ne peut pas réellement être considéré comme \textbf{ressource}
-    \paragraph{} Si le cache est dans une application séparée - par exemple une instance de
-    \mylink{TODO}{MemCached} s'exécutant sur un autre serveur que l'application, il peut alors être
-    considéré comme une \textbf{ressource}.
+  ne peut pas réellement être considéré comme \textbf{ressource}. Si le cache est dans une
+  application séparée - par exemple une instance de \mylink{TODO}{MemCached} s'exécutant sur un
+  autre serveur que l'application, il peut alors être considéré comme une \textbf{ressource}.
   \item[entrées/sorties] Par nature, une \textbf{ressource} est donc sources d'entrées/sorties. Un
   échange de données est effectué entre l'application et cette dernière. Ce postulat implique donc
   qu'il faut donc gérer, la plupart du temps, une forme de connexion (ou un \textit{pool} de
@@ -138,7 +137,7 @@ elles, les ressources partage tout de même certains point en communs:
 
   \paragraph{} Là encore, les exemples seront issues d'outils et de pratiques généralement associés
   à l'environement de développement et au cadre d'exécution Java, mais la logique sous jacente
-  devrait se retrouver naturellement dans d'autres univers technologique, telle que C# ou Python.
+  devrait se retrouver naturellement dans d'autres univers technologique, telle que C\# ou Python.
 
   \mysubsubsection{SQL et les base de données relationnelles}
 
@@ -181,6 +180,8 @@ elles, les ressources partage tout de même certains point en communs:
   par exemple, en développement ou en production.
 
 }
+% TODO: Hibernate ! ORM !
+
 
 \ifslide {
   \begin{frame}{Base de donnée relationnelle (SQL)}
