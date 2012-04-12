@@ -4,10 +4,10 @@
   \mysubsubsection{Problématique de la communication asynchrone}
     \paragraph{} Depuis les débuts de l'informatique, le besoin d'une communication \textbf{asynchrone} entre
     deux processus ou deux programmes est présent et les problématiques liées à ce genre de communication sont
-    bien connues. Il n'en reste pas moins que si tout langages de programmation donnent les primitives nécessaires
-    à l'implémentation d'une telle communication, on fait plus souvent appel à des \textit{middlewares} dédié, le
-    \textit{Message Oriented Middleware}, autant pour faciliter le développement qu'assurer une bonne gestion des
-    messages.
+    bien connues. Tout langage de programmation fournit les primitives nécessaires à l'implémentation d'une telle
+    communication, mais on fait désormais plus souvent appel à des \textit{middlewares} dédié. Ainsi, le
+    monde du \textit{Message Oriented Middleware} a émergé, autant pour faciliter le développement qu'assurer une
+    bonne gestion des messages échangés.
 }
 
 \ifslide{
@@ -23,21 +23,24 @@
 
 \ifbook{
  \paragraph{} Avant d'avancer plus en avant dans la description du fonctionnement générale de ces
- \textit{middlewares} étudions rapidement les cas d'utilisation qui motive leurs utilisations. Loin
- d'être exhaustive, voici une petit série d'exemple où l'on souhaite généralement mettre en place
- une communication \textbf{asynchrone} entre deux processus:
- \begin{itemize}
-   \item [\textit{fire and forget}] Un processus souhaite communiquer une information à un autre,
+ \textit{middlewares} étudions rapidement les cas d'utilisation qui motivent leurs utilisations.
+ Sans être exhaustive, voici quelques exemples, volontairement très générique, de cas d'utilisation
+ où l'on souhaite généralement mettre en place une communication \textbf{asynchrone} entre deux
+ processus:
+
+ \begin{description}
+   \item [\textit{"fire and forget"}] Un processus souhaite communiquer une information à un autre,
    sans attendre que ce dernier est fini son traitement pour continuer (ex: journalisation des
    opérations d'une application). Généralement, dans ce genre de cas, le traitement qui doit être
-   réalisé par le second processus n'a pas d'impact sur celui réalisé par le premier.
-   \item [\textit{producteur et consommateur}] Problème d'algorithmique classique, le
+   réalisé par le second processus n'a pas d'impact sur celui réalisé par le premier, qui peut donc
+   continuer sans attendre.
+   \item [producteur et consommateur] Problème d'algorithmique classique, le
    \mylink{http://fr.wikipedia.org/wiki/Mod\%C3\%A8le\_producteur-consommateur}{modèle
-   producteur/consommateur} est un cas d'utilisation classique d'une communication asynchrone. En
+   producteur/consommateur} est un cas d'étude classique d'une communication asynchrone. En
    quelques mots, le processus producteur dépose, dès qu'il peut, une demande de traitement dans une
    sorte de "boite à message", qu'un processus consommateur, quand il le souhaitera ou pourra,
-   récupérer.
- \end{itemize}
+   récupérer, et effectuer le traitement nécessaire.
+ \end{description}
 }
 
 
@@ -54,16 +57,17 @@
 
 \ifbook{
 
-\paragraph{} La nature même de la communication induit rapidement le besoin de gérer l'état des
-messages échangés. En effet, à partir du moment où la réception d'un message n'est pas immédiate,
-il va souvent devenir nécessaire de s'assurer que ces derniers soit persistés et administrer. Ce
-dernier point est un important, car si les messages ne sont jamais consommés par exemple, le
-système peut rapidement se retrouver dans un état instable, car débordé de message qui ne
-"disparaissent jamais"...
+  \paragraph{} La nature même de la communication induit rapidement le besoin de gérer l'état des
+  messages échangés. En effet, à partir du moment où la réception d'un message n'est pas immédiate,
+  il va souvent devenir nécessaire de s'assurer que ces derniers soit persistés et administrer. Il
+  s'agit d'un point est un important, car si les messages ne sont jamais consommés par exemple, le
+  système peut rapidement se retrouver dans un état instable, car débordé de message qui ne
+  "disparaissent jamais"...
 
-\paragraph{} Il devient rapidement nécessaire de gérer des files d'attentes (\textit{Queues} en
-anglais) ainsi que des erreurs de transmission. Il apparait clairement que tout ceci offre là
-encore, un terrain d'investigation intéressant pour la conception de \textit{middleware}...
+  \paragraph{} Il devient rapidement nécessaire de gérer donc des files d'attentes (\textit{Queues} en
+  anglais) ainsi que des erreurs de transmission. Au regard de ces quelques points, il apparait
+  clairement que tout ceci offre là encore, un terrain d'investigation intéressant pour la conception
+  de \textit{middleware}...
 }
 
 \ifslide{
@@ -84,31 +88,32 @@ encore, un terrain d'investigation intéressant pour la conception de \textit{mi
 
 \ifbook{
 
-  \paragraph{} Un autre avantage des \textit{MOM} (\textit{Message Oriented Middleware}) est aussi la
-  capacité d'effectuer une communication de 1 à n tiers aisément. En effet, une fois un message remis
-  à tel programme, ce dernier peut aisément le mettre à disposition d'un comme de plusieurs
-  processus. Ainsi, on peut aisément disposer de plusieurs processus (ou même machine) prête à
-  consommer les messages transmis.
+ \paragraph{} Un autre avantage des \textit{MOM} (\textit{Message Oriented Middleware}) est aussi la
+ capacité d'effectuer une communication de 1 à n tiers aisément. En effet, une fois un message remis
+ à tel programme, ce dernier peut le mettre à disposition d'un ou plusieurs processus. Ainsi, on
+ peut disposer de plusieurs processus (ou même machine) prête à consommer les messages transmis.
 
-  \mysubsubsection{Un exemple de standardisation des MOM : Java Message Service}
+ \mysubsubsection{Un exemple de standardisation des MOM : Java Message Service}
 
  \paragraph{} Sans rentrer dans les détails de cette API Java\footnote{Voir
  \mylink{http://en.wikipedia.org/wiki/Java_Message_Service}{Java Message Service}}, nous
  pouvons juste retenir que, reprenant la théorie évoqué plus haut, cette spécification définit
- l'API que doit supporter et respecter un MOM.
+ l'API que doit supporter et respecter un MOM implémenté en Java.
 
- \paragraph{} En outre de fournir les services d'administration et de diffusion évoqués, cette
+ \paragraph{} En plus de fournir les services d'administration et de diffusion évoqués, cette
  API assure aussi un fort \textbf{découplage} entre le logiciel client (utilisant l'API) et
- l'implémentation de la spécification JMS qu'il utilise. Ceci permet ainsi de aisément remplacer
+ l'implémentation de la spécification JMS qu'il utilise. Ceci permet ainsi de facilement remplacer
  une implémentation par une autre - sans altérer le comportement du programme\footnote{Bien
- évidemment selon les implémentations, les performances, comme les bogues présents varieront}.
+ évidemment, les performances, comme les limites du composant varieront selon l'implémentation
+ utilisée - toute la difficulté étant donc le choix judicieux de cette dernière.}.
 
- \paragraph{} Le schéma ci dessous présente, dans les grandes lignes, les composants logicielle
+ \paragraph{} La figure \ref{jms-steps} présente, dans les grandes lignes, les composants logiciels
  impliqués lors d'une communication aynchrone utilisant JMS.
 
   \begin{center}
     \begin{figure}
       \includegraphics[scale=0.3]{img/jms-steps.png}
+      \label{jms-steps}
       \caption{Vue générale d'une communication asynchrone à l'aide de JMS}
     \end{figure}
   \end{center}
@@ -147,15 +152,19 @@ encore, un terrain d'investigation intéressant pour la conception de \textit{mi
 
   \mysubsubsection{Autre considérations relatives à l'usage des MOM}
 
-  \paragraph{} Bien qu'en première anlayse les MOMs sont des outils relativements simple dans le
-  concept - une simple pile de message, leurs usages entrainent vite l'apparition de problématiques,
+  \paragraph{} Bien qu'en première anlayse les MOMs soient des outils relativements simple dans leur
+  concept (une simple pile de message), leurs usages entrainent vite l'apparition de problématiques,
   déjà évoqués précédemment, telles que:
   \begin{description}
-    \item[aspect transactionel] Il est en fait possible de souhaiter que le  MOM utilisé est un
-    comportement transactionnel - spécialement si ce dernier doit prendre part à des \textit{Two
-    Phase Commit}.
+    \item[transactionnalité] Le MOM peut rapidement se trouver parti prenant d'échange
+    transactionnel et devra donc être en mesure de supporter les contraintes qu'impliquent un tel
+    contexte - spécialement si ce dernier doit prendre part à des transaction distribués (voir le
+    \textit{Two Phase Commit} étudié précédemment).
     \item[sécurité] De la même manière, tous les problématiques usuels de sécurité, ainsi que les
-    méchanismes classiques associés, se retrouvent lors du dépoiement d'un MOM au sein d'un système.
+    méchanismes classiques associés, se retrouvent lors du dépoiement d'un MOM au sein d'un
+    système. Un MOM offre donc généralement des fonctionnalités d'authentification et
+    d'authorisation et peut utiliser différents mécanismes (certificat, mot de passe, ...) pour les
+    implémenter.
   \end{description}
 
 }
@@ -182,19 +191,21 @@ encore, un terrain d'investigation intéressant pour la conception de \textit{mi
   du protocole sous jacent, une \textbf{communication par message}, dans laquel le MOM fait office
   d'intermédiaire.
 
-  \paragraph{} Ce rôle d'intermédiaire permet au MOM de jouer d'apporter plusieurs fonctionnalités
-  très intéressantes en termes de \textbf{découplage}, de stratégie de \textit{montée} ou
-  \textbf{répartition} de charge. Ainsi, on peut en effet imaginer, par exemple, d'utiliser un MOM
-  pour faire office de tampon temporaire entre deux systèmes.
+  \paragraph{} Ce rôle d'intermédiaire permet au MOM d'apporter plusieurs fonctionnalités
+  très intéressantes en termes de \textbf{découplage} et de stratégie de \textit{montée} ou
+  \textbf{répartition} de charge. Ainsi, on peut en effet imaginer, par exemple, utiliser un MOM
+  pour faire office de tampon temporaire entre deux systèmes, pour adapter une différence de
+  fréquence entre le système producteur de message, très rapide, et celui ou ceux qui les consomment
+  et traitent, vraisemblablement plus lent.
 
-  \paragraph{} Un autre exemple est le routage de message. Une application se contente d'envoyer des
-  messages à un MON, et celui ci redistribue les messages selon leur métadonnées à différents
-  systèmes consommateurs. Bien évidemment, on peut aussi placer plusieurs instances du MON en parallèle et
-  effectuer, entre ces différentes instances, une équilibrage de charge.
+  \paragraph{} Un autre exemple est le \textbf{routage de message}. Une application se contente d'envoyer des
+  messages à un MOM, et celui ci redistribue les messages, selon leur métadonnées, à différents
+  systèmes consommateurs. Bien évidemment, on peut aussi placer plusieurs instances du MOM en parallèle et
+  effectuer, entre ces différentes instances, un équilibrage de charge.
 
   \paragraph{} Tout ces exemples soulignent bien la souplesse et la flexibilité qu'un MOM peut
-  donner à une architecture logicielle. Ces derniers s'accompagnent néanmoins d'une complexité qu'il
-  faut savoir maitriser.
+  donner à une architecture logicielle. Ces derniers accroissent nettement la complexité d'un
+  système.
 }
 
 \ifslide{
