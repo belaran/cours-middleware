@@ -1,4 +1,65 @@
-\mysubsection{Gestion des processus métiers (BPM)}
+\mysubsection{Gestion des processus métiers (BRMS)}
+
+\ifbook{
+  \paragraph{} Une des problématiques les plus récurrentes dans les projets informatiques est la
+  difficulté, pour les développeurs, de comprendre les besoins fonctionnelles associées à
+  l'application qu'ils développent. Un lourd de spécification est généralement réalisé alors pour
+  permettre aux développeurs de bien comprendre les différents aspects, très proche du métier, que
+  doit réaliser le logiciel.
+
+  \paragraph{} En outre, la nature changeante de la plupart des professions fait qu'il est rapidement
+  nécessaire de modifier une partie de la logique des logiciels qui leur sont associé. Là encore, un
+  lours travail de transfert est à effectuer entre les personnes disposant des réels connaissances
+  métiers et les développeurs.
+
+  \paragraph{} On notera d'ailleurs que cette problématique explique, pour beaucoup, le succès de
+  feuilles de calculs (qu'il s'agisse de \mylink{}{Excel} ou \mylink{}{Libre Office Calc}). En fait,
+  ces derniers permettent à des comptables ou des fiscalistes, par exemple, de facilement se fabrique
+  une sorte de "petit programme" faisant exactement ce dont ils ont besoin, sans passer par
+  l'intermédiaire d'un dévelopeur. On trouve d'ailleurs de nombreux expert de ce genre d'outil dans
+  les salles de marché, où il est souvent nécessaire de concevoir un logiciel de calcul avancé en
+  quelques minutes seulement...
+
+  \paragraph{} Le constat que venons d'effectuer à amener une nouvelle technologie, les
+  \textbf{moteurs de règle} à émerger - ou en anglais \textit{Business rule management system}. L'idée
+  sous jacente est, comme souvent, assez simple: fournir un outil générique conçu pour implémenter et
+  concevoir des règles dites "métiers". Les règles définis à l'aide de cet outil s'intègrera donc ensuite
+  dans une application plus vaste.
+
+  \paragraph{} Ainsi, des experts fonctionnels, avec peu ou pas de compétence de programmation,
+  pourront être en charge de l'implémentation des règles métiers, et les développeurs pourront
+  aisément intégrer leur travail au sein de l'applicaion. Les avantages de cette approche sont
+  flagrants:
+
+  \begin{itemize}
+    \item diminuer le besoin de développement pour modifier les fonctionnalités purement métier d'une
+    application
+    \item donner plus de contrôle sur la logique de décision et la gestion du processus métier en
+    général à des experts fonctionnels plutôt qu'à des développeurs.
+  \end{itemize}
+
+  \paragraph{} Le domaine étant encore finalement assez récent, on ne trouve pas encore
+  \textbf{standard} - bien que des initiatives dans ce sens avance rapidement\footnote{Comme par
+  exemple la standardisation d'une API Java avec la JSR-94}, et il existe donc
+  encore de grande différences entre les produits \textit{middleware} disponibles sur le marché. On
+  peut néamoins retenir que tout \textbf{moteur de règles} est constitué des éléments suivants:
+
+  \begin{description}
+      \item[dépôt] ce dernier permet de aisément externaliser le code "métier" du reste de
+      l'application.
+      \item[outils] permettant à la fois aux développeurs et aux spécialistes métiers de travailler
+      ensemble.
+      \item[conteneur d'exécution\footnote{Oui, encore un nouveau conteneur d'exécution...}] pour
+      exécuter les règles définies pour l'application et interagir avec l'application.
+  \end{description}
+
+  \paragraph{} Un exemple relativement complet, et ouvert, de ce type de \textit{middleware} est sans
+  conteste \mylink{https://community.jboss.org/wiki/JBossRules}{JBoss Rules}, anciennement appelé
+  Drools.
+
+}
+
+\ifslide{
 
 \begin{frame}
   \begin{block}{Disclaimer}
@@ -17,6 +78,7 @@
     \end{itemize}
   \end{block}
 \end{frame}
+
 
 \begin{frame}
   \begin{block}{What makes a BRM ?}
@@ -60,3 +122,4 @@
     \end{itemize}
   \end{block}
 \end{frame}
+}
