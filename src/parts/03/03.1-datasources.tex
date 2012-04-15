@@ -4,33 +4,32 @@
   \mysubsubsection{Qu'est ce qu'une ressource ?}
 
 \paragraph{} Dans le domaine du \textit{middleware}, on utilise régulièrement des abstractions, du
-plus au niveaux possibles, pour permettr de créer des composants les plus génériques possibles,
-pouvant donc être aisément réutilisé, et configuré pour répondre à des problématiques similaires.
-Une de ces abstractions les plus courament utilisée est la notion de \textbf{ressource}\footnote{Là
-encore, l'expérience très orientée Java/JEE de l'auteur de ce document influence peut être la
-sémantique. Fort heureusement, les concepts décrits ici devraient pouvoir s'appliquer à toutes
-autres technologies.}.
+plus au niveaux possibles, pour créer des composants les plus génériques possibles, pouvant donc
+être ainsi réutilisé autant que possible. En outre, ces composants peuvent être configurés pour
+répondre à des problématiques similaires. Une de ces abstractions les plus courament utilisée est la
+notion de \textbf{ressource}\footnote{Là encore, l'expérience très orientée Java/JEE de l'auteur de
+ce document influence peut être la sémantique. Fort heureusement, les concepts décrits ici devraient
+pouvoir s'appliquer à toutes autres technologies.}.
 
-\paragraph{} Cette notion de ressource désigne en fait une application tierse, un service au sens le
+\paragraph{} Une ressource désigne en fait une application tierse, un service au sens le
 plus générique du terme, que l'application accède pour transmettre et recevoir des donnnées. Une
 ressource peut donc être un simple fichier ou quelquechose d'aussi complexe qu'une base de données
-relationnelle. Une simple chaîne de caractère, au sein d'un programme, peut même être considéré
-comme une \textbf{ressource}.
+relationnelle.
 
-\paragraph{} Les entités désignées par ce terme sont volontairement très abstrait pour permettre de
-aisément utiliser différents élements ou mécanisme de manière similaire. Mais, aussi abstrait soient
-elles, les ressources partage tout de même certains point en communs:
+\paragraph{} Les entités désignées par ce terme sont volontairement très abstraite pour permettre d'
+utiliser élements ou mécanismes de nature très différentes d'une manière identique. Mais, aussi
+abstrait soient elles, les ressources partagent tout de même certains point en communs:
 
 \begin{description}
-  \item[processus externe] une \textbf{ressource} est forcèment quelques chose d'externe au
+  \item[processus externe] une \textbf{ressource} est forcément externe au
   processus de l'appication. Un cache local, par exemple, même s'exécutant dans un processus séparé,
   ne peut pas réellement être considéré comme \textbf{ressource}. Si le cache est dans une
   application séparée - par exemple une instance de \mylink{TODO}{MemCached} s'exécutant sur un
   autre serveur que l'application, il peut alors être considéré comme une \textbf{ressource}.
   \item[entrées/sorties] Par nature, une \textbf{ressource} est donc sources d'entrées/sorties. Un
-  échange de données est effectué entre l'application et cette dernière. Ce postulat implique donc
-  qu'il faut donc gérer, la plupart du temps, une forme de connexion (ou un \textit{pool} de
-  connexion) vers cette dernière. Bien évidemment, comme évoqué déjà plus en amont du cours, avec un
+  échange de données est effectué entre l'application et cette dernière. Ce postulat implique qu'il
+  faut donc gérer, la plupart du temps, une forme de connexion (ou un \textit{pool} de connexion)
+  vers cette dernière. Bien évidemment, comme évoqué déjà plus en amont du cours, avec un
   tel échange, la notion de \textbf{transaction} ne tarde pas à apparaitre, et, avant elle, les
   problématiques d'\textbf{authentification} et de \textbf{sécurité}...
 \end{description}
@@ -69,12 +68,12 @@ elles, les ressources partage tout de même certains point en communs:
 \ifbook{
   \mysubsubsection{Gestionnaire de connexion}
 
-  \paragraph{} La notion de \textbf{ressource} étant défini - dans ses grandes lignes, nous allons
-  maintenant évoqué brièvement un mécanisme qui leur sont très souvent associé : les gestionnaires
+  \paragraph{} La notion de \textbf{ressource} étant définie - dans ses grandes lignes, nous allons
+  maintenant évoquer brièvement un mécanisme qui leurs sont très souvent associé : les gestionnaires
   de connexion (souvent désigné par leur appelation anglaise de \textit{pool} de connexion).
 
-  \paragraph{} Pour comprendre la raison de leur existence, il est nécessaire de comprendre que
-  l'établissement d'une connexion à une resource - encore une fois qu'il s'agit d'une base de
+  \paragraph{} Pour bien cerneur leur intérêt, il est nécessaire de comprendre que
+  l'établissement d'une connexion à une resource - encore une fois qu'il s'agisse d'une base de
   données SQL ou d'un annuaire d'entreprise utilisant le protocole LDAP, est une opération
   \textbf{coûteuse}. En plus des coûts associés à la connexion réseau - les ressources étant souvent
   des application s'exécutant sur une machine séparée, toute la logique d'\textbf{authentification}
@@ -83,12 +82,12 @@ elles, les ressources partage tout de même certains point en communs:
   \paragraph{} Fort de ce constat, il apparait pertinent de prémunir l'application utilisant une
   ressource d'être pénalisé en performance, en devant systématiquement ouvrir une nouvelle connexion
   à chaque requête. Et c'est à cette fin que la plupart des \textit{middlewares} proposent de
-  disposer d'un \textit{pool} de connexion.
+  disposer d'un \textit{pool} de connexion, prêt à l'emploi.
 
   \paragraph{} Ce dernier consiste en effet en ensemble de connexion pré établis. À chaque requête,
-  l'application demande au gestionnaire de connexion de lui fournir une connexion par laquelle elle
+  l'application demande au gestionnaire de lui fournir une connexion par laquelle elle
   accèdera à la ressource. Une fois son travail effectué, elle restitue au gestionnaire la
-  connexion, qui pourra donc de nouveau la transmettre à un autre processus - qu'il s'agisse de la
+  connexion, qui pourra donc la transmettre à un autre processus demandeur- qu'il s'agisse de la
   même application ou d'une autre.
 
   \paragraph{} Si la demande intervient à un moment où il n'y a aucune connexion de libre, la
@@ -107,10 +106,10 @@ elles, les ressources partage tout de même certains point en communs:
   \end{enumerate}
 
   \paragraph{} C'est la raison pour laquelle les ressources, et spécialement les bases de données,
-  forment souvent un goulot d'étranglement applicatif. On notera néanmoins qu'une application
+  forment souvent un goulot d'étranglement. On notera néanmoins qu'une application
   utilisant une ressource de manière abusive, en exécutant - par exemple, des requêtes SQL d'une
-  complexité insensée, peut tout à fait être à la source d'un goulot d'étranglement, même si il
-  apparait en extérieur que c'est la resource qui est à blâmé\footnote{Encore une fois, si ce n'a
+  complexité insensée, peut tout à fait être à la source du goulot d'étranglement, même si il
+  apparait en extérieur que c'est la resource qui est à blâmer.\footnote{Encore une fois, si ce n'a
   pas déjà été fait, on soulignera que les problèmes de performances sont difficiles à cerner et à
   résoudre, et qu'il est important de ne pas juger de leur nature à "l'emporte pièce".}
 
@@ -130,7 +129,7 @@ elles, les ressources partage tout de même certains point en communs:
 
 
 \ifbook{
-  \paragraph{} Comme pour beacoup des thèmes abordé dans ce cours, des ouvrages entiers pourraient
+  \paragraph{} Comme pour beacoup des thèmes abordés dans ce cours, des ouvrages entiers pourraient
   être écrit (et ont été écrits) sur le sujet de la gestion des ressources. Pour éclairer le lecteur
   de manière simple et pragmatique, nous allons donc remplacer ce potentiellement très long discours
   théorique, par l'étude de deux exemples concrets et pragmatiques d'utilisation de ressources.
@@ -143,30 +142,26 @@ elles, les ressources partage tout de même certains point en communs:
 
   \paragraph{} Le premier exemple de ressource étudié est de loin le plus courament rencontré, car
   presque toutes les applications utilisent une base de données relationnelle pour persister ses
-  données. L'exécution des requêtes SQL - utilisées pour manipuler ces données, sont elles
-  encapsulées d'une connexion à cette base de données, ce qui aboutit naturellement à faire des
-  bases de données un cas parfait de \textbf{ressource} tel que nous l'avons défini un peu plus
-  haut.
+  données.
 
-
-  \paragraph{} L'extrait de code Java ci dessous présente la manière dont une application Java
-  accède, de manière standard à une \textbf{source de  données} - nom générique donnée aux bases de
-  données dans le monde Java, pour une application JEE:
+  \paragraph{} L'extrait de code Java ci dessous présente comment une application Java
+  accède, de manière standard à une \textbf{source de  données}\footnote{Source de donnée est nom
+  générique donnée aux bases de données}.
 
   \begin{center}
     \includegraphics[scale=0.3]{img/datasource-connection.png}
   \end{center}
 
-  \paragraph{} Il est important de remarque que là encore, le souci d'abstraction apparait
+  \paragraph{} Il est important de remarquer que là encore, le souci d'abstraction apparait
   clairement. Le code présenté n'a en effet aucune dépendance à une API spécique à la base de
-  données utilisée (Oracle, Postgresql,...). L'établissement de la construction ne se fait que par
+  données utilisée (Oracle, Postgresql,...). L'établissement de la connexion ne se fait que par
   l'utilisation d'un simple nom logique, désignant la ressource que l'on cherche à accéder. Le
-  travaille consiste à localiser cette ressource et établir une connexion avec elle a été
-  entièrement déléguée au conteneur d'exécution de l'application.
+  travail qui consiste à localiser cette ressource et à établir une connexion avec elle a été
+  entièrement délégué au connecteur du conteneur d'exécution de l'application.
 
-  \paragraph{} Maintenant, regardons comment le dit connecteur sait quelle ressource s'y connecter
-  et quelles paramètre et configuration utilisé. Dans le monde Java/JEE, on utilise, comme souvent,
-  un fichier XML pour placer ces informations:
+  \paragraph{} Maintenant, regardons comment le dit connecteur sait quelle ressource utilisée et
+  et quelles paramètres et configuration utilisée. Dans le monde Java/JEE, on utilise, comme
+  souvent, un fichier XML pour placer ces informations:
 
   \begin{center}
     \includegraphics[scale=0.3]{img/datasource.png}
@@ -174,14 +169,11 @@ elles, les ressources partage tout de même certains point en communs:
 
   \paragraph{} Ce fichier contient donc les informations usuelles de connexion à une base de données
   (nom d'utilisateur, mot de passe, URL de connexion,...) mais aussi un ensemble de paramètre
-  spécique à la ressource utilisé (nom du \textit{driver} Java à utiliser, durée maximum d'attente
+  spécifique à la ressource utilisée (nom du \textit{driver} Java à utiliser, durée maximum d'attente
   d'une connexion - \textit{timeout}, de type de support transactionnel, etc...). On peut donc ainsi
   facilement modifier le base de données utilisée, ainsi que son comportement, selon que l'on soit,
   par exemple, en développement ou en production.
-
 }
-% TODO: Hibernate ! ORM !
-
 
 \ifslide {
   \begin{frame}{Base de donnée relationnelle (SQL)}
@@ -211,7 +203,7 @@ elles, les ressources partage tout de même certains point en communs:
 
   \paragraph{} Le second exemple que nous allons étudier est probablement presque aussi courant que
   l'utilisation de base de données relationnelle. Il s'agit de l'utilisation, par une application,
-  d'un annuaire, dont le schéma et le protocole suivant, la plupart du temps, le standard
+  d'un annuaire, dont le schéma et le protocole suivent, la plupart du temps, le standard
   \mylink{TODO}{LDAP}. Comme nous allons sommairement le voir, cette nouvelle ressource, pourtant de
   nature très différente, se présente de la même manière à l'application.
 
@@ -222,9 +214,6 @@ elles, les ressources partage tout de même certains point en communs:
   \begin{center}
     \includegraphics[scale=0.3]{img/ldap-pooling.png}
   \end{center}
-
-  \paragraph{} Les notions sous jacentes au ressource ayant été amplement démontrées à ce point
-  qu'il n'est pas pertinent de présenter la configuration de l'annuaire en tant que telle.
 }
 
 \ifslide{
@@ -242,13 +231,14 @@ elles, les ressources partage tout de même certains point en communs:
   d'informations depuis maintenant fort longtemps, il apparait important de prolonger cette partie
   pour évoquer ces nouvelles ressource que sont les bases de données \textit{NoSQL}.
 
-  \paragraph{} Commençons d'ailleurs par souligner que ces dernières ne construisent pas en
+  \paragraph{} Commençons d'ailleurs par souligner que ces dernières ne construisent pas forcément en
   opposition au modèle SQL - comme leur nom pourrait sous entendre, mais comme une alternative ou
-  plus souvent un complètement à l'usage de base de données SQL. En effait, l'acronyme
+  plus souvent comme complémentaire à l'usage de base de données SQL. En effait, l'acronyme
   \textit{NoSQL} signifie en \textit{"Not Only SQL"\footnote{Traduction: Pas seulement du SQL}}.
 
-  \paragraph{} Ces ressources utilisent d'autres mécanismes pour effectuer la persistance et/ou la
-  recherche de données. Parmi les plus courants, nous pouvons nommer les suivants:
+  \paragraph{} Ces ressources utilisent d'autres mécanismes, que ceux promût par les bases de données
+  relationnelles, pour effectuer la persistance et/ou la recherche de données. Parmi les stratégies
+  les plus courantes, nous pouvons nommer les suivants:
 
   \begin{itemize}
     \item clé/valeur (\mylink{TODO}{Memcached})
@@ -265,7 +255,7 @@ elles, les ressources partage tout de même certains point en communs:
   transaction,...) s'appliquent tout autant à elles qu'à leurs prédécesseurs.
 
   \paragraph{} Si leur utilisation, dans le cadre de la réalisation d'une application peut très
-  certainement se révéler judicieux et apporter une approche plus adapté à la problématique
+  certainement se révéler judicieuse et apporter une approche plus adaptée à la problématique
   adressée, elles ne sont en aucun des solutions miracles, et les difficultés rencontrées avec les
   ressources plus traditionnelles, feront tout autant surface avec elles.
 }
