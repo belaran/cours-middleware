@@ -49,16 +49,33 @@
   un point où le système d'exploitation ne lui permet plus d'en allouer de nouveau.
 
 }
-% TODO: slide fuite mémoire
 
 \ifslide{
-  \begin{frame}{Fuite mémoire}
-   \begin{center}
-     % TODO: slide fuite mémoire
-     Pourquoi ne pas développer en langage natif ?
-     %\includegraphics[scale=0.3]{img/garbage-collection.jpg}
-   \end{center}
-  \end{frame}
+
+  \myvertsplitslide{Pourquoi ne plus développer en langage natif ?}{
+    \begin{center}
+      \begin{itemize}
+        \item API bas niveau
+        \item Fuite mémoire
+        \item Sécurité
+      \end{itemize}
+    \end{center}
+  }{
+    \begin{center}
+     \includegraphics[scale=0.25]{img/native-amerindians.jpg}
+     \myphotocredit{http://www.flickr.com/photos/37100995@N07/5322106167/sizes/l/in/photostream/}{daniellelorenz}
+    \end{center}
+}
+
+%  \begin{frame}{Pourquoi ne plus en langage natif ?}
+%   \begin{center}
+%     \begin{itemize}
+%       \item API bas niveau
+%       \item Fuite mémoire
+%     \end{itemize}
+%     \includegraphics[scale=0.3]{img/native-amerindians.jpg}
+%   \end{center}
+%  \end{frame}
 }
 
 \mysubsection{L'arrivée des conteneurs d'exécution}
