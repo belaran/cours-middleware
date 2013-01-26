@@ -35,7 +35,7 @@
 }
 
 \newcommand{\mylink}[2]{\href{#1}{\textcolor{blue}{#2}}}
-\newcommand{\myphotocredit}[2]{\newline\tiny{\href{#1}{\textcolor{gris-doux}{#2}}}}
+\newcommand{\myphotocredit}[2]{\newline\tiny{\href{#1}{\textcolor{gris-doux}{Crédit Photo:#2}}}}
 
 \newcommand{\abstractframe}[2]{
 \begin{frame}
@@ -116,4 +116,18 @@
   }{
      \subsubsection{#1}
   }
+}
+
+\newcommand{\myvertsplitslide}[3]{
+  \begin{frame}{#1}
+    \begin{columns}
+    \begin{column}[l]{.5\textwidth}
+      #2
+    \end{column}
+
+    \begin{column}[r]{.5\textwidth}
+      #3
+    \end{column}
+   \end{columns}
+ \end{frame}
 }
