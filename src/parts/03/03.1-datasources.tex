@@ -201,11 +201,14 @@ abstrait soient elles, les ressources partagent tout de même certains point en 
   \end{frame}
 
   \begin{frame}{Pilote de base de données}
-    \begin{itemize}
-      \item gestionnaire de connexion
-      \item support (+/-) paramétrable pour les transactions
-      \item optimisation côté client
-    \end{itemize}
+    \begin{block}{Pourquoi utiliser un pilote pour une base de données ?}
+      \begin{itemize}
+        \item offre une API pour communiquer avec la base de données
+        \item fournit le gestionnaire de connexion
+        \item support (+/-) paramétrable pour les transactions
+        \item optimisation côté client
+      \end{itemize}
+    \end{block}
   \end{frame}
 }
 
@@ -228,10 +231,15 @@ abstrait soient elles, les ressources partagent tout de même certains point en 
 }
 
 \ifslide{
-  \begin{frame}{Annuaire (LDAP)}
-    \begin{center}
-      \includegraphics[scale=0.3]{img/ldap-pooling.png}
-    \end{center}
+  \begin{frame}{Qu'est ce qu'un annuaire LDAP ?}
+    \begin{block}
+      \begin{itemize}
+        \item base de données \textbf{hiérarchique}
+        \item conçu pour stocker un \textbf{annuaire d'entreprise}
+        \item protocole dédié et \textbf{standard}
+        \item persistance d'une structure hiérarchique
+      \end{itemize}
+    \end{block}
   \end{frame}
 }
 
@@ -329,5 +337,14 @@ abstrait soient elles, les ressources partagent tout de même certains point en 
     \begin{center}
       \includegraphics[scale=0.4]{../img/PostGIS-database.png}
     \end{center}
+  \end{frame}
+
+  \begin{frame}{ETL, un exemple d'outil}
+    \begin{block}{Propos et intérêt des ETLs}
+      \begin{itemize}
+        \item migrer les données d'une base de données à une autre
+        \item TODO
+      \end{itemize}
+    \end{block}
   \end{frame}
 }
