@@ -51,7 +51,7 @@ dernière}{../img/overview-services.png}
 \mysubsection{Modèle de programmation}
 \input{parts/02/02.8-modele-de-programmtion-ejb}
 
-\mysection{C - Application distribuée et intégration (11/01/2012)}
+\mysection{C - Application distribuée et intégration}
 
 \abstractframe{Élargissant le spectre au-delà du périmètre de l'application,
 cette partie étudie les services et composants proposés par les
@@ -60,7 +60,7 @@ spécialement à la nature \textbf{distribuée} du système d'information dans l
 elle évolue.}{../img/overview-integration.png}
 
 \input{parts/03/03.1-datasources}
-\ifslide {
+\ifslide{ % empty book section
   \input{parts/03/03.2-distributed-prog}
 %  \begin{frame}{Les Outils d'un projet informatique (2) }
 %    \begin{center}
@@ -73,11 +73,13 @@ elle évolue.}{../img/overview-integration.png}
 \mysection{D - Urbanisation du SI}
 \mysubsection{Intégration d'applications d'entreprise (IAE)}
 \input{parts/04/04.2-ws-esb-soa}
-\mysubsection{Outils collaboratifs} % CMS, Wiki, KM,
-\mysubsection{Portail}
+\ifslide{
+  \mysubsection{Outils collaboratifs} % CMS, Wiki, KM,
+  \mysubsection{Portail}
+}
 
-\mysection{E - Mise à échelle et production (12/01/2012)}
-\ifslide {
+\ifslide{
+  \mysection{E - Mise à échelle et production}
 %  \begin{frame}{Les Outils d'un projet informatique (3) }
 %    \begin{center}
 %      Outil de gestion de tâche (\textit{bugtracking}
@@ -85,20 +87,20 @@ elle évolue.}{../img/overview-integration.png}
 %  \end{frame}
 
   \input{parts/05/05.1-problematique}
-
-  \begin{frame}
-    \begin{block}{\textit{This is the End...}}
-      \begin{itemize}
-        \item Questions sur le cours ? Remarques ?
-        \begin{itemize}
-          \item \mylink{mailto:belaran@gmail.com}{belaran@gmail.com} (perso)
-        \end{itemize}
-        \item Besoin d'aide ?
-        \begin{itemize}
-          \item \mylink{mailto:belaran@gredhat.com}{belaran@redhat.com} (pro)
-          \item \mylink{mailto:romain@gredhat.com}{romain@redhat.com} (pro)
-        \end{itemize}
-      \end{itemize}
-    \end{block}
-  \end{frame}
 }
+
+\begin{frame}
+  \begin{block}{\textit{This is the End...}}
+    \begin{itemize}
+      \item Questions sur le cours ? Remarques ?
+      \begin{itemize}
+        \item \mylink{mailto:belaran@gmail.com}{belaran@gmail.com} (perso)
+      \end{itemize}
+      \item Besoin d'aide ?
+      \begin{itemize}
+        \item \mylink{mailto:belaran@gredhat.com}{belaran@redhat.com} (pro)
+        \item \mylink{mailto:romain@redhat.com}{romain@redhat.com} (pro)
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}

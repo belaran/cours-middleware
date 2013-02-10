@@ -1,4 +1,4 @@
-\mysubsection{Sources de données}
+\mysubsection{Sources de données} %{\includegraphics[scale=1]{../img/pool2.jpg}}
 
 \ifbook{
   \mysubsubsection{Qu'est ce qu'une ressource ?}
@@ -46,6 +46,12 @@ abstrait soient elles, les ressources partagent tout de même certains point en 
         \item ...
       \end{itemize}
     \end{block}
+  \end{frame}
+
+  \begin{frame}{Source de données}
+    \begin{center}
+      \includegraphics[scale=0.2]{../img/tapwater.jpg}
+    \end{center}
 
     \begin{block}{Caractéristiques}
       \begin{itemize}
@@ -116,7 +122,8 @@ abstrait soient elles, les ressources partagent tout de même certains point en 
 }
 
 \ifslide{
-  \begin{frame}
+  \begin{frame}{Gestionnaire de connection}
+
     \begin{block}{\textit{Connection pooling}}
       \begin{itemize}
         \item ouverture de connection couteuse
@@ -124,6 +131,11 @@ abstrait soient elles, les ressources partagent tout de même certains point en 
         \item prêtes à utiliser
       \end{itemize}
     \end{block}
+
+    \begin{center}
+      \includegraphics[scale=0.05]{../img/pool.jpg}
+    \end{center}
+
   \end{frame}
 }
 
@@ -188,13 +200,12 @@ abstrait soient elles, les ressources partagent tout de même certains point en 
     \end{center}
   \end{frame}
 
-  \begin{frame}{Base de donnée relationnelle (SQL)}
-    \begin{block}{Source de données}
-      \begin{itemize}
-        \item driver
-        \item peut être différente d'une base SQL
-      \end{itemize}
-    \end{block}
+  \begin{frame}{Pilote de base de données}
+    \begin{itemize}
+      \item gestionnaire de connexion
+      \item support (+/-) paramétrable pour les transactions
+      \item optimisation côté client
+    \end{itemize}
   \end{frame}
 }
 
@@ -281,5 +292,42 @@ abstrait soient elles, les ressources partagent tout de même certains point en 
       \end{itemize}
     \end{block}
 
+  \end{frame}
+
+  \begin{frame}{InfiniSpan}
+    \begin{center}
+      \includegraphics[scale=0.2]{../img/infinispan-logo.png}
+    \end{center}
+
+    \begin{block}{Un exemple de base de données NoSQL}
+      \begin{itemize}
+        \item grille de données
+        \item montée en charge linéaire
+        \item pas de contrainte de relation
+        \item parfait pour des opérations de lecture
+      \end{itemize}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{InfiniSpan - Cas pratique}
+    \begin{center}
+      Mise en place d'un SSO inter site
+      \includegraphics[scale=0.4]{../img/infinispan-example.png}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Base de données spécialisées}
+    \begin{block}{Qu'est ce qu'une base de données spécialisés ?}
+      \begin{itemize}
+        \item orienté ou optimisé pour un certain modèle de données
+        \item produit indépendant ou construit sur une base de données "généraliste"
+        \begin{itemize}
+         \item PostGIS - extension géospatial pour Postgresql
+        \end{itemize}
+      \end{itemize}
+    \end{block}
+    \begin{center}
+      \includegraphics[scale=0.4]{../img/PostGIS-database.png}
+    \end{center}
   \end{frame}
 }
