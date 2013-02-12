@@ -22,7 +22,7 @@
 \begin{center}
   \begin{Large}
     Questionnaire d'évaluation des acquis\\
-    Formation .. - Cours \textit{Middleware} 2012
+    Formation .. - Cours \textit{Middleware} 2013
   \end{Large}
 \end{center}
 
@@ -108,7 +108,8 @@ des définitions ci dessous de chacune des lettres de l'acronyme est erronée:}
   effectuées durant la transaction.
 \end{question}
 
-\begin{question}{Laquelle des assertions ci desous, toute au sujet des caches, est correcte:}
+\begin{question}{Laquelle des assertions ci desous, toutes portant sur la notion de caches, est
+correcte:}
   \false Si l'on change la valeur d'une adresse IP associée à un nom DNS, cette nouvelle valeur est
   propagée immédiatement sur le réseau car il n'y aucune mise en cache de la résolution de nom DNS.
   \false Lorsque l'on met un cache applicatif en place, on est limité par la taille mémoire alouée
@@ -162,6 +163,8 @@ Laquelle des assertions à leurs sujets, qui suivent, n'est pas exacte:}
   \false On ne peut pas utiliser un \textit{pool} de connexion avec un LDAP.
 \end{question}
 
+\section{D - Urbanisation du SI}
+
 \begin{question}{Votre application doit offrir deux services accessibles par d'autres programmes. Le
 premier (WS A) service permet d'envoyer un ensemble de données cohérents, qui seront ajoutés à la base de
 données de votre service - à condition que les données fournies soient valides. L'autre service (WS
@@ -175,7 +178,7 @@ adapté pour implémenter votre application:}
   \false SOAP/XML pour le WS B et ReST pour le WS A.
 \end{question}
 
-\section{D - Mise à échelle et production}
+\section{E - Mise à échelle et production}
 
 \begin{question}{Une application a été mise en production avec trois instances, placées derrière un
 \textit{load balancer} (Apache, avec le mod\_proxy). L'application répond en moyenne en 3s et les
@@ -184,7 +187,7 @@ quand une instance tombe, pour une raison ou une autre, ils perdent le travail e
 recommencer depuis le début leurs saisies. Quelle stratégie adoptée pour assurer cette reprise sur
 panne ?}
   \false Remplacer mod\_proxy par mod\_jk.
-  \false Placer un ALTHEON (\textit{load balancer hardware} devant le système.
+  \false Placer un ALTHEON (\textit{load balancer hardware}) devant le système.
   \false Mettre en place un \textit{firewall} :)
   \true Mettre en \textit{cluster} l'application
 \end{question}
