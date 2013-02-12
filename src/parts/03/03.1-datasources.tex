@@ -347,10 +347,32 @@ abstrait soient elles, les ressources partagent tout de même certains point en 
   \end{frame}
 
   \begin{frame}{ETL, un exemple d'outil}
+    \begin{center}
+      \includegraphics[scale=0.4]{../img/truck.jpg}
+    \end{center}
+
     \begin{block}{Propos et intérêt des ETLs}
       \begin{itemize}
+        \item \textit{Extract, Transform, Load}
         \item migrer les données d'une base de données à une autre
-        \item TODO
+        \begin{itemize}
+          \item importer depuis Oracle une base de données dans Postgresql
+          \item intégrer dans un entrepôt de données (\textit{datawharehouse})
+        \end{itemize}
+      \end{itemize}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{ETL, un exemple d'outil}
+    \begin{center}
+      \includegraphics[scale=0.1]{../img/math.jpg}
+    \end{center}
+    \begin{block}{Transformation de données}
+      \begin{itemize}
+        \item conversion de données (ex:"1" à "M", "0" en "F")
+        \item calcul dérivé (ex: gain = quantité * prix)
+        \item ajout de clé étrangère
+        \item jointure de données de source différente
       \end{itemize}
     \end{block}
   \end{frame}
