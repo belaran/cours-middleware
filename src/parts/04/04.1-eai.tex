@@ -1,2 +1,101 @@
 \mysubsection{Intégration d'applications d'entreprise (EAI)}
-\todo
+
+\begin{frame}{Problématiques}
+  \begin{block}{Faire communiquer les applications critiques}
+    \begin{itemize}
+      \item Gestion de chaînes d'approvisionnement
+      \item CRM (\textit{Customer Relationship Management}
+      \item BI (\textit{Business Intelligence}
+      \item Informations Ressources Humaines
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Example}
+    \begin{center}
+      Comment répondre à la question "Quel sera l'impact de l'ajout de 2j de congés par an" ?
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Difficultés}
+  \begin{block}{Différences}
+    \begin{itemize}
+      \item infrastructure
+      \begin{itemize}
+        \item systèmes d'exploitation
+        \item base de données
+        \item \textit{legacy}
+      \end{itemize}
+      \item technologique
+      \begin{itemize}
+        \item langage de programmation
+        \item conteneur d'exécution
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Portabilité et compatibilité}
+    \begin{itemize}
+      \item système monolithique
+      \item format de données propriétaires
+      \item logiciel complexe (\textit{stovepipes system})
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Objectifs des EAIs}
+    \begin{itemize}
+      \item partage de données
+      \item conception d'un "système de système"
+      \item système distribué hétérogène
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Stratégies}
+    \begin{description}
+      \item[mediation] intermédiare entre les systèmes
+      \item[fédération] placé en frontal des systèmes
+    \end{description}
+    \begin{center}
+      \textit{Les deux approches sont souvent utilisées conjointement}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Architecture technique des EAIs}
+  \begin{block}{Principaux composants logiciels}
+    \begin{itemize}
+      \item topologie
+      \begin{description}
+        \item[bus] medium de communication (MoM)
+        \item[\textit{hub and spokes}] position central
+        \begin{itemize}
+         \item interagit avec les systèmes par des intermédiaires
+        \end{itemize}
+      \end{description}
+      \item connecteurs
+      \item transformation des données (Objets Métiers)
+      \item format des messages (JMS, XML, AMF,...)
+      \item transport (JMS, MOM, HTTP, FTP, XMPP,...)
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{EAI - Une synthèse}
+  \begin{block}{Points forts et avantages}
+    \begin{itemize}
+      \item centralisation des flux
+      \item réutilisation/extension d'un système existant
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Limites}
+    \begin{itemize}
+      \item flux massif
+      \item lourd investissement
+      \item coût de maintenance (resynchronisation)
+      \item échec des formats propriétaires
+    \end{itemize}
+  \end{block}
+\end{frame}
